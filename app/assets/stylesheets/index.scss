@@ -1,0 +1,105 @@
+body {
+  line-height: 1.8;
+}
+p {
+  font-size: 16px;
+}
+.bg-1 {
+  background-color: #6846A5;
+}
+.img-icon {
+  margin: 0 auto;
+}
+.main-visual {
+  width: 100%;
+  height: 100vh;
+}
+.main-visual-box {
+  position: relative;
+}
+.main-visual-box p {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  font-size: 130px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "HGP行書体", "ヒラギノ明朝 ProN W6", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+}
+.index-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(104, 70, 165, 0.8);
+}
+.three-box {
+  color: #ffffff;
+  height: 55vh;
+  background-color: rgba(80, 55, 128, 0.7);
+  //border: solid 15px rgba(255,255,255,0);
+  margin: 1px;
+  border-radius: 39px;
+  margin-top: 15vh;
+}
+.bar {
+  width: 100%;
+  height: 61px;
+}
+
+.cont {
+  text-align: center;
+}
+.profile-box {
+  margin-top: 5vh;
+  margin-bottom: 13vh;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card {
+  transition: 0.3s;
+}
+.profile-card {
+}
+
+.card-box {
+  h4 {
+    padding: 7px 0;
+    font-size: 27px;
+  }
+  p {
+    padding: 7px 0;
+    font-size: 23px;
+  }
+  box-shadow: 0 10px 13px 0 rgba(0,0,0,0.5);
+  background-color: #fcf8e3;
+  color: #333;
+  border-radius: 13px;
+}
+
+.img-box {
+  text-align: center;
+}
+.zone {
+  height: 103vh;
+  background-image: url("main3.jpg");
+  background-size: cover;
+}
+.user-box {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+}
+.card-col {
+  margin-top: 7vh;
+}
+.my-row {
+  width: 100%;
+}

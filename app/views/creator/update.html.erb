@@ -1,0 +1,76 @@
+<%=stylesheet_link_tag "creator" %>
+
+<!--通知・エラー-->
+<div>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
+
+<div>
+  <% if @creator.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul>
+        <% @creator.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<!--通知・エラー-->
+
+<!-- 編集アイコン -->
+<div class="dropdown dropdown-right">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-cog"></span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><%= link_to "プロフィール詳細一覧", "/creator/show" %></li>
+    <li><%= link_to "プロフィール詳細変更", "/creator/update" %></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+<!-- 編集アイコン -->
+
+<%= form_for @creator, url: "/creator/update" do |f|%>
+  <div class="form-group form-margin">
+    <%= f.label "制作工芸名" %>
+    <%= f.text_field :title, class: "form-control", placeholder: "制作工芸名", value: @creator.title%>
+    <small class="form-text text-muted">必須</small>
+  </div>
+
+  <div class="form-group form-magin">
+    <%= f.label "工芸カテゴリ" %>
+    <%= f.collection_select :category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control", selectd: @creator.category_id} %>
+    <small class="form-text text-muted">必須</small>
+  </div>
+
+  <div class="form-group form-margin">
+    <%= f.label "創業年数" %>
+    <%= f.number_field :establishment, class: "form-control", min: 0,  max: 500, maxlength: 3, placeholder: "創業年数", value: @creator.establishment %>
+    <small class="form-text text-muted">必須</small>
+  </div>
+
+  <div class="form-group form-margin">
+    <%= f.label "従業員数" %>
+    <%= f.number_field :employee, class: "form-control", min: 0,  max: 500, maxlength: 3, placeholder: "従業員数", value: @creator.employee %>
+    <small class="form-text text-muted">必須</small>
+  </div>
+
+  <div class="form-check form-margin">
+    <%= f.check_box :is_recruitment, { checked: @creator.is_recruitment, class: "form-check-input" } %>
+    <%= f.label "後継者を募集中", class: "form-check-label" %>
+  </div>
+
+  <div class="form-group form-margin">
+    <%= f.label "紹介文" %>
+    <%= f.text_area :introduction, class: "form-control", placeholder: "仕事内容や特徴など", size: "10x15", value: @creator.introduction %>
+  </div>
+
+  <div class="right_side">
+    <%= f.submit "変更", class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>

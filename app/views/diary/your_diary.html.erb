@@ -1,0 +1,186 @@
+<%= stylesheet_link_tag "diary" %>
+
+<h1>日記</h1>
+
+<!--通知・エラー-->
+  <div>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <% if @diary_good.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <ul>
+          <% @diary_good.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<!--通知・エラー-->
+
+<div class="wraper">
+  <% @diary_user.each do |diary_user| %>
+    <div class="card">
+      <div class="card-header">
+        <%= image_tag "#{diary_user.avatar_path}", class: "img-circle", size: "30x30"  %>
+        <%= diary_user.name %>
+      </div>
+      <div class="card-body">
+        <div class="panel-time">
+          <%= diary_user.post_time %>
+        </div>
+        <p class="card-text">
+          <%= simple_format(diary_user.content) %>
+        </p>
+      </div>
+      <div class="card-footer">
+        <div class="panel-footer-btn">
+          <%= form_for @diary_good, url: "/diary/show/#{diary_user.diaries_id}/good" do |f| %>
+            <%= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default" do %>
+              <% if @good[diary_user.diaries_id] == nil %>
+                <%= 0 %>
+              <% else %>
+                <%= @good[diary_user.diaries_id] %>
+              <% end %>
+              <%= content_tag :span, "", class: "glyphicon glyphicon-thumbs-up" %>
+            <% end %>
+          <% end %>
+          <button class="btn btn-default good-and-comment" data-toggle="collapse" data-target="#<%= diary_user.diaries_id %>">
+            <% if @comment_count[diary_user.diaries_id] == nil %>
+              <%= 0 %>
+            <% else %>
+              <%= @comment_count[diary_user.diaries_id] %>
+            <% end %>
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+          </button>
+          <%= form_for @diary_good, url: "/diary/post/#{diary_user.diaries_id}/delete" do |f| %>
+            <%= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default" do %>
+              <%= content_tag :span, "", class: "glyphicon glyphicon-trash" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="collapse" id="<%= diary_user.diaries_id %>">
+          <% @comment.each do |comment| %>
+            <% if comment.diary_id == diary_user.diaries_id %>
+              <div class="panel panel-default">
+                <div class="panel-title">
+                  <h5>
+                    <%= image_tag "#{comment.avatar_path}", class: "img-circle", size: "25x25" %>
+                    <%= comment.name %>
+                  </h5>
+                </div>
+                <div class="panel-body comment-body">
+                  <p>
+                    <%= comment.comment %>
+                  </p>
+                </div>
+                <div class="panel-footer panel-time">
+                  <%= comment.post_time %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <div>
+            <h3>
+              <%= image_tag "#{@user.avatar_path}", class: "img-circle", size: "30x30"  %>
+              <%= @user.name %>
+            </h3>
+          </div>
+          <div>
+            <%= form_for @diary_comment, url: "/diary/show/#{diary_user.diaries_id}/comment", remote: "true" do |f| %>
+              <%= f.text_area :comment, class:"form-control", size: "200x5", placeholder: "100文字以内" %>
+              <div class="comment-btn">
+                <%= f.submit "コメント", class: "btn btn-default" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+  <%# @diary_user.each do |diary_user| %>
+<!--    <div class="panel panel-default diary-panel diary-time-line">-->
+<!--      <div class="panel-heading diary-panel-header">-->
+<!--        <h3 class="panel-title">-->
+          <%#= image_tag "#{diary_user.avatar_path}", class: "img-circle", size: "30x30"  %>
+          <%#= diary_user.name %>
+<!--        </h3>-->
+<!--      </div>-->
+<!--      <div class="panel-time">-->
+        <%#= diary_user.post_time %>
+<!--      </div>-->
+<!--      <div class="panel-body">-->
+        <%#= simple_format(diary_user.content) %>
+<!--      </div>-->
+<!--      <div class="panel-footer">-->
+<!--        <div class="panel-footer-btn">-->
+          <%#= form_for @diary_good, url: "/diary/show/#{diary_user.diaries_id}/good" do |f| %>
+            <%#= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default" do %>
+              <%# if @good[diary_user.diaries_id] == nil %>
+                <%#= 0 %>
+              <%# else %>
+                <%#= @good[diary_user.diaries_id] %>
+              <%# end %>
+              <%#= content_tag :span, "", class: "glyphicon glyphicon-thumbs-up" %>
+            <%# end %>
+          <%# end %>
+<!--          <button class="btn btn-default good-and-comment" data-toggle="collapse" data-target="#<%#= diary_user.diaries_id %>">-->
+            <%# if @comment_count[diary_user.diaries_id] == nil %>
+              <%#= 0 %>
+            <%# else %>
+              <%#= @comment_count[diary_user.diaries_id] %>
+            <%# end %>
+<!--            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>-->
+<!--          </button>-->
+          <%#= form_for @diary_good, url: "/diary/post/#{diary_user.diaries_id}/delete" do |f| %>
+            <%#= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default" do %>
+              <%#= content_tag :span, "", class: "glyphicon glyphicon-trash" %>
+            <%# end %>
+          <%# end %>
+<!--        </div>-->
+<!--        <div class="collapse" id="<%#= diary_user.diaries_id %>">-->
+          <%# @comment.each do |comment| %>
+            <%# if comment.diary_id == diary_user.diaries_id %>
+<!--              <div class="panel panel-default">-->
+<!--                <div class="panel-title">-->
+<!--                  <h5>-->
+                    <%#= image_tag "#{comment.avatar_path}", class: "img-circle", size: "25x25" %>
+                    <%#= comment.name %>
+<!--                  </h5>-->
+<!--                </div>-->
+<!--                <div class="panel-body comment-body">-->
+<!--                  <p>-->
+                    <%#= comment.comment %>
+<!--                  </p>-->
+<!--                </div>-->
+<!--                <div class="panel-footer panel-time">-->
+                  <%#= comment.post_time %>
+<!--                </div>-->
+<!--              </div>-->
+            <%# end %>
+          <%# end %>
+<!--          <div>-->
+<!--            <h3>-->
+              <%#= image_tag "#{@user.avatar_path}", class: "img-circle", size: "30x30"  %>
+              <%#= @user.name %>
+<!--            </h3>-->
+<!--          </div>-->
+<!--          <div>-->
+            <%#= form_for @diary_comment, url: "/diary/show/#{diary_user.diaries_id}/comment", remote: "true" do |f| %>
+              <%#= f.text_area :comment, class:"form-control", size: "200x5", placeholder: "100文字以内" %>
+<!--              <div class="comment-btn">-->
+                <%#= f.submit "コメント", class: "btn btn-default" %>
+<!--              </div>-->
+            <%# end %>
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+  <%# end %>
+<!--</div>-->

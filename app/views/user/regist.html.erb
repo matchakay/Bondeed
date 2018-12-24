@@ -1,0 +1,94 @@
+<h1>ユーザ登録</h1>
+
+<div>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
+
+<div>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= form_for @user, url: "/user/create" do |f| %>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">ユーザ名</span>
+      <%= f.text_field :name, class: "form-control", maxlength: 50, placeholder: "Username" %>
+    </div>
+
+    <div class="form-group">
+      <label>Example file input</label>
+      <%= f.file_field :avatar_path, class: "form-control-file", id: "exampleFormControlFile1", accept: "image/jpg,image/jpeg,image/png" %>
+    </div>
+
+    <div class="birth_date_field">
+      <%= f.label :birthday, '生年月日' %>
+      <%= raw sprintf(
+                  f.date_select(
+                      :birthday,
+                      class: "form-control",
+                      use_month_numbers: true,
+                      start_year:        1930,
+                      end_year:          (Time.now.year),
+                      default:           Date.new(1989, 1, 1),
+                      date_separator:    '/'),
+                  '年 ', '月 ') + '日' %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">メールアドレス</span>
+      <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= f.label :is_man, '性別', {class: 'form-label'} %>
+      </div>
+      <div class="col-sm-10 btn-group" data-toggle="buttons">
+        <label class="btn btn-outline-secondary active" style="width:50%">
+          <%= f.radio_button :is_man, 1, {checked: true} %> 男性
+        </label>
+        <label class="btn btn-outline-secondary" style="width:50%">
+          <%= f.radio_button :is_man, 0, {} %> 女性
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <%= f.label :is_creator, '後継', {class: 'form-label'} %>
+      </div>
+      <div class="col-sm-10 btn-group" data-toggle="buttons">
+        <label class="btn btn-outline-secondary active" style="width:50%">
+          <%= f.radio_button :is_creator, 1, {checked: true} %> 後継者探し
+        </label>
+        <label class="btn btn-outline-secondary" style="width:50%">
+          <%= f.radio_button :is_creator, 0, {} %> 後継検討
+        </label>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">パスワード</span>
+      <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">パスワード確認</span>
+      <%= f.password_field :password_confirmation, class: "form-control", maxlength: 16, placeholder: "パスワード確認" %>
+    </div>
+
+    <div>
+      <%= f.submit name = "新規登録"%>
+    </div>
+  <% end %>
+</div>

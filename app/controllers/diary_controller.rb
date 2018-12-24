@@ -1,0 +1,136 @@
+class DiaryController < ApplicationController
+  #投稿+画像もあればアップロード
+  def post
+    if session[:creator] != nil
+      params[:diary][:user_id] = session[:id]
+      @diary = Diary.new(diary_params)
+      if @diary.save
+        flash[:success] = "投稿完了"
+      else
+        flash[:danger] = "投稿失敗"
+      end
+      redirect_to "/diary/my_diary"
+    else
+      redirect_to "/user/login"
+    end
+  end
+
+  #お気に入りにしたユーザの日記一覧
+  def show
+    @diary_user = User.joins(:diaries, :favorites).where(diaries: {user_id: Favorite.where(user_id: session[:id]).select("favorites.favorite_user_id")}).or(User.joins(:diaries, :favorites).where(diaries: {id: Diary.where(user_id: session[:id]).select("diaries.id")})).select("diaries.*, diaries.id AS diaries_id, diaries.created_at AS post_time, users.*").order("diaries.created_at DESC")
+    #@diary_user = User.find_by_sql('SELECT diaries.*, diaries.id AS diaries_id, diaries.created_at AS post_time, users.* FROM users INNER JOIN diaries ON diaries.user_id = users.id INNER JOIN favorites ON favorites.user_id = users.id WHERE(diaries.user_id = ?) OR (diaries.user_id IN (SELECT favorites.favorite_user_id FROM favorites WHERE favorites.user_id = ?)) ORDER BY(diaries.created_at DESC)',session[:id], session[:id])
+    @user = User.find_by(id: session[:id])
+    @comment = User.joins(:diary_comments).select("diary_comments.*, diary_comments.created_at AS post_time, users.*")
+    @comment_count = DiaryComment.group(:diary_id).count
+    @diary_good = DiaryGood.new
+    @good = DiaryGood.group(:diary_id).count
+    @diary_comment = DiaryComment.new
+    @favorite_user = Favorite.where(user_id: session[:id]).select("favorite_user_id")
+    @good_user = Diary.joins(:diary_goods).where(diary_goods: {diary_id: Diary.where(user_id: @favorite_user).or(Diary.where(user_id: session[:id])).select("diaries.id")}).select("diary_goods.user_id")
+    @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*")
+    #投稿機能
+    @diary = Diary.new
+    @diary.diary_media.build
+    @user = User.find(session[:id])
+  end
+
+  #マイ日記
+  def my_diary
+    if session[:id] != nil
+      @diary_user = User.joins(:diaries).where(diaries: {user_id: session[:id]}).select("diaries.*, diaries.id AS diaries_id, diaries.created_at AS post_time, users.*").order("diaries.created_at DESC")
+      @user = User.find_by(id: session[:id])
+      @comment = User.joins(:diary_comments).select("diary_comments.*, diary_comments.created_at AS post_time, users.*")
+      @comment_count = DiaryComment.group(:diary_id).count
+      @diary_good = DiaryGood.new
+      @good = DiaryGood.group(:diary_id).count
+      @diary_comment = DiaryComment.new
+      @good_user = Diary.joins(:diary_goods).where(diary_goods: {diary_id: Diary.where(user_id: session[:id]).select("diaries.id")}).select("diary_goods.user_id")
+      @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*")
+      #投稿機能
+      @diary = Diary.new
+      @diary.diary_media.build
+      @user = User.find(session[:id])
+    else
+      redirect_to "/user/login"
+    end
+  end
+
+  #相手ページからの日記
+  def your_diary
+    @diary_user = User.joins(:diaries).where(diaries: {user_id: params[:id]}).select("diaries.*, diaries.id AS diaries_id, diaries.created_at AS post_time, users.*").order("diaries.created_at DESC")
+    @user = User.find_by(id: params[:id])
+    @comment = User.joins(:diary_comments).select("diary_comments.*, diary_comments.created_at AS post_time, users.*")
+    @comment_count = DiaryComment.group(:diary_id).count
+    @diary_good = DiaryGood.new
+    @good = DiaryGood.group(:diary_id).count
+    @diary_comment = DiaryComment.new
+    @good_user = Diary.joins(:diary_goods).where(diary_goods: {diary_id: Diary.where(user_id: params[:id]).select("diaries.id")}).select("diary_goods.user_id")
+    @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*")
+  end
+
+  #投稿削除
+  def post_delete
+    if session[:id] != nil
+      if Diary.where(id: params[:id]).where(user_id: session[:id]).destroy_all
+        flash[:success] = "日記投稿削除成功"
+        redirect_to "/diary/my_diary"
+      else
+        flash[:danger] = "日記削除失敗"
+        redirect_to "/diary/my_diary"
+      end
+    else
+      redirect_to "/user/login"
+    end
+  end
+
+
+  #いいねボタン
+  def good
+    if session[:id] != nil
+      @diary_good = DiaryGood.new(diary_id: params[:id], user_id: session[:id])
+      if @diary_good.save
+        flash[:success] = "いいね成功"
+        redirect_to "/diary/show"
+      else
+        flash[:danger] = "失敗"
+        redirect_to "/diary/show"
+      end
+    else
+      redirect_to "/user/login"
+    end
+  end
+
+  def comment
+    if session[:id] != nil
+      params[:diary_comment][:user_id] = session[:id]
+      params[:diary_comment][:diary_id] = params[:id]
+      @diary_comment = DiaryComment.new(diary_comment_params)
+      if @diary_comment.save
+        flash[:success] = "コメント成功"
+        redirect_to "/diary/show"
+      else
+        flash[:danger] = "コメント失敗"
+        redirect_to "/diary/show"
+      end
+    else
+      redirect_to "/user/login"
+    end
+  end
+
+  def comment_delete
+    if session[:id] != nil
+    else
+
+    end
+  end
+end
+
+private
+def diary_params
+  params.require(:diary).permit(:user_id, :content, diary_media_attributes: [:media_data])
+end
+
+private
+def diary_comment_params
+  params.require(:diary_comment).permit(:diary_id, :user_id, :comment)
+end

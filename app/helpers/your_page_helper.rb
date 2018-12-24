@@ -1,0 +1,2 @@
+module YourPageHelper
+end

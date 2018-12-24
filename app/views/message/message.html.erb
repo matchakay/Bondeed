@@ -1,0 +1,70 @@
+<%=stylesheet_link_tag "message" %>
+
+<h1 class="main-title">メッセージ</h1>
+
+<div class="wrapper">
+
+  <!--通知・エラー-->
+  <div>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <% if @message.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <ul>
+          <% @message.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <!--通知・エラー-->
+
+  <div class="row my-row justify-content-center">
+  <!--  left-->
+    <div class="col-md-5 my-col-left">
+      <div class="list-box">
+        <div class="message-list-box">
+
+        </div>
+      </div>
+    </div>
+  <!--  end-->
+  <!--  right-->
+    <div class="col-md-7 my-col-right">
+      <div class="message-box">
+        <div class="message-box-in">
+          <img src="" alt="Avatar">
+          <p></p>
+          <span class="time-right"></span>
+        </div>
+
+        <div class="message-box-in darker">
+          <img src="" alt="Avatar" class="right">
+          <p></p>
+          <span class="time-left"></span>
+        </div>
+  <!--end-->
+  <!--send box-->
+        <div class="send-message-box">
+          <%= form_for @message, url: "message/send/:receive_user_id", class:"form-control" do |f| %>
+            <div class="input-group">
+              <%= f.text_field :content, class: "form-control", placeholder: "メッセージ" %>
+              <span class="input-group-btn">
+              <%= f.button type: "submit", method: "post", class: "btn btn-default" do %>
+                <%= content_tag :span, "", class: "glyphicon glyphicon-send" %>
+              <% end %>
+            </span>
+            </div>
+          <% end %>
+        </div>
+  <!--send box end-->
+      </div>
+    </div>
+  <!--  end-->
+  </div>
+</div>

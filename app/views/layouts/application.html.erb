@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>SucSeed</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="z-index: 1500">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">ログイン</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= form_for :session, url: "/user/login" do |f| %>
+            <div class="input-group">
+              <%= f.label "メールアドレス", class: "input-group-addon" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon">パスワード</span>
+              <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
+            </div>
+
+            <div>
+              <%= f.submit "ログイン"%>
+            </div>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <header>
+      <nav class="navbar navbar-expand-lg  my_nav index-nav">
+        <%= link_to "SucSeed", "/index", class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+            <% if session[:creator] != nil %>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdow
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "マイページ", "/my_page/my_page",class: "dropdown-item" %>
+                  <%= link_to "日記", "/diary/show", class: "dropdown-item" %>
+                  <%= link_to "マイ日記", "/diary/my_diary", class: "dropdown-item" %>
+                  <%= link_to "ギャラリー", "/gallery/view", class: "dropdown-item" %>
+                  <%= link_to "マイギャラリー", "/gallery/my_gallery", class: "dropdown-item" %>
+                  <%= link_to "アピールリスト", "/appeal/list", class: "dropdown-item" %>
+                </div>
+            <% elsif session[:id] != nil && session[:creator] == nil %>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to "マイページ", "/my_page/my_page",class: "dropdown-item" %>
+                  <%= link_to "マッチング一覧", "/match/matching/list", class: "dropdown-item" %>
+                  <%= link_to "アピール確認", "/match/appeal/list_check", class: "dropdown-item" %>
+                  <%= link_to "スカウト一覧", "/match/scouted/list", class: "dropdown-item" %>
+                </div>
+            <% end %>
+            </li>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="login-ul">
+              <% if session[:id] == nil %>
+                <%= button_to "ログイン", {controller: 'user', action: 'login'}, {method: :get, class: "btn btn-default my-btn"} %>
+              <% else %>
+                <%= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-btn"} %>
+              <% end %>
+            </li>
+            <li>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                modal
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+
+    <%= yield %>
+
+
+    <!-- Footer -->
+    <footer class="container-fluid original-footer">
+      <p>&copy;SucSeed</p>
+    </footer>
+  </body>
+</html>

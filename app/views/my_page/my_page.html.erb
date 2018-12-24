@@ -1,0 +1,87 @@
+<%= stylesheet_link_tag "my_page" %>
+
+<h1>プロフィール</h1>
+
+<div class="wrapper">
+<!--  settting-->
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <span class="glyphicon glyphicon-cog"></span>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+      <li><%= link_to "プロフィール一覧", "/my_page/my_page" %></li>
+      <li><%= link_to "プロフィール変更", "/my_page/update" %></li>
+      <% if @user.is_creator %>
+        <li><%= link_to "プロフィール詳細", "/creator/show" %></li>
+        <li><%= link_to "メディアアップロード", "/creator/upload" %></li>
+      <% else %>
+        <li><%= link_to "プロフィール詳細", "/heir/show" %></li>
+        <li></li>
+      <% end %>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </div>
+<!--  setting-->
+
+  <div class="card out-line">
+    <div class="card-header my-card-header">
+      アバター
+    </div>
+    <div class="card-body my-card-body card-img">
+      <%= image_tag "#{@user.avatar_path}", class: "img-circle", alt: "アバター画像" %>
+    </div>
+  </div>
+
+  <div class="card out-line">
+    <div class="card-header my-card-header">
+      ユーザー名
+    </div>
+    <div class="card-body my-card-body">
+     <p><%= @user.name%></p>
+    </div>
+  </div>
+
+  <div class="card out-line">
+    <div class="card-header my-card-header">
+      性別
+    </div>
+    <div class="card-body my-card-body">
+      <% if @user.is_man %>
+        <p>男性</p>
+      <% else %>
+        <p>女性</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card out-line">
+    <div class="card-header my-card-header">
+      メールアドレス
+    </div>
+    <div class="card-body my-card-body">
+      <p><%= @user.email %></p>
+    </div>
+  </div>
+
+  <div class="card out-line">
+    <div class="card-header my-card-header">
+      生年月日
+    </div>
+    <div class="card-body my-card-body">
+      <p><%= @user.birthday%></p>
+    </div>
+  </div>
+
+  <div class="card out-line">
+    <div class="card-header my-card-header">
+      紹介文
+    </div>
+    <div class="card-body my-card-body">
+      <p><%= simple_format(h(@user.profile)) %></p>
+    </div>
+  </div>
+  <div class="bottom-box">
+  </div>
+</div>

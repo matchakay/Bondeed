@@ -1,0 +1,68 @@
+.wrapper {
+  width: 93%;
+  margin:  0 auto 5% auto;
+  padding: 3%;
+  background-color: #275D39;
+  border: solid 1px #1F4B2E;
+  border-radius: 7px;
+}
+.main-title {
+  margin: 2% 0 3% 2%;
+  font-size: 71px;
+  color: #fff;
+}
+.list-card {
+  margin: 0 0 1% 0;
+}
+.list-card-header {
+  background-color: #BAA9DA;
+}
+.list-card-body {
+  background-color: #FCF2D3;
+}
+.left-col {
+}
+.right-col {
+  text-align: left;
+}
+.name-text {
+  font-size: 61px;
+  padding: 0;
+  margin: 0;
+}
+.age-text {
+  font-size: 35px;
+  padding: 0;
+  margin: 1% 0 1% 71px;
+}
+.title-text {
+  font-size: 47px;
+  padding: 0;
+  margin: 0;
+}
+.list-card-footer {
+  padding: 0.2% 0 0 0;
+  margin: 0;
+}
+.left-btn-col {
+  padding-right: 0.1%;
+}
+.right-btn-col {
+  padding-left: 0.1%;
+}
+.yes-btn {
+  width: 100%;
+  margin: 0;
+  padding: 1% 0;
+  font-size: 30px;
+}
+.no-btn {
+  width: 100%;
+  margin: 0;
+  padding: 1% 0;
+  font-size: 30px;
+}
+.empty-text {
+  font-size: 39px;
+  color: #fff;
+}

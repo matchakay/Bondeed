@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag "user" %>
+
+<h1>ログイン</h1>
+<div>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+</div>
+
+<div class="login-box">
+  <%= form_for :session, url: "/user/login" do |f| %>
+    <div class="input-group">
+      <%= f.label "メールアドレス", class: "input-group-addon" %>
+      <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">パスワード</span>
+      <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
+    </div>
+
+    <div>
+      <%= f.submit "ログイン"%>
+    </div>
+  <% end %>
+
+  <div>
+    <%= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-default"} %>
+  </div>
+
+  <div>
+    <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn btn-default"} %>
+  </div>
+</div>
