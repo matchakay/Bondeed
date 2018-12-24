@@ -4,21 +4,23 @@ class UserController < ApplicationController
 
   def signin
     begin
-      user = User.find_by(email: params[:session][:email].downcase)
-      if user && user.authenticate(params[:session][:password])
-        session[:id] = user[:id]
-        if user[:is_creator]
-          session[:creator] = user[:id]
+      if session[:id] == nil
+        user = User.find_by(email: params[:session][:email].downcase)
+        if user && user.authenticate(params[:session][:password])
+          session[:id] = user[:id]
+          if user[:is_creator]
+            session[:creator] = user[:id]
+          end
+          redirect_to "/index"
+        else
+          flash.now[:danger] = '『メールアドレス』もしくは『パスワード』が誤っています'
+          redirect_to "/index"
         end
-        flash.now[:success] = user[:id]
-        redirect_to "/index"
       else
-        flash.now[:danger] = '『メールアドレス』もしくは『パスワード』が誤っています'
-        render "/user/login"
+
       end
     rescue => e
-      logger.error e
-      render :login
+      render :'error/erorr'
     end
   end
 

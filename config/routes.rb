@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '' => 'index#root'
   get 'index' => 'index#index'
   get 'diary/show'
   get 'your_page/your_page'

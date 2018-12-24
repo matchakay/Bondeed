@@ -12,40 +12,45 @@
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="z-index: 1500">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content my-modal">
+        <div>
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+        </div>
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">ログイン</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">ログインフォーム</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <%= form_for :session, url: "/user/login" do |f| %>
-            <div class="input-group">
-              <%= f.label "メールアドレス", class: "input-group-addon" %>
+          <%= form_for :session, url: "/user/login", class: "form-group" do |f| %>
+            <div class="">
+              <%= f.label "メールアドレス", class: "" %>
               <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
             </div>
+            <small class="modal-small">半角英数</small>
 
-            <div class="input-group">
-              <span class="input-group-addon">パスワード</span>
+            <div class="modal-password-box">
+              <%= f.label "パスワード", class: "input-group-addon" %>
               <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
             </div>
+            <small class="modal-small">半角英数、８文字以上１６文字以内</small>
 
-            <div>
-              <%= f.submit "ログイン"%>
+            <div class="modal-login-btn-box">
+              <%= f.submit "ログイン", class: "btn btn-success modal-login-btn"%>
             </div>
           <% end %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
     <header>
       <nav class="navbar navbar-expand-lg  my_nav index-nav">
-        <%= link_to "SucSeed", "/index", class: "navbar-brand" %>
+        <%= link_to "SucSeed", "/index", class: "navbar-brand my-brand" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
