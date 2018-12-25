@@ -2,3 +2,50 @@
   width: 60%;
   margin: 0 auto;
 }
+.wrapper {
+  width: 85%;
+  margin:  0 auto 5% auto;
+  padding: 3%;
+  background-color: #275D39;
+  border: solid 1px #1F4B2E;
+  border-radius: 7px;
+}
+.main-title {
+  margin: 2% 0 3% 2%;
+  font-size: 71px;
+  color: #fff;
+}
+.my-label-text {
+  color: #fff;
+  font-size: 17px;
+  padding-top: 2.9%;
+}
+.radio-text {
+  color: #fff;
+  font-size: 17px;
+}
+.form-box {
+  margin: 2.7% 0;
+}
+.regist-btn-box {
+  margin-top: 3.9%;
+}
+.regist-btn {
+  font-size: 20px;
+  background-color: #FFA30D;
+}
+.regist-btn:hover {
+  opacity: 0.8;
+}
+.date-text {
+  color: #fff;
+}
+.file-text {
+  color: #fff;
+}
+.small-text {
+  color: #ffff00;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}

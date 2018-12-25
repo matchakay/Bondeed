@@ -1,94 +1,144 @@
-<h1>ユーザ登録</h1>
+<%= stylesheet_link_tag "user" %>
 
-<div>
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-</div>
+<h1 class="main-title">ユーザ登録</h1>
 
-<div>
-  <% if @user.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
+<div class="wrapper">
 
-<div>
+<!--  <div>-->
+    <%# flash.each do |key, value| %>
+<!--      <p class="error-title">エラー項目があります</p>-->
+<!--      <div class="error-box alert-<%#= key %>"><%#= value %></div>-->
+    <%# end %>
+<!--  </div>-->
+
+  <div>
+    <% if @user.errors.any? %>
+      <div id="error_explanation" class="error-box">
+        <p class="error-title">入力内容にエラーが<%= @user.errors.count %>件あります</p>
+        <ul class="error-index">
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
   <%= form_for @user, url: "/user/create" do |f| %>
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">ユーザ名</span>
-      <%= f.text_field :name, class: "form-control", maxlength: 50, placeholder: "Username" %>
-    </div>
-
-    <div class="form-group">
-      <label>Example file input</label>
-      <%= f.file_field :avatar_path, class: "form-control-file", id: "exampleFormControlFile1", accept: "image/jpg,image/jpeg,image/png" %>
-    </div>
-
-    <div class="birth_date_field">
-      <%= f.label :birthday, '生年月日' %>
-      <%= raw sprintf(
-                  f.date_select(
-                      :birthday,
-                      class: "form-control",
-                      use_month_numbers: true,
-                      start_year:        1930,
-                      end_year:          (Time.now.year),
-                      default:           Date.new(1989, 1, 1),
-                      date_separator:    '/'),
-                  '年 ', '月 ') + '日' %>
-    </div>
-
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">メールアドレス</span>
-      <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
-    </div>
-
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <%= f.label :is_man, '性別', {class: 'form-label'} %>
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <%= f.label "ユーザー名", class: "form-input-label my-label-text" %>
       </div>
-      <div class="col-sm-10 btn-group" data-toggle="buttons">
-        <label class="btn btn-outline-secondary active" style="width:50%">
-          <%= f.radio_button :is_man, 1, {checked: true} %> 男性
-        </label>
-        <label class="btn btn-outline-secondary" style="width:50%">
-          <%= f.radio_button :is_man, 0, {} %> 女性
-        </label>
+      <div class="col-10">
+        <%= f.text_field :name, class: "form-control", maxlength: 50, placeholder: "ユーザー名" %>
+        <small class="small-text">必須 50文字以内</small>
       </div>
     </div>
 
-    <div class="form-group row">
-      <div class="col-sm-2">
-        <%= f.label :is_creator, '後継', {class: 'form-label'} %>
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <%= f.label "アバター", class: "form-input-label my-label-text" %>
       </div>
-      <div class="col-sm-10 btn-group" data-toggle="buttons">
-        <label class="btn btn-outline-secondary active" style="width:50%">
-          <%= f.radio_button :is_creator, 1, {checked: true} %> 後継者探し
-        </label>
-        <label class="btn btn-outline-secondary" style="width:50%">
-          <%= f.radio_button :is_creator, 0, {} %> 後継検討
-        </label>
+
+      <div class="col-10">
+        <%= f.file_field :avatar_path, class: "form-control-file file-text", id: "exampleFormControlFile1", accept: "image/jpg,image/jpeg,image/png" %>
       </div>
     </div>
 
-    <div class="input-group">
-      <span class="input-group-addon">パスワード</span>
-      <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <p class="my-label-text">性別</p>
+      </div>
+      <div class="form-group col-10">
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :is_man, 1, {checked: true, class: "form-check-input", id: "woman"} %>
+          <%= f.label "女性", class: "form-check-label radio-text", for: "woman" %>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :is_man, 0, {class: "form-check-input", id: "man"} %>
+          <%= f.label "男性", class: "form-check-label radio-text", for: "man" %>
+        </div>
+        <div>
+          <small class="small-text">必須</small>
+        </div>
+      </div>
     </div>
 
-    <div class="input-group">
-      <span class="input-group-addon">パスワード確認</span>
-      <%= f.password_field :password_confirmation, class: "form-control", maxlength: 16, placeholder: "パスワード確認" %>
+    <div class="form-group birth_date_field row form-box">
+      <div class="col-2">
+        <%= f.label :birthday, "生年月日", class: "form-input-label my-label-text" %>
+      </div>
+      <div class="col-10 date-text">
+        <%= raw sprintf(
+                    f.date_select(
+                        :birthday,
+                        class: "form-control",
+                        use_month_numbers: true,
+                        start_year:        1930,
+                        end_year:          (Time.now.year),
+                        default:           Date.new(1989, 1, 1),
+                        date_separator:    '%s'),
+                    "年 ", "月 ") + "日" %>
+        <div>
+          <small class="small-text">必須</small>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <%= f.submit name = "新規登録"%>
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <%= f.label "メールアドレス", class: "form-input-label  my-label-text" %>
+      </div>
+      <div class="col-10">
+        <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        <small class="small-text">必須 半角英数</small>
+      </div>
+    </div>
+
+
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <p class="my-label-text">ユーザー種別</p>
+      </div>
+      <div class="col-10">
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :is_creator, 1, {checked: true, class: "form-check-input", id: "creator"} %>
+          <%= f.label "制作者", class: "form-check-label radio-text", for: "creator" %>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :is_creator, 0, {class: "form-check-input", id: "heir"} %>
+          <%= f.label "後継検討", class: "form-check-label radio-text", for: :heir %>
+        </div>
+        <div>
+          <small class="small-text">必須</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <%= f.label "パスワード", class: "form-input-label my-label-text" %>
+      </div>
+      <div class="col-10">
+        <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
+        <small class="small-text">必須　半角英数 8文字以上 16文字以内</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2">
+        <%= f.label "パスワード確認", class: "form-input-label my-label-text" %>
+      </div>
+      <div class="col-10">
+        <%= f.password_field :password_confirmation, class: "form-control", maxlength: 16, placeholder: "パスワード確認" %>
+        <small class="small-text">必須　確認入力</small>
+      </div>
+    </div>
+
+    <div class="text-right regist-btn-box">
+      <%= f.submit "新規登録", class: "btn btn-default regist-btn" %>
     </div>
   <% end %>
 </div>

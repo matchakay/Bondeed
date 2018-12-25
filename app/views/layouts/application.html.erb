@@ -39,11 +39,18 @@
             <small class="modal-small">半角英数、８文字以上１６文字以内</small>
 
             <div class="modal-login-btn-box">
-              <%= f.submit "ログイン", class: "btn btn-success modal-login-btn"%>
+              <%= f.submit "ログイン", class: "btn btn-default modal-login-btn"%>
             </div>
           <% end %>
         </div>
         <div class="modal-footer">
+          <div>
+            <%= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-danger"} %>
+          </div>
+
+          <div>
+            <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn btn-default"} %>
+          </div>
         </div>
       </div>
     </div>

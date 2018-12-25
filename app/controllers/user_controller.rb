@@ -40,17 +40,17 @@ class UserController < ApplicationController
   end
 
   def create
-    #begin
-    @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "登録完了"
-      redirect_to "/user/login"
-    else
-      flash[:danger] = "失敗しました"
-      redirect_to "/user/create"
+    begin
+      @user = User.new(user_params)
+      if @user.save
+        flash[:success] = "登録完了"
+        redirect_to "/user/login"
+      else
+        flash[:danger] = ""
+        render action: :regist
+      end
+    rescue => e
     end
-    # rescue => e
-    # end
   end
 
   def password_forgot
