@@ -1,4 +1,26 @@
-.panel-margin {
-  margin-left: 11px;
-  margin-right: 11px;
+.wrapper {
+  width: 85%;
+  margin:  0 auto 5% auto;
+  padding: 3%;
+  background-color: #275D39;
+  border: solid 1px #1F4B2E;
+  border-radius: 7px;
+}
+.main-title {
+  margin: 2% 0 3% 2%;
+  font-size: 71px;
+  color: #fff;
+}
+.left-col {
+  font-size: 17px;
+  color: #fff;
+}
+.small-text {
+  color: #ffff00;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+.form-box {
+  margin: 2.7% 0;
 }

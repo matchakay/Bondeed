@@ -1,69 +1,115 @@
-<h3>creator#create</h3>
+<%= stylesheet_link_tag "creator" %>
 
-<div>
-  <% if @creator.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <ul>
-        <% @creator.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<h1 class="main-title">制作者情報</h1>
+
+<div class="wrapper">
+<!--エラー-->
+  <div>
+    <% if @creator.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <ul>
+          <% @creator.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<!--エラー-->
+
+  <%= form_for @creator, url: "/creator/create" do |f|%>
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "制作工芸名", clas: "form-input-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.text_field :title, class: "form-control", placeholder: "制作工芸名"%>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "工芸カテゴリ", class: "form-input-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.collection_select :category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control"} %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "創業年数", class: "form-input-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.number_field :establishment, class: "form-control", min: 0,  max: 500, maxlength: 3, placeholder: "創業年数" %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "従業員数", class: "form-input-label"%>
+      </div>
+      <div class="col-10">
+        <%= f.number_field :employee, class: "form-control", min: 0,  max: 500, maxlength: 3, placeholder: "従業員数" %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "作業所郵便番号", class: "form-input-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.number_field :postal_code, class: "form-control", maxlength: 7, placeholder: "ハイフンなし" %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "作業所住所１", class: "form-input-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.text_field :address_1, class: "form-control", maxlength: 50, placeholder: "都道府県・市区町村まで" %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "作業所住所２", class: "form-input-label" %>
+      </div>
+      <div class="col-10">
+        <%= f.text_field :address_2, class: "form-control", maxlength: 50, placeholder: "建物名など" %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        募集チェック
+      </div>
+      <div class="col-10">
+        <%= f.check_box :is_recruitment, { checked: true, class: "form-check-input", id: "recruitment" }, true, false %>
+        <%= f.label "後継者を募集中", class: "form-check-label", for: "recruitment" %>
+        <small class="form-text small-text">必須</small>
+      </div>
+    </div>
+
+    <div class="form-group row form-box">
+      <div class="col-2 left-col">
+        <%= f.label "紹介文" %>
+      </div>
+      <div class="col-10">
+        <%= f.text_area :introduction, class: "form-control", placeholder: "仕事内容や特徴など", size: "10x15" %>
+      </div>
+    </div>
+
+    <div class="right_side">
+      <%= f.submit "登録", class: "btn btn-default" %>
     </div>
   <% end %>
 </div>
-
-
-<%= form_for @creator, url: "/creator/create" do |f|%>
-  <div class="form-group">
-    <%= f.label "制作工芸名" %>
-    <%= f.text_field :title, class: "form-control", placeholder: "制作工芸名"%>
-    <small class="form-text text-muted">必須</small>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "工芸カテゴリ" %>
-    <%= f.collection_select :category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control"} %>
-    <small class="form-text text-muted">必須</small>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "創業年数" %>
-    <%= f.number_field :establishment, class: "form-control", min: 0,  max: 500, maxlength: 3, placeholder: "創業年数" %>
-    <small class="form-text text-muted">必須</small>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "従業員数" %>
-    <%= f.number_field :employee, class: "form-control", min: 0,  max: 500, maxlength: 3, placeholder: "従業員数" %>
-    <small class="form-text text-muted">必須</small>
-  </div>
-
-  <div class="input-group">
-    <span class="input-group-addon">作業所郵便番号</span>
-    <%= f.number_field :postal_code, class: "form-control", maxlength: 7, placeholder: "ハイフンなし" %>
-  </div>
-
-  <div class="input-group">
-    <span class="input-group-addon">作業所住所１</span>
-    <%= f.text_field :address_1, class: "form-control", maxlength: 50, placeholder: "都道府県・市区町村まで" %>
-  </div>
-
-  <div class="input-group">
-    <span class="input-group-addon">作業所住所２</span>
-    <%= f.text_field :address_2, class: "form-control", maxlength: 50, placeholder: "建物名など" %>
-  </div>
-
-  <div class="form-check">
-    <%= f.check_box :is_recruitment, { checked: true, class: "form-check-input" }, true, false %>
-    <%= f.label "後継者を募集中", class: "form-check-label" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "紹介文" %>
-    <%= f.text_area :introduction, class: "form-control", placeholder: "仕事内容や特徴など", size: "10x15" %>
-  </div>
-
-  <div class="right_side">
-    <%= f.submit "登録", class: "btn btn-primary btn-lg" %>
-  </div>
-<% end %>
