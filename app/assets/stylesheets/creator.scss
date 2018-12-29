@@ -12,7 +12,8 @@
   color: #fff;
 }
 .left-col {
-  font-size: 17px;
+  padding-top: 0.7%;
+  font-size: 19px;
   color: #fff;
 }
 .small-text {
@@ -23,4 +24,48 @@
 }
 .form-box {
   margin: 2.7% 0;
+}
+.my-check-label {
+  margin-left: 2%;
+  font-size: 20px;
+  color: #fff;
+}
+.my-check-box {
+  margin-left: 0.1%;
+}
+.my-regist-btn {
+  width: 160px;
+  font-size: 23px;
+  background-color: #FFA30D;
+}
+.my-regist-btn:hover {
+  opacity: 0.8;
+}
+.my-submit-box {
+  margin: 5% 1% 1% 0;
+}
+.out-line {
+  width: 93%;
+  margin: 3%  auto 0 auto;
+  border: solid 2px #D7CDE9;
+  border-radius: 8px;
+}
+.card-img {
+  text-align: center;
+}
+.my-card-header {
+  padding: 1% 0 0.3% 1.5%;
+  font-size: 23px;
+  color: #fff;
+  background-color: #6846A5;
+  border: none;
+}
+.my-card-body {
+  font-size: 27px;
+  padding: 2% 0 2% 0;
+  background-color: #FCF2D3;
+}
+.bottom-box {
+  padding-bottom: 5%;
+  margin-bottom: 7%;
 }

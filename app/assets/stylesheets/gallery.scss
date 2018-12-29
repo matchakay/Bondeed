@@ -1,11 +1,14 @@
-h1 {
+.main-title {
+  margin: 2% 0 3% 0;
+  padding-left: 2%;
   font-size: 71px;
-  margin: 17px 0 20px 13px;
+  color: #fff;
+  background-color: #6846A5;
 }
-a {
-  padding: 0;
-  margin: 0;
-}
+//a {
+//  padding: 0;
+//  margin: 0;
+//}
 .my-row {
   margin: 0;
   width: 100%;
@@ -35,12 +38,8 @@ a {
   margin-bottom: 10%;
 }
 .post-col {
-  margin: 0;
+  margin: 0 0 10% 0;
   padding: 0 0.8%;
-}
-.my-btn {
-  background-color: #FFA30D;
-  color: #fff;
 }
 .gallery-card-body {
   height: 70px;
@@ -97,9 +96,6 @@ a {
 
 
 //selected_gallery
-h1 {
-  color: #fff;
-}
 .selected-gallery-box {
   padding: 0 0.6% 0 0.3%;
   margin: 0;
@@ -185,4 +181,9 @@ h1 {
 .my-card-body {
   text-align: center;
   padding: 3% 0 4% 0;
+}
+.empty-text {
+  margin: 10% 0 0 15%;
+  font-size: 280%;
+  color: #fff;
 }

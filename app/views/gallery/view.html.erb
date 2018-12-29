@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag "gallery" %>
-<%=stylesheet_link_tag "tagify-style.css" %>
 <link rel="stylesheet" href="bower/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
 
 <h1>gallery#view</h1>
@@ -69,16 +68,5 @@
       </div>
     <% end %>
   </div>
+  </div>
 </div>
-
-<script type="text/javascript">
-    $(function() {
-        $('#tagme').tagify();
-        $('form').submit(function() {
-            $('#tagme').tagify('serialize');
-        });
-    });
-</script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-<%=javascript_include_tag "jquery.tagify.js" %>

@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "index" %>
 
 <div class="text-center main-visual-box">
-  <%= image_tag "main1.jpg", class: "img-responsive margin main-visual", alt: "main", width: "100%" %>
+  <%= image_tag "main1.jpg", class: "img-responsive margin main-visual", alt: "メインヴィジュアル", width: "100%" %>
   <p>SucSeed</p>
 </div>
 
@@ -45,15 +45,15 @@
           <%if i % 4 == 3 %>
             <div class="row card-group">
           <% end %>
-          <div class="col-md-3">
+          <div class="col-md-3 my-card-col">
             <%= link_to("/page/creator/#{creator.user_id}", {method:"get"}) do %>
               <div class="card profile-card">
                 <%= image_tag "#{user.avatar_path}", class: "img-circle" %>
                 <div class="card-body">
-                  <h4 class=" card-box-name">
+                  <h4 class="card-box-name text-center">
                     <%= user.name %>
                   </h4>
-                  <p class=" card-box-title">
+                  <p class="card-box-title text-center">
                     <%= creator.title %>
                   </p>
                 </div>

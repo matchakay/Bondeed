@@ -3,7 +3,7 @@ class CreateCreators < ActiveRecord::Migration[5.2]
     create_table :creators do |t|
       t.references :user, null: false, foreign_key: true
       t.string :title, null: false, limit: 30
-      t.references :category, null: false
+      t.references :art_category, null: false
       t.integer :establishment, null: false
       t.integer :employee, null: false
       t.string :postal_code, null: false, limit: 7
@@ -15,5 +15,6 @@ class CreateCreators < ActiveRecord::Migration[5.2]
       t.timestamp :updated_at
       t.timestamp :deleted_at
     end
+    add_foreign_key :creators, :art_categories, column: :id
   end
 end

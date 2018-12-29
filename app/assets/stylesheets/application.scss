@@ -1,6 +1,7 @@
 @import "font-awesome";
 @import "bootstrap";
-div, h3, h4, p {
+
+div, h3, h4, p, small {
   margin: 0;
   padding: 0;
 }
@@ -10,11 +11,15 @@ a:visited {color: #000;}
 a:hover {
   color: #FFA30D;
   text-decoration: none;
+  opacity: 0.8;
 }
 
 button:link {color: #fff;}
 button:visited {color: #fff;}
-button:hover {color: #FFA30D;}
+button:hover {
+  color: #FFA30D;
+  opacity: 0.8;
+}
 
 body {
   background-color: #336846;
@@ -197,10 +202,13 @@ span.psw {
     line-height: 70px;
   }
 }
-.my-btn {
+.my-login-btn {
+  margin-bottom: 12%;
   background-color: #FFA30D;
   border: none;
-  .my-btn:hover {background-color: #503780;}
+}
+.my-login-btn:hover {
+  opacity: 0.8;
 }
 .my-dropdown {
   background-color: #452F6E;
@@ -235,13 +243,18 @@ span.psw {
   font-size: 19px;
   background-color: #fff;
   color: #E50000;
+  border-radius: 5px;
 }
 .error-title {
   padding: 1%;
-  font-size: 23px;
+  font-size: 25px;
   color: #fff;
   background-color: #FF4C4C;
+  border-radius: 5px 5px 0 0;
 }
 .error-index {
-  padding: 0.5% 0 0.5% 3%;
+  padding: 0.8% 0 0.8% 3.9%;
+}
+.error-content {
+  padding: 0.2% 0;
 }

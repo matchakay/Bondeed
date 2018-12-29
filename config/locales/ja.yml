@@ -1,11 +1,24 @@
 ja:
   activerecord:
-  models:
-    user:
-  attributes:
-    name: ユーザ名
-    email: メールアドレス
-    login_name: ログイン名
-    password: パスワード
-    password_confirmation: パスワード確認
-    phone_number: 電話番号
+    models:
+      user:
+    attributes:
+      user:
+        name: ユーザ名
+        email: メールアドレス
+        login_name: ログイン名
+        password: パスワード
+        password_confirmation: パスワード確認
+
+      creator:
+        title: 制作工芸名
+        category_id: 工芸カテゴリー
+        establishment: 創業年数
+        employee: 従業員数
+        postal_code: 作業所郵便番号
+        address_1: 作業所住所１
+        address_2: 作業所住所２
+        introduction: 紹介文
+
+      art_category:
+        name:

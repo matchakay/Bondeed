@@ -20,11 +20,9 @@
 <!--</div>-->
 <!--通知・エラー-->
 <div>
-  <div class="slideshow-container">
+  <div class="background-img-box">
     <%# if @user != nil %>
-      <div class="mySlides">
         <%= image_tag "main1.jpg", height: "800px", width: "100%", alt: "背景画像" %>
-      </div>
     <%# else %>
       <%#= image_tag "main1.jpg", class: "", height: "800px", width: "100%", alt: "背景画像" %>
     <%# end %>
@@ -44,9 +42,9 @@
         <%# end %>
 <!--      </div>-->
 <!--    </div>-->
-    <div class="profile-avatar">
-      <%= image_tag "#{@user.avatar_path}", class: "card-img-top img-circle", width: "100%", height: "100%", alt: "アバター画像" %>
-    </div>
+<!--    <div class="profile-avatar">-->
+      <%#= image_tag "#{@user.avatar_path}", class: "card-img-top img-circle", width: "100%", height: "100%", alt: "アバター画像" %>
+<!--    </div>-->
   </div>
 
   <div class="content-box top-box">

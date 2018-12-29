@@ -11,7 +11,7 @@
           <%= match.match_time %>
           <%= distance_of_time_in_words_to_now(match.match_time) %>前
         </div>
-        <%= link_to("/page/creator/#{match.page_id}", {method: "get"}) do %>
+        <%= link_to("/page/heir/#{match.page_id}", {method: "get"}) do %>
           <div class="card-body list-card-body">
             <div class="row">
               <div class="col-5 left-col text-center">

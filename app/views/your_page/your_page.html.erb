@@ -22,18 +22,31 @@
 <!--通知・エラー-->
 
 <div>
-  <div class="slideshow-container">
+  <div class="background-img-box">
     <% if @creator_image != nil %>
-      <div class="mySlides" style="hight: 700px">
-        <%= image_tag "#{@creator_image.media_data}", height: "800px", width: "100%", alt: "背景画像" %>
-      </div>
+      <%= image_tag "#{@creator_image.media_data}", height: "800px", width: "100%", alt: "背景画像" %>
     <% else %>
       <%= image_tag "main1.jpg", class: "", height: "800px", width: "100%", alt: "背景画像" %>
     <% end %>
     <div>
-      <h1 class="card h1-box">
-        <%= @user.name %>
-      </h1>
+      <div class="name-age-box">
+        <h1 class="h1-box">
+          <%= @user.name %>
+        </h1>
+        <% if @user.is_man %>
+          <p class="sex-box is_man">
+            男性
+        <% else %>
+          <p class="sex-box is_woman">
+            女性
+        <% end %>
+        </p>
+        <p class="age-box">
+          <%= date_format = "%Y%m%d"
+              (Date.today.strftime(date_format).to_i - @user.birthday.strftime(date_format).to_i) / 10000
+          %>歳
+        </p>
+      </div>
       <div class="label-box">
         <% if @creator.is_recruitment %>
           <span class="badge badge-primary">
@@ -52,7 +65,7 @@
   </div>
 </div>
 
-<div style="width: 100%">
+<div class="wrapper">
   <div class="favorite_btn_box">
     <% if session[:id] != nil %>
       <% if @fv_check == nil %>
@@ -72,9 +85,19 @@
   </div>
 
   <!-- タブ -->
-  <ul class="nav nav-tabs nav-justified original-nav">
-    <li class="active"><a href="#">Home</a></li>
-    <li><%= link_to "日記", "/diary/#{@user.id}/show" %></li>
+  <ul class="nav justify-content-center original-nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">HOME</a>
+    </li>
+    <li class="nav-item">
+      <%= link_to "日記", "/diary/#{@user.id}/show", class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "ギャラリー", "/diary/#{@user.id}/show", class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
   </ul>
 <!--  タブ-->
 
@@ -82,7 +105,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card my-card">
-          <h3 class="card-header my-card-header">
+          <h3 class="my-card-header">
             制作工芸名
           </h3>
           <div class="card-body my-card-body">
@@ -92,7 +115,7 @@
       </div>
       <div class="col-md-6">
         <div class="card my-card">
-          <h3 class="card-header my-card-header">
+          <h3 class="my-card-header">
             工芸品ジャンル
           </h3>
           <div class="card-body my-card-body">
@@ -107,7 +130,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card my-card">
-          <h3 class="card-header my-card-header">
+          <h3 class="my-card-header">
             創業年数
           </h3>
           <div class="card-body my-card-body">
@@ -118,7 +141,7 @@
       <div class="col-md-6">
         <div>
           <div class="card my-card">
-            <h3 class="card-header my-card-header">
+            <h3 class="my-card-header">
               従業員数
             </h3>
             <div class="card-body my-card-body">
@@ -131,11 +154,13 @@
   </div>
 
   <div class="card my-card-pro">
-    <h3 class="card-header my-card-header-pro">
+    <h3 class="my-card-header-pro">
       紹介文
     </h3>
     <div class="card-body card-body-intro">
-      <p class="card-text"><%= simple_format(h(@creator.introduction)) %></p>
+      <p class="card-text">
+        <%= simple_format(h(@creator.introduction)) %>
+      </p>
     </div>
   </div>
 

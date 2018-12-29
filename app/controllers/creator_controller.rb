@@ -6,7 +6,7 @@ class CreatorController < ApplicationController
         render :create
       else
         @creator = Creator.find_by(user_id: session[:id])
-        @art_category = ArtCategory.find(@creator.category_id)
+        @category = ArtCategory.find(@creator.art_category_id)
         render :show
       end
     rescue => e
@@ -22,7 +22,6 @@ class CreatorController < ApplicationController
         flash.now[:success] = "登録完了"
         redirect_to "/creator/show"
       else
-        flash.now[:danger] = "登録失敗"
         render :create
       end
     rescue => e
@@ -42,7 +41,7 @@ class CreatorController < ApplicationController
   def update
     begin
       @creator = Creator.find_by(user_id: session[:id])
-      if @creator.update_attributes(title: params[:creator][:title], category_id: params[:creator][:category_id], establishment: params[:creator][:establishment], employee: params[:creator][:employee], postal_code: params[:creator][:postal_code], address_1: params[:creator][:address_1], address_2: params[:creator][:address_2],introduction: params[:creator][:introduction], is_recruitment: params[:creator][:is_recruitment])
+      if @creator.update_attributes(title: params[:creator][:title], art_category_id: params[:creator][:art_category_id], establishment: params[:creator][:establishment], employee: params[:creator][:employee], postal_code: params[:creator][:postal_code], address_1: params[:creator][:address_1], address_2: params[:creator][:address_2],introduction: params[:creator][:introduction], is_recruitment: params[:creator][:is_recruitment])
         flash[:success] = "更新成功"
         redirect_to "/creator/update"
       else
@@ -89,7 +88,7 @@ end
 
 private
 def creator_params
-  params.require(:creator).permit(:user_id, :title, :category_id, :establishment, :employee, :postal_code, :address_1, :address_2, :introduction, :is_recruitment)
+  params.require(:creator).permit(:user_id, :title, :art_category_id, :establishment, :employee, :postal_code, :address_1, :address_2, :introduction, :is_recruitment)
 end
 
 def image_params

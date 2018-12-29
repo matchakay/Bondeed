@@ -51,7 +51,6 @@ p {
   width: 100%;
   height: 61px;
 }
-
 .cont {
   text-align: center;
 }
@@ -67,23 +66,23 @@ p {
   transition: 0.3s;
 }
 .profile-card {
+  background-image: url("card-background.jpg");
 }
 
 .card-box {
-  h4 {
-    padding: 7px 0;
-    font-size: 27px;
-  }
-  p {
-    padding: 7px 0;
-    font-size: 23px;
-  }
-  box-shadow: 0 10px 13px 0 rgba(0,0,0,0.5);
   background-color: #fcf8e3;
-  color: #333;
   border-radius: 13px;
 }
-
+.my-card-col {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  a:hover {
+    color: #373737;
+  }
+}
+.my-card-col:hover {
+  opacity: 0.85;
+}
 .img-box {
   text-align: center;
 }
@@ -102,4 +101,12 @@ p {
 }
 .my-row {
   width: 100%;
+}
+.card-box-name {
+  padding: 3px 0;
+  font-size: 39px;
+}
+.card-box-title {
+  padding: 3px 0;
+  font-size: 31px;
 }

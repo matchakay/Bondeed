@@ -25,15 +25,17 @@
     <!--setting-->
     <div class="dropdown dropdown-right">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span class="glyphicon glyphicon-cog"></span>
-        <span class="caret"></span>
+        <%= fa_icon "cog" %>
       </button>
-      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-        <li><%= link_to "プロフィール一覧", "/my_page/my_page" %></li>
-        <li><%= link_to "プロフィール変更", "/my_page/update" %></li>
-        <li><a href="#">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+      <ul class="dropdown-menu dropdown-menu-right dropdown-box" aria-labelledby="dropdownMenu1">
+        <li><%= link_to "プロフィール一覧", "/my_page/my_page", class: "dropdown-item" %></li>
+        <li><%= link_to "プロフィール変更", "/my_page/update", class: "dropdown-item" %></li>
+        <% if @user.is_creator %>
+          <li><%= link_to "プロフィール詳細", "/creator/show", class: "dropdown-item" %></li>
+        <% else %>
+          <li><%= link_to "プロフィール詳細", "/heir/show", class: "dropdown-item" %></li>
+          <li><%= link_to "プロフィール詳細変更", "/heir/edit", class: "dropdown-item" %></li>
+        <% end %>
       </ul>
     </div>
     <!--setting-->

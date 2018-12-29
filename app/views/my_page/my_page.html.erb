@@ -3,24 +3,21 @@
 <h1>プロフィール</h1>
 
 <div class="wrapper">
-<!--  settting-->
-  <div class="dropdown">
+<!--  setting-->
+  <div class="dropdown setting-dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <span class="glyphicon glyphicon-cog"></span>
-      <span class="caret"></span>
+      <%= fa_icon "cog" %>
     </button>
-    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-      <li><%= link_to "プロフィール一覧", "/my_page/my_page" %></li>
-      <li><%= link_to "プロフィール変更", "/my_page/update" %></li>
+    <ul class="dropdown-menu dropdown-menu-right dropdown-box" aria-labelledby="dropdownMenu1">
+      <li class="setting-item"><%= link_to "プロフィール一覧", "/my_page/my_page", class: "dropdown-item" %></li>
+      <li class="setting-item"><%= link_to "プロフィール変更", "/my_page/update", class: "dropdown-item" %></li>
       <% if @user.is_creator %>
-        <li><%= link_to "プロフィール詳細", "/creator/show" %></li>
-        <li><%= link_to "メディアアップロード", "/creator/upload" %></li>
+        <li class="setting-item"><%= link_to "プロフィール詳細", "/creator/show", class: "dropdown-item" %></li>
+        <li class="setting-item"><%= link_to "メディアアップロード", "/creator/upload", class: "dropdown-item" %></li>
       <% else %>
-        <li><%= link_to "プロフィール詳細", "/heir/show" %></li>
-        <li></li>
+        <li class="setting-item"><%= link_to "プロフィール詳細", "/heir/show", class: "dropdown-item" %></li>
+        <li class="setting-item"><%= link_to "プロフィール詳細変更", "/heir/edit", class: "dropdown-item" %></li>
       <% end %>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
     </ul>
   </div>
 <!--  setting-->
@@ -38,7 +35,7 @@
     <div class="card-header my-card-header">
       ユーザー名
     </div>
-    <div class="card-body my-card-body">
+    <div class="card-body my-card-body text-center">
      <p><%= @user.name%></p>
     </div>
   </div>
@@ -47,7 +44,7 @@
     <div class="card-header my-card-header">
       性別
     </div>
-    <div class="card-body my-card-body">
+    <div class="card-body my-card-body text-center">
       <% if @user.is_man %>
         <p>男性</p>
       <% else %>
@@ -60,7 +57,7 @@
     <div class="card-header my-card-header">
       メールアドレス
     </div>
-    <div class="card-body my-card-body">
+    <div class="card-body my-card-body text-center">
       <p><%= @user.email %></p>
     </div>
   </div>
@@ -69,8 +66,12 @@
     <div class="card-header my-card-header">
       生年月日
     </div>
-    <div class="card-body my-card-body">
-      <p><%= @user.birthday%></p>
+    <div class="card-body my-card-body text-center">
+      <p>
+        <%= @user.birthday.year  %>年
+        <%= @user.birthday.month  %>月
+        <%= @user.birthday.day  %>日
+      </p>
     </div>
   </div>
 

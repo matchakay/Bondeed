@@ -5,11 +5,19 @@
 <div class="wrapper">
 <!--エラー-->
   <div>
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <% if @creator.errors.any? %>
-      <div id="error_explanation" class="alert alert-danger">
-        <ul>
+      <div id="error_explanation" class="error-box">
+        <p class="error-title">入力内容にエラーが<%= @creator.errors.count %>件あります</p>
+        <ul class="error-index">
           <% @creator.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class="error-content">
+              <%= message %>
+            </li>
           <% end %>
         </ul>
       </div>
@@ -24,7 +32,7 @@
       </div>
       <div class="col-10">
         <%= f.text_field :title, class: "form-control", placeholder: "制作工芸名"%>
-        <small class="form-text small-text">必須</small>
+        <small class="form-text small-text">必須 30文字以内</small>
       </div>
     </div>
 
@@ -33,8 +41,8 @@
         <%= f.label "工芸カテゴリ", class: "form-input-label" %>
       </div>
       <div class="col-10">
-        <%= f.collection_select :category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control"} %>
-        <small class="form-text small-text">必須</small>
+        <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control"} %>
+        <small class="form-text small-text">必須　選択</small>
       </div>
     </div>
 
@@ -63,8 +71,8 @@
         <%= f.label "作業所郵便番号", class: "form-input-label" %>
       </div>
       <div class="col-10">
-        <%= f.number_field :postal_code, class: "form-control", maxlength: 7, placeholder: "ハイフンなし" %>
-        <small class="form-text small-text">必須</small>
+        <%= f.number_field :postal_code, class: "form-control", maxlength: 7, placeholder: "作業所郵便番号" %>
+        <small class="form-text small-text">必須　半角数字ハイフンなし7文字</small>
       </div>
     </div>
 
@@ -93,9 +101,9 @@
         募集チェック
       </div>
       <div class="col-10">
-        <%= f.check_box :is_recruitment, { checked: true, class: "form-check-input", id: "recruitment" }, true, false %>
-        <%= f.label "後継者を募集中", class: "form-check-label", for: "recruitment" %>
-        <small class="form-text small-text">必須</small>
+        <%= f.check_box :is_recruitment, { checked: true, class: "form-check-input my-check-box", id: "recruitment" }, true, false %>
+        <%= f.label "後継者を募集中", class: "form-check-label my-check-label", for: "recruitment" %>
+        <small class="form-text small-text">必須　募集している場合はチェック</small>
       </div>
     </div>
 
@@ -108,8 +116,8 @@
       </div>
     </div>
 
-    <div class="right_side">
-      <%= f.submit "登録", class: "btn btn-default" %>
+    <div class="text-right my-submit-box">
+      <%= f.submit "登録", class: "btn btn-default my-regist-btn" %>
     </div>
   <% end %>
 </div>

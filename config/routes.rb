@@ -40,8 +40,8 @@ Rails.application.routes.draw do
   get 'certify/set' => 'certify#set'
 
   #後継者ページ
-  get 'heir/show' => 'heir#creator_show'
-  get 'heir/update' => 'heir#update_page'
+  get 'heir/show' => 'heir#heir_show'
+  get 'heir/edit' => 'heir#heir_edit'
 
   #マッチ
   #アピール
@@ -87,8 +87,8 @@ Rails.application.routes.draw do
   post 'message/send/:receive_user_id' => 'message#send_message'
 
   #後継者情報登録
-  post 'heir/create' => 'heir#create'
-  patch 'heir/update' => 'heir#update'
+  post 'heir/create' => 'heir#heir_create'
+  patch 'heir/update' => 'heir#heir_update'
 
   #マッチ
   post 'match/:id/send' => 'match#appeal_send'

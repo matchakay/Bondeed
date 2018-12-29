@@ -7,7 +7,7 @@ class DiaryController < ApplicationController
       if @diary.save
         flash[:success] = "投稿完了"
       else
-        flash[:danger] = "投稿失敗"
+
       end
       redirect_to "/diary/my_diary"
     else
@@ -30,7 +30,7 @@ class DiaryController < ApplicationController
     @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*")
     #投稿機能
     @diary = Diary.new
-    @diary.diary_media.build
+    # @diary.diary_media.build
     @user = User.find(session[:id])
   end
 
@@ -48,7 +48,7 @@ class DiaryController < ApplicationController
       @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*")
       #投稿機能
       @diary = Diary.new
-      @diary.diary_media.build
+      # @diary.diary_media.build
       @user = User.find(session[:id])
     else
       redirect_to "/user/login"

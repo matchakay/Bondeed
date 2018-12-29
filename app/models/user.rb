@@ -20,8 +20,8 @@ class User < ApplicationRecord
   has_many :favorites, class_name: 'Favorite', :foreign_key => 'user_id'
   has_many :favorites, class_name: 'Favorite', :foreign_key => 'favorite_user_id'
   has_many :galleries
-  has_many :matches, class_name: 'Match', :foreign_key => 'user_id'
   has_many :matches, class_name: 'Match', :foreign_key => 'target_user_id'
+  has_many :matches, class_name: 'Match', :foreign_key => 'user_id'
   has_many :heirs
   acts_as_tagger
 end

@@ -47,7 +47,6 @@
           <div>
             <%= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-danger"} %>
           </div>
-
           <div>
             <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn btn-default"} %>
           </div>
@@ -67,7 +66,7 @@
             <li class="nav-item dropdown">
             <% if session[:creator] != nil %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdow
+                  メニュー
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "マイページ", "/my_page/my_page",class: "dropdown-item" %>
@@ -75,11 +74,11 @@
                   <%= link_to "マイ日記", "/diary/my_diary", class: "dropdown-item" %>
                   <%= link_to "ギャラリー", "/gallery/view", class: "dropdown-item" %>
                   <%= link_to "マイギャラリー", "/gallery/my_gallery", class: "dropdown-item" %>
-                  <%= link_to "アピールリスト", "/appeal/list", class: "dropdown-item" %>
+                  <%= link_to "アピールリスト", "/match/appealed/list", class: "dropdown-item" %>
                 </div>
             <% elsif session[:id] != nil && session[:creator] == nil %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
+                  メニュー
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "マイページ", "/my_page/my_page",class: "dropdown-item" %>
@@ -97,15 +96,15 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="login-ul">
               <% if session[:id] == nil %>
-                <%= button_to "ログイン", {controller: 'user', action: 'login'}, {method: :get, class: "btn btn-default my-btn"} %>
+                <%= button_to "ログイン", {controller: 'user', action: 'login'}, {method: :get, class: "btn btn-default my-login-btn"} %>
               <% else %>
-                <%= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-btn"} %>
+                <%= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-login-btn"} %>
               <% end %>
             </li>
             <li>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                modal
+                ログイン
               </button>
             </li>
           </ul>

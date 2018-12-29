@@ -4,25 +4,28 @@
 
 <div class="wrapper">
 
-<!--  <div>-->
-    <%# flash.each do |key, value| %>
-<!--      <p class="error-title">エラー項目があります</p>-->
-<!--      <div class="error-box alert-<%#= key %>"><%#= value %></div>-->
-    <%# end %>
-<!--  </div>-->
+<!--  エラー-->
+  <div>
+    <% flash.each do |key, value| %>
+      <div class="alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
 
   <div>
     <% if @user.errors.any? %>
       <div id="error_explanation" class="error-box">
         <p class="error-title">入力内容にエラーが<%= @user.errors.count %>件あります</p>
-        <ul class="error-index">
+        <ul>
           <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class="error-content">
+              <%= message %>
+            </li>
           <% end %>
         </ul>
       </div>
     <% end %>
   </div>
+<!--  エラー-->
 
   <%= form_for @user, url: "/user/create" do |f| %>
     <div class="form-group row form-box">

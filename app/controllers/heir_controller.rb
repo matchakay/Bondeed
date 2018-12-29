@@ -1,6 +1,6 @@
 class HeirController < ApplicationController
   #詳細情報入力振り分け
-  def show
+  def heir_show
     if session[:id] != nil && !Heir.find_by(user_id: session[:id])
       @heir = Heir.new
       render :heir
@@ -14,7 +14,7 @@ class HeirController < ApplicationController
   end
 
   #詳細情報入力
-  def create
+  def heir_create
     if session[:id] != nil
       params[:heir][:user_id] = session[:id]
       @heir = Heir.new(heir_params)
@@ -31,7 +31,7 @@ class HeirController < ApplicationController
   end
 
   #更新ページ
-  def update_page
+  def heir_edit
     if session[:id] != nil
       @heir = Heir.find_by(user_id: session[:id])
       @interest = ArtCategory.find(@heir.art_category_id)
@@ -42,7 +42,7 @@ class HeirController < ApplicationController
   end
 
   #更新
-  def update
+  def heir_update
     if session[:id] != nil
       @heir = Heir.find_by(user_id: session[:id])
       if @heir.update_attributes(art_category_id: params[:heir][:art_category_id], introduction: params[:heir][:introduction])

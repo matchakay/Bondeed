@@ -2,7 +2,7 @@ class MatchController < ApplicationController
   #アピールされたリスト表示
   def appealed_list_view
     if session[:creator] != nil
-      @match = User.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {is_ok: nil}).where(matches: {target_user_id: session[:id]}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).order("matches.created_at ASC")
+      @match = User.joins(:matches).where(matches: {is_ok: nil}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").order("matches.created_at ASC")
       render :appealed_list
     else
       redirect_to "/user/login"
@@ -57,10 +57,9 @@ class MatchController < ApplicationController
       @match = Match.new(user_id: session[:id], target_user_id: params[:id], is_scout: false)
       if @match.save
         flash[:success] = "アピール成功"
-        redirect_to "/page/heir/#{params[:id]}"
+        redirect_to "/page/creator/#{params[:id]}"
       else
-        flash[:danger] = "アピール失敗"
-        redirect_to "/page/heir/#{params[:id]}"
+        redirect_to "/page/creator/#{params[:id]}"
       end
     else
       redirect_to "/user/login"

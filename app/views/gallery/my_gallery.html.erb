@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "gallery" %>
 <%= stylesheet_link_tag "bootstrap-tagsinput.css" %>
 
-<h1><span class="label title-label">マイギャラリー</span></h1>
+<h1 class="main-title">マイギャラリー</h1>
 
 <!--error-->
 <div>
@@ -44,34 +44,37 @@
 <!--left-->
 <div class="row my-row">
   <div class="col-md-9 gallery-col">
-    <% @my_gallery.each_with_index do |my_gallery, i| %>
-      <% if i % 3 == 0 %>
-        <div class="row my-row">
-      <% end %>
-      <div class="col-md-4 card-col">
-        <%= link_to("/gallery/#{my_gallery.id}", {method: "get"}) do %>
-          <div class="card gallery-card">
-            <div class="card-header gallery-card-header">
-              <%= image_tag "#{my_gallery.data}", width: "100%", height: "380px" %>
+    <% if !@my_gallery.empty? %>
+      <% @my_gallery.each_with_index do |my_gallery, i| %>
+        <% if i % 3 == 2 %>
+          <div class="row my-row">
+        <% end %>
+        <div class="col-md-4 card-col">
+          <%= link_to("/gallery/#{my_gallery.id}", {method: "get"}) do %>
+            <div class="card gallery-card">
+              <div class="card-header gallery-card-header">
+                <%= image_tag "#{my_gallery.data}", width: "100%", height: "380px" %>
+              </div>
+              <div class="card-body gallery-card-body">
+                <p class="card-tag">
+                  <% my_gallery.tag_list.each do |tag| %>
+                    <span class="label my-label">
+                      <%= tag %>
+                    </span>
+                  <% end %>
+                </p>
+              </div>
             </div>
-            <div class="card-body gallery-card-body">
-              <p class="card-tag">
-                <% my_gallery.tag_list.each do |tag| %>
-                  <span class="label my-label">
-                    <%= tag %>
-                  </span>
-                <% end %>
-              </p>
-            </div>
+          <% end %>
+        </div>
+        <% if i % 3 == 2 %>
           </div>
         <% end %>
-      </div>
-      <% if i % 3 == 2 %>
-        </div>
       <% end %>
+    <% else %>
+      <p class="empty-text">まだありません</p>
     <% end %>
   </div>
-</div>
 <!--right-->
   <div class="col-md-3 post-col">
     <div class="right-box">
@@ -86,7 +89,7 @@
             <%= f.text_field :tag_list, value: @gallery.tag_list.join(','), "data-role" => "tagsinput" %>
           </div>
           <div class="right_side">
-            <%= f.submit "登録", class: "btn btn-lg my-submit-btn" %>
+            <%= f.submit "投稿", class: "btn btn-lg my-submit-btn" %>
           </div>
         </div>
       <% end %>
