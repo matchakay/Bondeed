@@ -87,16 +87,10 @@
   <!-- タブ -->
   <ul class="nav justify-content-center original-nav">
     <li class="nav-item">
-      <a class="nav-link active" href="#">HOME</a>
-    </li>
-    <li class="nav-item">
       <%= link_to "日記", "/diary/show/#{@user.id}", class: "nav-link" %>
     </li>
-    <li class="nav-item">
+    <li class="nav-item my-nav-item">
       <%= link_to "ギャラリー", "/gallery/view/#{@user.id}", class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
     </li>
   </ul>
 <!--  タブ-->
