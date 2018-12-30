@@ -2,36 +2,34 @@
 
 <div class="text-center main-visual-box">
   <%= image_tag "main1.jpg", class: "img-responsive margin main-visual", alt: "メインヴィジュアル", width: "100%" %>
-  <p>SucSeed</p>
+  <h1>SucSeed</h1>
 </div>
-
-<div class="bg-1 container-fluid text-center bar">
-</div>
-
 
 <% if session[:id] == nil %>
+  <div class="bg-1 container-fluid text-center bar">
+  </div>
   <div class="container-fluid bg-3 text-center zone">
-    <h3 class="margin">どんなシステム？</h3>
+    <h3 class="margin info-title">どんなシステム？</h3>
     <div class="row justify-content-around">
       <div class="col-md-4">
         <div class="three-box">
           <%= image_tag "user.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
           <h3>後継者を募れる</h3>
-          <p>qqqq</p>
+          <p>素晴らしい伝統技術が失われてしまうのは勿体無い。<br>次世代に受け継ぐために後継者を募れます。</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="three-box">
           <%= image_tag "info.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
           <h3>詳細情報を入れる</h3>
-          <p>Lorem ipsum dolor sit amet</p>
+          <p>自分の制作している作品を多くの人に宣伝して、知ってもらおう。<br>魅力を知ってもらうことで作品の評価などに繋がります。</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="three-box">
           <%= image_tag "handshake.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
           <h3>マッチング</h3>
-          <p>Lorem ipsum dolor sit amet</p>
+          <p>制作者サイドはスカウト機能で気になった方をスカウトしてお話ができます。<br>後継を検討されている方はアピール機能で自分を宣伝できます。</p>
         </div>
       </div>
     </div>
@@ -42,8 +40,8 @@
     <% @creator.each do |creator| %>
       <% @user.each_with_index do |user, i| %>
         <% if creator.user_id == user.id %>
-          <%if i % 4 == 3 %>
-            <div class="row card-group">
+          <% if i % 4 == 0 && i != 0 %>
+            <div class="row card-group justify-content-center my-row">
           <% end %>
           <div class="col-md-3 my-card-col">
             <%= link_to("/page/creator/#{creator.user_id}", {method:"get"}) do %>
@@ -60,7 +58,7 @@
               </div>
             <% end %>
           </div>
-          <%if i % 4 == 3 %>
+          <% if i % 4 == 3 %>
             </div>
           <% end %>
         <% end %>

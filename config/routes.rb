@@ -25,16 +25,16 @@ Rails.application.routes.draw do
   get 'diary' => 'diary#show'
   get 'diary/post' => 'diary#regist'
   get 'diary/my_diary' => 'diary#my_diary'
-  get 'diary/:id/show' => 'diary#your_diary'
+  get 'diary/show/:id' => 'diary#your_diary'
 
   #メッセージ
   get 'message/list' => 'message#view'
   get 'message/:id' => 'message#add'
 
   #ギャラリー
-  get 'gallery/view' => 'gallery#view'
+  get 'gallery/view/:id' => 'gallery#user_view'
   get 'gallery/my_gallery' => 'gallery#my_gallery'
-  get 'gallery/:id' => 'gallery#selected_gallery'
+  get 'gallery/selected/:id' => 'gallery#selected_gallery'
 
   #認証
   get 'certify/set' => 'certify#set'

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_155538) do
+ActiveRecord::Schema.define(version: 2018_12_30_073409) do
+
+  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.string "login_id", null: false
+    t.string "password_digest", null: false
+    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "updated_at"
+    t.timestamp "deleted_at"
+  end
 
   create_table "art_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 30, null: false
@@ -124,6 +133,13 @@ ActiveRecord::Schema.define(version: 2018_12_27_155538) do
     t.index ["send_user_id"], name: "index_messages_on_send_user_id"
   end
 
+  create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "content", null: false
+    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["user_id"], name: "index_news_on_user_id"
+  end
+
   create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -182,4 +198,5 @@ ActiveRecord::Schema.define(version: 2018_12_27_155538) do
   add_foreign_key "matches", "users", column: "target_user_id"
   add_foreign_key "messages", "users", column: "receive_user_id"
   add_foreign_key "messages", "users", column: "send_user_id"
+  add_foreign_key "news", "users"
 end

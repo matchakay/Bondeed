@@ -90,10 +90,10 @@
       <a class="nav-link active" href="#">HOME</a>
     </li>
     <li class="nav-item">
-      <%= link_to "日記", "/diary/#{@user.id}/show", class: "nav-link" %>
+      <%= link_to "日記", "/diary/show/#{@user.id}", class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to "ギャラリー", "/diary/#{@user.id}/show", class: "nav-link" %>
+      <%= link_to "ギャラリー", "/gallery/view/#{@user.id}", class: "nav-link" %>
     </li>
     <li class="nav-item">
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -164,18 +164,20 @@
     </div>
   </div>
 
-  <% if @match == nil %>
-    <div class="appeal-box">
-      <%= form_for :match, url: "/match/#{@user.id}/send" do |f| %>
-        <%= f.submit "アピール", class: "btn btn-lg appeal-btn" %>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="appeal-box">
-      <%= form_for :match do |f| %>
-        <%= f.submit "アピール済", class: "btn btn-lg appeal-btn", disabled: true %>
-      <% end %>
-    </div>
+  <% if session[:id] != nil && session[:creator] == nil %>
+    <% if @match == nil %>
+      <div class="appeal-box">
+        <%= form_for :match, url: "/match/#{@user.id}/send" do |f| %>
+          <%= f.submit "アピール", class: "btn btn-lg appeal-btn" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="appeal-box">
+        <%= form_for :match do |f| %>
+          <%= f.submit "アピール済", class: "btn btn-lg appeal-btn", disabled: true %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

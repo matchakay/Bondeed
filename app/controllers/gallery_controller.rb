@@ -17,6 +17,14 @@ class GalleryController < ApplicationController
     end
   end
 
+  #ユーザ別ギャラリー
+  def user_view
+    @gallery = Gallery.new
+    @user = User.find(params[:id])
+    @user_gallery = User.left_joins(:galleries).select("users.*", "galleries.*").where(galleries: {user_id: params[:id]}).order("galleries.created_at ASC")
+    render :user_gallery_view
+  end
+
   #投稿 post
   def upload
     if session[:creator] != nil
