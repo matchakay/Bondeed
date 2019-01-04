@@ -58,14 +58,17 @@ class DiaryController < ApplicationController
   #相手ページからの日記
   def your_diary
     @diary_user = User.joins(:diaries).where(diaries: {user_id: params[:id]}).select("diaries.*, diaries.id AS diaries_id, diaries.created_at AS post_time, users.*").order("diaries.created_at DESC")
-    @user = User.find_by(id: params[:id])
+    if session[:id] != nil
+      @user = User.find(session[:id])
+    end
     @comment = User.joins(:diary_comments).select("diary_comments.*, diary_comments.created_at AS post_time, users.*")
     @comment_count = DiaryComment.group(:diary_id).count
     @diary_good = DiaryGood.new
     @good = DiaryGood.group(:diary_id).count
     @diary_comment = DiaryComment.new
-    @good_user = Diary.joins(:diary_goods).where(diary_goods: {diary_id: Diary.where(user_id: params[:id]).select("diaries.id")}).select("diary_goods.user_id")
-    @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*")
+    @good_user = Diary.joins(:diary_goods).select("diary_goods.user_id").where(diary_goods: {diary_id: Diary.where(user_id: params[:id]).select("diaries.id")})
+    @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*").order("diary_goods.created_at ASC").limit(5)
+    @my_good = Diary.joins(:diary_goods).where(diaries: {id: DiaryGood.where(user_id: params[:id]).select("diary_goods.diary_id")}).where(diary_goods: {user_id: session[:id]}).select("diaries.id AS id").order("diaries.created_at ASC")
   end
 
   #投稿削除

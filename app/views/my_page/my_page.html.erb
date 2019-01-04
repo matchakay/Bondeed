@@ -6,7 +6,7 @@
 <!--  setting-->
   <div class="dropdown setting-dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <%= fa_icon "cog" %>
+      <%= fa_icon "cog 3x" %>
     </button>
     <ul class="dropdown-menu dropdown-menu-right dropdown-box" aria-labelledby="dropdownMenu1">
       <li class="setting-item"><%= link_to "プロフィール一覧", "/my_page/my_page", class: "dropdown-item" %></li>
@@ -27,7 +27,11 @@
       アバター
     </div>
     <div class="card-body my-card-body card-img">
-      <%= image_tag "#{@user.avatar_path}", class: "img-circle", alt: "アバター画像" %>
+      <% if @user.avatar_path == nil %>
+        <%= image_tag "default.png", class: "rounded-circle", size: "300x300", alt: "アバター画像" %>
+      <% else %>
+        <%= image_tag "#{@user.avatar_path}", class: "rounded-circle", size: "300x300", alt: "アバター画像" %>
+      <% end %>
     </div>
   </div>
 

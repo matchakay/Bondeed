@@ -24,9 +24,9 @@
 <div>
   <div class="background-img-box">
     <% if @creator_image != nil %>
-      <%= image_tag "#{@creator_image.media_data}", height: "800px", width: "100%", alt: "背景画像" %>
+      <%= image_tag "#{@creator_image.media_data}", height: "850px", width: "100%", alt: "背景画像" %>
     <% else %>
-      <%= image_tag "main1.jpg", class: "", height: "800px", width: "100%", alt: "背景画像" %>
+      <%= image_tag "main1.jpg", class: "", height: "850px", width: "100%", alt: "背景画像" %>
     <% end %>
     <div>
       <div class="name-age-box">
@@ -60,29 +60,33 @@
       </div>
     </div>
     <div class="profile-avatar">
-      <%= image_tag "#{@user.avatar_path}", class: "card-img-top img-circle", width: "100%", height: "100%", alt: "アバター画像" %>
+      <%= image_tag "#{@user.avatar_path}", class: "card-img-top rounded-circle", width: "100%", height: "100%", alt: "アバター画像" %>
     </div>
   </div>
 </div>
 
+<div class="bar-box"></div>
+
+<!--お気に入り-->
 <div class="wrapper">
   <div class="favorite_btn_box">
     <% if session[:id] != nil %>
       <% if @fv_check == nil %>
-        <%= form_for @favorite, url: "/favorite/#{params[:id]}/add", class: "" do |f| %>
+        <%= form_for @favorite, url: "/favorite/#{params[:id]}/add" do |f| %>
           <%= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default btn-lg favorite_btn" do %>
-            <%= fa_icon "star" %>
+            <%= fa_icon ("star 2x"), class: "favorite_star_none" %>
           <% end %>
         <% end %>
       <% else %>
-        <%= form_for @favorite, url: "/favorite/#{params[:id]}/delete", class: "" do |f| %>
+        <%= form_for @favorite, url: "/favorite/#{params[:id]}/delete" do |f| %>
           <%= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default btn-lg favorite_btn" do %>
-            <%= fa_icon "star" %>
+            <%= fa_icon ("star 2x"), class: "favorite_star_set" %>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
   </div>
+<!--  お気に入り-->
 
   <!-- タブ -->
   <ul class="nav justify-content-center original-nav">

@@ -46,7 +46,13 @@
           <div class="col-md-3 my-card-col">
             <%= link_to("/page/creator/#{creator.user_id}", {method:"get"}) do %>
               <div class="card profile-card">
-                <%= image_tag "#{user.avatar_path}", class: "img-circle" %>
+                <div class="text-center">
+                  <% if user.avatar_path == nil %>
+                    <%= image_tag "default.png", class: "rounded-circle", size: "300x300" %>
+                  <% else %>
+                    <%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "300x300" %>
+                  <% end %>
+                </div>
                 <div class="card-body">
                   <h4 class="card-box-name text-center">
                     <%= user.name %>

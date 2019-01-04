@@ -9,38 +9,48 @@
 }
 .my-row {
   width: 100%;
+  margin: 0;
+  padding-left: 1%;
+}
+.your-diary-row {
+  width: 100%;
+  margin: 0;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .main-title {
-  margin: 13px 0 20px 17px;
-  color: #fff;
+  margin: 2% 0 3% 0;
+  padding-left: 2%;
   font-size: 71px;
-}
-
-.card-panel {
-  width: 97%;
-  margin: 0 auto;
-  border-radius: 5px;
-  margin-bottom: 71px;
-}
-.diary-post-panel {
-  width: 97%;
-  margin: 0 auto;
-  border-radius: 5px;
-  margin-bottom: 71px;
-}
-.card-heading {
-  background-color: #BAA9DA;
-}
-
-.diary-panel-header {
-  border-style: none;
-}
-h1 {
-  margin: 0;
-  padding: 0;
-  font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
   color: #fff;
+  background-color: #6846A5;
 }
+
+//.card-panel {
+//  width: 97%;
+//  margin: 0 auto;
+//  border-radius: 5px;
+//  margin-bottom: 71px;
+//}
+//.diary-post-panel {
+//  width: 97%;
+//  margin: 0 auto;
+//  border-radius: 5px;
+//  margin-bottom: 71px;
+//}
+//.card-heading {
+//  background-color: #BAA9DA;
+//}
+//
+//.diary-panel-header {
+//  border-style: none;
+//}
+//h1 {
+//  margin: 0;
+//  padding: 0;
+//  font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+//  color: #fff;
+//}
 
 .post-btn {
   text-align: right;
@@ -77,11 +87,6 @@ h1 {
 .card-time {
   text-align: right;
 }
-.collapse {
-  h3 {
-    text-align: left;
-  }
-}
 .card-footer-btn {
   text-align: right;
   form {
@@ -92,7 +97,11 @@ h1 {
   }
 }
 .comment-btn {
-  text-align: right;
+  font-size: 19px;
+  background-color: #FFA30D;
+}
+.comment-btn:hover {
+  opacity: 0.9;
 }
 .comment-body {
   padding: 5px;
@@ -103,23 +112,28 @@ h1 {
 .icon-btn {
   background-color: #FFA30D;
 }
-.panel-name {
-  font-size: 23px;
-  line-height: 50%;
+.icon-btn:hover {
+  color: #000;
 }
+//.panel-name {
+//  font-size: 23px;
+//  line-height: 50%;
+//}
 .my-btn {
   background-color: #FFA30D;
   color: #000;
 }
 
 .left-col {
-  background-color: #c4e3f3;
-  padding-left: 2%;
+  background-color: #275D39;
+  border: solid 1px #1F4B2E;
+  border-radius: 7px;
+  padding-left: 1%;
+  padding-bottom: 5%;
 }
 .right-col {
   background-color: #e4b9b9;
-  height: 50vh;
-  padding-right: 2%;
+  height: 60vh;
 }
 .diary-card {
   margin-top: 2%;
@@ -130,22 +144,28 @@ h1 {
   padding: 0.5% 0 0.5% 0.8%;
   border-radius: 5px 5px 0 0;
   background-color: #FCF2D3;
-  font-size: 18px;
+  font-size: 25px;
 }
 .diary-card-body {
+  padding: 0.5%;
   background-color: #FCF2D3;
 }
 .diary-time {
-  padding: 0.3% 0.5% 0 0;
+  padding: 0 0.5% 0 0;
   text-align: right;
+  font-size: 17px;
+  color: #555;
 }
 .diary-content {
-  padding: 3% 0 3% 1%;
+  padding: 1% 0 1% 1%;
+  p {
+    font-size: 21px;
+  }
 }
 .diary-card-footer {
-  padding: 1% 1% 0.5% 0;
+  padding: 0.3% 1% 0.3% 0;
   border-radius:  0 0 5px 5px;
-  background-color: #D3C9E7;
+  background-color: #6846A5;
 }
 .diary-post-card {
   margin-top: 8%;
@@ -160,4 +180,69 @@ h1 {
 }
 .diary-post-card-footer {
   background-color: #6846A5;
+}
+.trash-icon {
+  color: #FF0000;
+}
+.thumbs-up-icon {
+  color: #1F8A70;
+}
+.comment-icon {
+  color: #1F8A70;
+}
+.diary-box {
+  background-color: #275D39;
+  border: solid 1px #1F4B2E;
+  border-radius: 7px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 5%;
+}
+.no-login-text {
+  font-size: 23px;
+  color: #fff;
+}
+.empty-text {
+  font-size: 39px;
+  color: #fff;
+}
+.comment-card {
+  margin: 1% 0 1% 1%;
+  background-color: #FFF;
+}
+.comment-header {
+  padding-top: 0.3%;
+  padding-left: 0.5%;
+  padding-bottom: 0;
+  font-size: 18px;
+}
+.comment-body {
+  padding: 0.5%;
+  padding-left: 2%;
+  p {
+    font-size: 19px;
+  }
+}
+.comment-time {
+  padding: 0.1%;
+  color: #555;
+}
+.input-comment-box {
+  margin: 1.5% 9% 1.5% 10%;
+}
+.input-comment-header {
+  padding: 0.5% 0.5% 0 0.5%;
+  font-size: 19px;
+  background-color: #FCF2D3;
+}
+.input-comment-header-in {
+
+}
+.input-comment-body {
+ background-color: #FCF2D3;
+  padding: 0.5%;
+}
+.input-comment-footer {
+  padding: 0.5% 2% 0.5% 0.5%;
+  background-color: #5cb85c;
 }
