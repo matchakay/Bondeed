@@ -61,27 +61,27 @@
                 <!-- いいね -->
                 <%= form_for @diary_good, url: "/diary/show/#{diary_user.diaries_id}/good" do |f| %>
                   <% if !@my_good.empty? %>
-                  <% @my_good.each do |my_good| %>
-                    <% if diary_user.diaries_id == my_good.id %>
-                      <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn", disabled: true do %>
-                        <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
-                        <% if @good[diary_user.diaries_id] == nil %>
-                          <%= 0 %>
-                        <% else %>
-                          <%= @good[diary_user.diaries_id] %>
+                    <% @my_good.each do |my_good| %>
+                      <% if diary_user.diaries_id == my_good.id %>
+                        <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn", disabled: true do %>
+                          <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                          <% if @good[diary_user.diaries_id] == nil %>
+                            <%= 0 %>
+                          <% else %>
+                            <%= @good[diary_user.diaries_id] %>
+                          <% end %>
                         <% end %>
-                      <% end %>
-                    <% else %>
-                      <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
-                        <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
-                        <% if @good[diary_user.diaries_id] == nil %>
-                          <%= 0 %>
-                        <% else %>
-                          <%= @good[diary_user.diaries_id] %>
+                      <% else %>
+                        <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
+                          <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                          <% if @good[diary_user.diaries_id] == nil %>
+                            <%= 0 %>
+                          <% else %>
+                            <%= @good[diary_user.diaries_id] %>
+                          <% end %>
                         <% end %>
                       <% end %>
                     <% end %>
-                  <% end %>
                   <% else %>
                     <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
                       <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
@@ -102,7 +102,6 @@
                   <% else %>
                     <%= @comment_count[diary_user.diaries_id] %>
                   <% end %>
-                  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                 </button>
                 <!--              end-->
                 <!-- 削除ボタン -->

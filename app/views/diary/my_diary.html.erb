@@ -53,19 +53,43 @@
                   <!-- いいねユーザアイコン -->
                   <% @good_avatar.each_with_index do |good_avatar, i| %>
                     <% if diary_user.diaries_id == good_avatar.diary_id && i < 10%>
-                      <%= image_tag "#{good_avatar.avatar_path}", class: "img-circle", size: "30x30" %>
+                      <%= image_tag "#{good_avatar.avatar_path}", class: "img-circle", size: "35x35" %>
                     <% end %>
                   <% end %>
                 </div>
   <!--              end-->
                 <!-- いいね -->
                 <%= form_for @diary_good, url: "/diary/show/#{diary_user.diaries_id}/good" do |f| %>
-                  <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
-                    <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
-                    <% if @good[diary_user.diaries_id] == nil %>
-                      <%= 0 %>
-                    <% else %>
-                      <%= @good[diary_user.diaries_id] %>
+                  <% if !@my_good.empty? %>
+                    <% @my_good.each do |my_good| %>
+                      <% if diary_user.diaries_id == my_good.id %>
+                        <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn", disabled: true do %>
+                          <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                          <% if @good[diary_user.diaries_id] == nil %>
+                            <%= 0 %>
+                          <% else %>
+                            <%= @good[diary_user.diaries_id] %>
+                          <% end %>
+                        <% end %>
+                      <% else %>
+                        <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
+                          <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                          <% if @good[diary_user.diaries_id] == nil %>
+                            <%= 0 %>
+                          <% else %>
+                            <%= @good[diary_user.diaries_id] %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
+                      <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                      <% if @good[diary_user.diaries_id] == nil %>
+                        <%= 0 %>
+                      <% else %>
+                        <%= @good[diary_user.diaries_id] %>
+                      <% end %>
                     <% end %>
                   <% end %>
                 <% end %>
@@ -78,7 +102,6 @@
                   <% else %>
                     <%= @comment_count[diary_user.diaries_id] %>
                   <% end %>
-                  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                 </button>
   <!--              end-->
                 <!-- 削除ボタン -->
@@ -95,36 +118,46 @@
                   <% if comment.diary_id == diary_user.diaries_id %>
                     <div class="card comment-card">
                       <div class="card-header comment-header">
-                        <h5>
-                          <%= image_tag "#{comment.avatar_path}", class: "img-circle", size: "25x25" %>
+                        <p>
+                          <%= image_tag "#{comment.avatar_path}", class: "rounded-circle", size: "45x45" %>
                           <%= comment.name %>
-                        </h5>
+                        </p>
                       </div>
                       <div class="card-body comment-body">
                         <p>
                           <%= comment.comment %>
                         </p>
                       </div>
-                      <div class="card-footer comment-time">
+                      <div class="card-footer comment-time text-right">
                         <%= comment.post_time %>
                       </div>
                     </div>
                   <% end %>
                 <% end %>
-                <div>
-                  <h3>
-                    <%= image_tag "#{@user.avatar_path}", class: "img-circle", size: "30x30"  %>
-                    <%= @user.name %>
-                  </h3>
-                </div>
-                <div>
-                  <%= form_for @diary_comment, url: "/diary/show/#{diary_user.diaries_id}/comment", remote: "true" do |f| %>
-                    <%= f.text_area :comment, class:"form-control", size: "200x5", placeholder: "100文字以内" %>
-                    <div class="comment-btn">
-                      <%= f.submit "コメント", class: "btn btn-default" %>
+                <% if session[:id] != nil %>
+                  <div class="card input-comment-box">
+                    <div class="card-header input-comment-header">
+                      <div class="input-comment-header-in">
+                        <%= image_tag "#{@user.avatar_path}", class: "rounded-circle", size: "43x43" %>
+                        <%= @user.name %>
+                      </div>
                     </div>
-                  <% end %>
-                </div>
+                    <div class="card-body input-comment-body">
+                      <%= form_for @diary_comment, url: "/diary/show/#{diary_user.diaries_id}/comment" do |f| %>
+                        <%= f.text_area :comment, class:"form-control", size: "200x2", placeholder: "100文字以内" %>
+                    </div>
+                      <div class="card-footer input-comment-footer">
+                        <div class="text-right">
+                          <%= f.submit "コメント", class: "btn comment-btn" %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <p class="no-login-text">
+                    ログインしてください
+                  </p>
+                <% end %>
               </div>
   <!--            end-->
             </div>

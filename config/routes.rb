@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'page/heir/:id/' => 'your_page#heir_show'
 
   #日記
-  get 'diary' => 'diary#show'
+  get 'diary/view' => 'diary#select_diary'
   get 'diary/post' => 'diary#regist'
   get 'diary/my_diary' => 'diary#my_diary'
   get 'diary/show/:id' => 'diary#your_diary'

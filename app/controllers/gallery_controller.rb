@@ -33,11 +33,10 @@ class GalleryController < ApplicationController
       if @gallery.save
         flash[:success] = "投稿成功"
       else
-        flash[:danger] = "投稿成功"
       end
       redirect_to "/gallery/my_gallery"
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -45,11 +44,13 @@ class GalleryController < ApplicationController
   def selected_gallery
     @selected_gallery = Gallery.find_by("id = ?", params[:id])
     @selected_gallery_user = User.joins(:creators).select("users.*, creators.*").find(@selected_gallery.user_id)
+    #タグ検索
+    @match_tag = Gallery.tagged_with([@selected_gallery.tag_list], :any => true).limit(3)
   end
 
 end
 
 private
 def gallery_params
-  params.require(:gallery).permit(:user_id, :data, :tag_list)
+  params.require(:gallery).permit(:user_id, :data, :comment, :tag_list)
 end

@@ -12,8 +12,6 @@ class User < ApplicationRecord
   has_many :diary_comments
   has_many :diary_goods
   has_many :inquiries
-  has_many :certifications
-  has_many :creator_images
   has_many :favorites
   has_many :send_user, class_name: 'Message', :foreign_key => 'send_user_id'
   has_many :receive_user, class_name: 'Message', :foreign_key => 'receive_user_id'

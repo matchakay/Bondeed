@@ -41,7 +41,9 @@
   margin-right: 3px;
     padding: 2px 4px;
     margin-bottom: 5px;
-  color: white;
+  color: #333;
+    background-color: #FFA30D;
+    border-radius: 7px;
 }
 .bootstrap-tagsinput .tag [data-role="remove"] {
   margin-left: 8px;
