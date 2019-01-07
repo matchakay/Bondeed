@@ -21,71 +21,33 @@
 <!--通知・エラー-->
 <div>
   <div class="background-img-box">
-    <%# if @user != nil %>
-        <%= image_tag "main1.jpg", height: "800px", width: "100%", alt: "背景画像" %>
-    <%# else %>
-      <%#= image_tag "main1.jpg", class: "", height: "800px", width: "100%", alt: "背景画像" %>
-    <%# end %>
-<!--    <div>-->
-<!--      <h1 class="card h1-box">-->
-        <%#= @user.name %>
-<!--      </h1>-->
-<!--      <div class="label-box">-->
-        <%# if @user.is_recruitment %>
-<!--          <span class="badge badge-primary">-->
-<!--            募集中-->
-<!--          </span>-->
-        <%# else %>
-<!--          <span class="badge badge-danger">-->
-<!--            募集停止中-->
-<!--          </span>-->
-        <%# end %>
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="profile-avatar">-->
-      <%#= image_tag "#{@user.avatar_path}", class: "card-img-top img-circle", width: "100%", height: "100%", alt: "アバター画像" %>
-<!--    </div>-->
-  </div>
-
-  <div class="content-box top-box">
-    <div class="row justify-content-around">
-      <div class="col-md-6">
-        <div class="card my-card">
-          <h3 class="card-header my-card-header">
-            性別
-          </h3>
-          <div class="card-body my-card-body">
-            <p class="card-text">
-              <% if @user.is_man %>
-                男性
-              <% else %>
-                女性
-              <% end %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div>
-          <div class="card my-card">
-            <h3 class="card-header my-card-header">
-              年齢
-            </h3>
-            <div class="card-body my-card-body">
-              <p class="card-text">
-                <%= date_format = "%Y%m%d"
-                    (Date.today.strftime(date_format).to_i - @user.birthday.strftime(date_format).to_i) / 10000
-                %>
-                <small>歳</small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <%= image_tag "main1.jpg", height: "800px", width: "100%", alt: "背景画像" %>
+    <div class="name-age-box">
+      <h1 class="h1-box">
+        <%= @user.name %>
+      </h1>
+      <% if @user.is_man %>
+        <p class="sex-box is_man">
+          男性
+      <% else %>
+        <p class="sex-box is_woman">
+          女性
+      <% end %>
+      </p>
+      <p class="age-box">
+        <%= date_format = "%Y%m%d"
+            (Date.today.strftime(date_format).to_i - @user.birthday.strftime(date_format).to_i) / 10000
+        %>歳
+      </p>
+    </div>
+    <div class="profile-avatar">
+      <%= image_tag "#{@user.avatar_path}", class: "card-img-top img-circle", width: "100%", height: "100%", alt: "アバター画像" %>
     </div>
   </div>
 
-  <div class="card my-card-pro">
+  <div class="bar-box"></div>
+
+  <div class="card my-card-pro heir-profile-box">
     <h3 class="card-header my-card-header-pro">
       紹介文
     </h3>

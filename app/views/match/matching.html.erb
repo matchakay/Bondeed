@@ -32,7 +32,7 @@
           </div>
         <% end %>
         <div class="card-footer list-card-footer">
-          <%= form_for :match, url: "/match/#{match.page_id}/sorry", class: "form-control" do |f| %>
+          <%= form_for @message_list, url: "/message/add/#{match.page_id}", class: "form-control" do |f| %>
             <%= f.submit "メッセージ", class:"btn btn-success yes-btn" %>
           <% end %>
         </div>

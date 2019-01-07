@@ -75,6 +75,8 @@
                   <%= link_to "ギャラリー", "/gallery/view", class: "dropdown-item" %>
                   <%= link_to "マイギャラリー", "/gallery/my_gallery", class: "dropdown-item" %>
                   <%= link_to "アピールリスト", "/match/appealed/list", class: "dropdown-item" %>
+                  <%= link_to "マッチング一覧", "/match/matching/list", class: "dropdown-item" %>
+                  <%= link_to "スカウト確認", "/match/scouted/list", class: "dropdown-item" %>
                 </div>
             <% elsif session[:id] != nil && session[:creator] == nil %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

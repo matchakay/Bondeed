@@ -72,6 +72,7 @@ class DiaryController < ApplicationController
     @good_user = Diary.joins(:diary_goods).select("diary_goods.user_id").where(diary_goods: {diary_id: Diary.where(user_id: params[:id]).select("diaries.id")})
     @good_avatar = User.joins(:diary_goods).where(id: @good_user).select("diary_goods.*, diary_goods.diary_id, users.*").order("RAND()").limit(5)
     @my_good = Diary.joins(:diary_goods).where(diaries: {user_id: params[:id]}).where(diary_goods: {user_id: session[:id]}).select("diaries.id AS id").order("diaries.created_at DESC")
+    @name = User.select("users.name").find(params[:id])
   end
 
   #投稿削除
@@ -96,10 +97,10 @@ class DiaryController < ApplicationController
       @diary_good = DiaryGood.new(diary_id: params[:id], user_id: session[:id])
       if @diary_good.save
         flash[:success] = "いいね成功"
-        redirect_to "/diary/show"
+        redirect_to "/diary/view"
       else
         flash[:danger] = "失敗"
-        redirect_to "/diary/show"
+        redirect_to "/diary/view"
       end
     else
       redirect_to "/user/login"

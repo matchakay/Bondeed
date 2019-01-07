@@ -29,7 +29,10 @@
     <div class="col-md-5 my-col-left">
       <div class="list-box">
         <div class="message-list-box">
-
+          <% @message_list.each do |message_list| %>
+            <%= image_tag "#{message_list.avatar_path}", size: "100x100" %>
+            <%= message_list.name %>
+          <% end %>
         </div>
       </div>
     </div>

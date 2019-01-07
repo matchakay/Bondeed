@@ -13,13 +13,15 @@ class User < ApplicationRecord
   has_many :diary_goods
   has_many :inquiries
   has_many :favorites
-  has_many :send_user, class_name: 'Message', :foreign_key => 'send_user_id'
-  has_many :receive_user, class_name: 'Message', :foreign_key => 'receive_user_id'
+  has_many :messages, class_name: 'Message', :foreign_key => 'send_user_id'
+  has_many :messages, class_name: 'Message', :foreign_key => 'receive_user_id'
   has_many :favorites, class_name: 'Favorite', :foreign_key => 'user_id'
   has_many :favorites, class_name: 'Favorite', :foreign_key => 'favorite_user_id'
   has_many :galleries
   has_many :matches, class_name: 'Match', :foreign_key => 'target_user_id'
   has_many :matches, class_name: 'Match', :foreign_key => 'user_id'
   has_many :heirs
+  has_many :message_lists, class_name: 'MessageList', :foreign_key => 'creator_user_id'
+  has_many :message_lists, class_name: 'MessageList', :foreign_key => 'heir_user_id'
   acts_as_tagger
 end

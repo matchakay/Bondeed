@@ -23,12 +23,8 @@
 <!--error-->
 
 <!--left-->
-<div class="row my-row">
-  <% if session[:creator] != nil %>
-    <div class="col-md-12 gallery-col">
-  <% else %>
-    <div class="col-md-9 gallery-col">
-  <% end %>
+<div class="row user-gallery-row">
+  <div class="col-md-12 gallery-col">
     <% if !@user_gallery.empty? %>
       <% @user_gallery.each_with_index do |user_gallery, i| %>
         <% if i % 3 == 2 %>
@@ -62,27 +58,4 @@
       </div>
     <% end %>
   </div>
-  <!--right-->
-  <% if session[:creator] != nil %>
-    <div class="col-md-3 post-col">
-      <div class="right-box">
-        <%= form_for @gallery, url: "/gallery/view" do |f| %>
-          <div class="form-group">
-            <div class="right-box-top">
-              <%= f.label "投稿", class: "right-box-title"%>
-            </div>
-            <%= f.file_field :data, class: "form-control-file my-file-post", accept: "image/jpg, image/jpeg, image/png" %>
-            <%= f.label "タグ：",  class: "tag-title"%>
-            <div class="tag-field">
-              <%= f.text_field :tag_list, value: @gallery.tag_list.join(','), "data-role" => "tagsinput" %>
-            </div>
-            <div class="right_side">
-              <%= f.submit "投稿", class: "btn btn-lg my-submit-btn" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
 </div>

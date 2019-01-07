@@ -4,13 +4,13 @@ class FavoriteController < ApplicationController
       @favorite = Favorite.new(user_id: session[:id], favorite_user_id: params[:id])
       if @favorite.save
         flash[:success] = "お気に入り成功"
-        redirect_to "/page/#{params[:id]}"
+        redirect_to "/page/creator/#{params[:id]}"
       else
         flash[:danger] = "お気に入り失敗"
-        redirect_to "/page/#{params[:id]}"
+        redirect_to "/page/creator/#{params[:id]}"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -18,13 +18,13 @@ class FavoriteController < ApplicationController
     if session[:id] != nil
       if Favorite.where(user_id: session[:id]).where(favorite_user_id: params[:id]).delete_all
         flash[:success] = "削除成功"
-        redirect_to "/page/#{params[:id]}"
+        redirect_to "/page/creator/#{params[:id]}"
       else
         flash[:danger] = "削除失敗"
-        redirect_to "/page/#{params[:id]}"
+        redirect_to "/page/creator/#{params[:id]}"
       end
     else
-      redirect_to "user/login"
+      redirect_to "/index"
     end
   end
 end

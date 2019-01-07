@@ -13,6 +13,7 @@ class MatchController < ApplicationController
   def matching_list_view
     if session[:id] != nil
       @match = User.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {is_ok: true}).where(matches: {target_user_id: session[:id]}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).order("matches.created_at ASC")
+      @message_list = MessageList.new
       render :matching
     else
       redirect_to "/user/login"

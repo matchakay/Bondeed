@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_30_073409) do
+ActiveRecord::Schema.define(version: 2019_01_07_142705) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 50, null: false
@@ -124,6 +124,15 @@ ActiveRecord::Schema.define(version: 2018_12_30_073409) do
     t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
+  create_table "message_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "creator_user_id", null: false
+    t.bigint "heir_user_id", null: false
+    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "updated_at"
+    t.index ["creator_user_id"], name: "index_message_lists_on_creator_user_id"
+    t.index ["heir_user_id"], name: "index_message_lists_on_heir_user_id"
+  end
+
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "send_user_id", null: false
     t.bigint "receive_user_id", null: false
@@ -196,6 +205,8 @@ ActiveRecord::Schema.define(version: 2018_12_30_073409) do
   add_foreign_key "inquiries", "users"
   add_foreign_key "matches", "users"
   add_foreign_key "matches", "users", column: "target_user_id"
+  add_foreign_key "message_lists", "users", column: "creator_user_id"
+  add_foreign_key "message_lists", "users", column: "heir_user_id"
   add_foreign_key "messages", "users", column: "receive_user_id"
   add_foreign_key "messages", "users", column: "send_user_id"
   add_foreign_key "news", "users"

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   #メッセージ
   get 'message/list' => 'message#view'
-  get 'message/:id' => 'message#add'
+  get 'message/add/:id' => 'message#message_list_add'
 
   #ギャラリー
   get 'gallery/view/:id' => 'gallery#user_view'
@@ -85,6 +85,7 @@ Rails.application.routes.draw do
 
   #メッセージ
   post 'message/send/:receive_user_id' => 'message#send_message'
+  post 'message/add/:id' => 'message#message_list_add'
 
   #後継者情報登録
   post 'heir/create' => 'heir#heir_create'
@@ -98,4 +99,6 @@ Rails.application.routes.draw do
   post 'scout/send/:id' => 'match#scout_send'
   post 'scout/ok/:id' => 'match#scout_answer_ok'
   post 'scout/sorry/:id' => 'match#scout_answer_sorry'
+
+  get '*path', controller: 'application', action: 'render_404'
 end

@@ -5,8 +5,10 @@
   color: #fff;
   background-color: #6846A5;
 }
-.my-row {
+.user-gallery-row {
   margin: 0;
+  padding-left: 0.7%;
+  padding-right: 0.7%;
   width: 100%;
 }
 .right-box {
@@ -128,13 +130,15 @@
   margin-bottom: 19vh;
   border-radius: 7px;
 }
-.side-box {
-  width: 100%;
-  height: 35vh;
-  margin: 2% auto 0 auto;
-  border: solid 1px #5cb85c;
-  background-color: #e4b9b9;
+.match-tag-content {
+  padding: 0;
+  height: 37vh;
+  border: solid 1px #1F4B2E;
 }
+.side-box:hover {
+  opacity: 0.8;
+}
+
 .my-selected-row {
   width: 100%;
   padding-left: 1.5%;
@@ -150,7 +154,7 @@
   padding: 0;
   text-align: center;
   color: #181818;
-  font-size: 21px;
+  font-size: 23px;
 }
 .selected-gallery-box-in-box {
   padding-bottom: 3%;
@@ -160,7 +164,7 @@
 .selected-gallery-box-text {
   padding: 1% 3%;
   background-color: #FCF2D3;
-  font-size: 21px;
+  font-size: 25px;
 }
 .user-img-box {
   background-color: #BAA9DA;
@@ -183,7 +187,7 @@
   }
 }
 .user-info-text {
-  font-size: 21px;
+  font-size: 23px;
   padding: 0;
 }
 .my-card {
@@ -195,7 +199,7 @@
 .my-card-header {
   background-color: #BAA9DA;
   padding: 5% 0 0 2%;
-  font-size: 16px;
+  font-size: 19px;
 }
 .my-card-body {
   text-align: center;
@@ -209,6 +213,38 @@
   text-align: right;
   background-color: #FCF2D3;
   border-bottom: solid 1px #ccc;
+}
+.match-tag-box {
+  margin-top: 5%;
+  margin-bottom: 3%;
+  //background-color: #6846A5;
+  background-color: #2A553B;
+  border: solid 1px #21442F;
+  border-radius: 5px;
+}
+.match-tag-box-header {
+  padding-top: 0.2%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  font-size: 22px;
+  color: #fff;
+  text-align: left;
+}
+.my-match-row {
+  margin: 0;
+  width: 100%;
+}
+.other-box {
+  background-color: #c9e2b3;
+}
+.other-content {
+  padding: 0;
+  height: 37vh;
+  border: solid 1px #1F4B2E;
+}
+.other-box-header {
+  font-size: 22px;
+  color: #fff;
 }
 .empty-text {
   margin: 10% 0 0 15%;
