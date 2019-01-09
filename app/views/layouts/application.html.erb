@@ -64,7 +64,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-            <% if session[:creator] != nil %>
+              <% if session[:creator] != nil %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   メニュー
                 </a>
@@ -79,7 +79,7 @@
                   <%= link_to "マッチング一覧", "/match/matching/list", class: "dropdown-item" %>
                   <%= link_to "スカウト確認", "/match/scouted/list", class: "dropdown-item" %>
                 </div>
-            <% elsif session[:id] != nil && session[:creator] == nil %>
+              <% elsif session[:id] != nil && session[:creator] == nil %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   メニュー
                 </a>
@@ -90,35 +90,35 @@
                   <%= link_to "アピール確認", "/match/appeal/list_check", class: "dropdown-item" %>
                   <%= link_to "スカウト一覧", "/match/scouted/list", class: "dropdown-item" %>
                 </div>
-            <% end %>
+              <% end %>
             </li>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="login-ul">
-              <% if session[:id] == nil %>
-                <%= button_to "ログイン", {controller: 'user', action: 'login'}, {method: :get, class: "btn btn-default my-login-btn"} %>
-              <% else %>
-                <%= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-login-btn"} %>
-              <% end %>
-            </li>
-            <li>
-              <% if session[:id] == nil %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+<!--            <li class="login-ul">-->
+              <%# if session[:id] == nil %>
+                <%#= button_to "ログイン", {controller: 'user', action: 'login'}, {method: :get, class: "btn btn-default my-login-btn"} %>
+              <%# else %>
+                <%#= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-login-btn"} %>
+              <%# end %>
+<!--            </li>-->
+              <li class="login-ul">
+               <% if session[:id] == nil %>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                  ログイン
-                </button>
-              <% else %>
-                <%= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-login-btn"} %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+                  <button type="button" class="btn my-login-btn" data-toggle="modal" data-target="#exampleModalCenter">
+                    ログイン
+                  </button>
+                <% else %>
+                  <%= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn my-login-btn"} %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
 
 
     <%= yield %>
