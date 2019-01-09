@@ -84,8 +84,9 @@ Rails.application.routes.draw do
   post 'gallery/my_gallery' => 'gallery#my_gallery'
 
   #メッセージ
-  post 'message/send/:receive_user_id' => 'message#send_message'
+  post 'message/send/:id' => 'message#send_message'
   post 'message/add/:id' => 'message#message_list_add'
+  post 'message/history/:id' => 'message#get_history'
 
   #後継者情報登録
   post 'heir/create' => 'heir#heir_create'

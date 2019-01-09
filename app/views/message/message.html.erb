@@ -28,38 +28,65 @@
   <!--  left-->
     <div class="col-md-5 my-col-left">
       <div class="list-box">
-        <div class="message-list-box">
           <% @message_list.each do |message_list| %>
-            <%= image_tag "#{message_list.avatar_path}", size: "100x100" %>
-            <%= message_list.name %>
+            <%= form_for :message, url: "/message/history/#{message_list.user}" do |f| %>
+              <%= f.button type: "submit", method: "post", class: "btn message-list-btn" do %>
+                <div class="message-list-box row my-list-row">
+                  <div class="col-md-3 col-avatar-box">
+                    <%= image_tag "#{message_list.avatar_path}", size: "80x80", class: "rounded-circle" %>
+                  </div>
+                  <div class="col-md-9 col-name-box">
+                    <%= message_list.name %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
-    </div>
   <!--  end-->
   <!--  right-->
     <div class="col-md-7 my-col-right">
       <div class="message-box">
-        <div class="message-box-in">
-          <img src="" alt="Avatar">
-          <p></p>
-          <span class="time-right"></span>
-        </div>
+        <h3 class="message-title"><%= @to_user.name %>さん</h3>
+            <% @message_history.each do |message_history| %>
+              <% if message_history.send_user_id == session[:id] %>
+                <div class="from-message-box text-right">
+                  <div class="media text-right">
+                    <div class="media-body from-message-content">
+                      <p><%= message_history.content %></p>
+                    </div>
+                    <%= image_tag "#{@from_user.avatar_path}", size: "60x60", class: "rounded-circle"  %>
+                  </div>
+                  <p class="message-time-text">
+                    <%= message_history.created_at %>
+                  </p>
+                </div>
 
-        <div class="message-box-in darker">
-          <img src="" alt="Avatar" class="right">
-          <p></p>
-          <span class="time-left"></span>
+              <% else %>
+                <div class="to-message-box text-left">
+                  <div class="media text-left">
+                    <%= image_tag "#{@from_user.avatar_path}", size: "60x60", class: "rounded-circle" %>
+                    <div class="media-body to-message-content">
+                      <p><%= message_history.content %></p>
+                    </div>
+                  </div>
+                  <p class="message-time-text">
+                    <%= message_history.created_at %>
+                  </p>
+                </div>
+              <% end %>
+            <% end %>
         </div>
   <!--end-->
   <!--send box-->
         <div class="send-message-box">
-          <%= form_for @message, url: "message/send/:receive_user_id", class:"form-control" do |f| %>
+          <%= form_for @message, url: "/message/send/#{@to_user.id}", class:"form-control" do |f| %>
             <div class="input-group">
               <%= f.text_field :content, class: "form-control", placeholder: "メッセージ" %>
               <span class="input-group-btn">
-              <%= f.button type: "submit", method: "post", class: "btn btn-default" do %>
-                <%= content_tag :span, "", class: "glyphicon glyphicon-send" %>
+              <%= f.button type: "submit", method: "post", class: "btn btn-default send-btn" do %>
+                <%= fa_icon "paper-plane lg" %>
               <% end %>
             </span>
             </div>
@@ -70,4 +97,3 @@
     </div>
   <!--  end-->
   </div>
-</div>
