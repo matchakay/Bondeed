@@ -18,11 +18,11 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <div>
-            <% flash.each do |key, value| %>
-              <div class="alert alert-<%= key %>"><%= value %></div>
-            <% end %>
-          </div>
+        </div>
+        <div>
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
         </div>
         <div class="modal-body">
           <%= form_for :session, url: "/user/login", class: "form-group" do |f| %>
@@ -39,7 +39,7 @@
             <small class="modal-small">半角英数、８文字以上１６文字以内</small>
 
             <div class="modal-login-btn-box">
-              <%= f.submit "ログイン", class: "btn btn-default modal-login-btn"%>
+              <%= f.submit "ログイン", class: "btn modal-login-btn"%>
             </div>
           <% end %>
         </div>
@@ -48,7 +48,7 @@
             <%= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-danger"} %>
           </div>
           <div>
-            <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn btn-default"} %>
+            <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn create-user-btn"} %>
           </div>
         </div>
       </div>
@@ -60,7 +60,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
@@ -123,9 +122,12 @@
 
     <%= yield %>
 
-
+    <% if session[:id] != nil %>
+      <div class="none-margin-box"></div>
+    <% end %>
     <!-- Footer -->
     <footer class="container-fluid original-footer">
+      <%= link_to "お問い合わせ", "#", class: "navbar-brand inquiry-link" %>
       <p>&copy;SucSeed</p>
     </footer>
   </body>

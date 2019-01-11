@@ -12,7 +12,7 @@ ja:
 
       creator:
         title: 制作工芸名
-        category_id: 工芸カテゴリー
+        art_category_id: 工芸カテゴリー
         establishment: 創業年数
         employee: 従業員数
         postal_code: 作業所郵便番号

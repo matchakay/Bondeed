@@ -1,38 +1,26 @@
 class UserController < ApplicationController
+
   def login
-  end
-
-  def signin
-    begin
-      if session[:id] == nil
-        user = User.find_by(email: params[:session][:email].downcase)
-        if user && user.authenticate(params[:session][:password])
-          session[:id] = user[:id]
-          if user[:is_creator]
-            session[:creator] = user[:id]
-          end
-          redirect_to "/index"
-        else
-          flash.now[:danger] = '『メールアドレス』もしくは『パスワード』が誤っています'
-          redirect_to "/index"
+    if session[:id] == nil
+      user = User.find_by(email: params[:session][:email].downcase)
+      if user && user.authenticate(params[:session][:password])
+        session[:id] = user[:id]
+        if user[:is_creator]
+          session[:creator] = user[:id]
         end
+        redirect_to "/index"
       else
-
+        flash[:danger] = '『メールアドレス』もしくは『パスワード』が誤っています'
+        redirect_to "/index"
       end
-    rescue => e
-      render :'error/erorr'
     end
   end
 
   def logout
-    begin
-      session[:id] = nil
-      session[:creator] = nil
-      flash.now[:success] = "ログアウトしました。"
-      redirect_to "/index"
-    rescue => e
-      logger.error e
-    end
+    session[:id] = nil
+    session[:creator] = nil
+    flash[:success] = "ログアウト"
+    redirect_to "/index"
   end
 
   def regist
@@ -40,16 +28,12 @@ class UserController < ApplicationController
   end
 
   def create
-    begin
-      @user = User.new(user_params)
-      if @user.save
-        flash[:success] = "登録完了"
-        redirect_to "/user/login"
-      else
-        flash[:danger] = ""
-        render action: :regist
-      end
-    rescue => e
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "登録完了"
+      redirect_to "/user/login"
+    else
+      render action: :regist
     end
   end
 

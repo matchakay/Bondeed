@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   post 'index' => 'user#logout'
 
-  post 'user/login' => 'user#signin'
+  post 'user/login' => 'user#login'
   post 'user/create' => 'user#create'
   post 'user/password_forgot' => 'user#email_exist'
   patch 'user/password_reset' => 'user#password_reset'
