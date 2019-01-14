@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_01_07_142705) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", limit: 50, null: false
-    t.string "login_id", null: false
+    t.string "name", limit: 20, null: false
+    t.string "user_id", null: false
     t.string "password_digest", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"

@@ -5,7 +5,7 @@ class HeirController < ApplicationController
       @heir = Heir.new
       render :heir
     elsif session[:id] == nil
-      redirect_to "/user/login"
+      redirect_to "/index"
     else
       @heir = Heir.find_by(user_id: session[:id])
       @interest = ArtCategory.find(@heir.art_category_id)
@@ -19,14 +19,14 @@ class HeirController < ApplicationController
       params[:heir][:user_id] = session[:id]
       @heir = Heir.new(heir_params)
       if @heir.save
-        flash[:success] = "登録成功"
+        flash[:success] = "success"
         redirect_to "/heir/show"
       else
-        flash[:danger] = "登録失敗"
+        flash[:danger] = "エラー"
         redirect_to "/heir/show"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -37,7 +37,7 @@ class HeirController < ApplicationController
       @interest = ArtCategory.find(@heir.art_category_id)
       render :update
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -46,10 +46,10 @@ class HeirController < ApplicationController
     if session[:id] != nil
       @heir = Heir.find_by(user_id: session[:id])
       if @heir.update_attributes(art_category_id: params[:heir][:art_category_id], introduction: params[:heir][:introduction])
-        flash[:success] = "更新成功"
+        flash[:success] = "success"
         redirect_to "/heir/show"
       else
-        flash[:danger] = "更新失敗"
+        flash[:danger] = "エラー"
         redirect_to "/heir/update"
       end
     else

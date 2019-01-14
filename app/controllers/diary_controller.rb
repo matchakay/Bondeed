@@ -5,13 +5,13 @@ class DiaryController < ApplicationController
       params[:diary][:user_id] = session[:id]
       @diary = Diary.new(diary_params)
       if @diary.save
-        flash[:success] = "投稿完了"
+        flash[:success] = "success"
       else
-
+        flash[:danger] = "エラー"
       end
       redirect_to "/diary/my_diary"
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -54,7 +54,7 @@ class DiaryController < ApplicationController
       # @diary.diary_media.build
       @user = User.find(session[:id])
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -79,14 +79,14 @@ class DiaryController < ApplicationController
   def post_delete
     if session[:id] != nil
       if Diary.where(id: params[:id]).where(user_id: session[:id]).destroy_all
-        flash[:success] = "日記投稿削除成功"
+        flash[:success] = "success"
         redirect_to "/diary/my_diary"
       else
-        flash[:danger] = "日記削除失敗"
+        flash[:danger] = "エラー"
         redirect_to "/diary/my_diary"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -96,14 +96,14 @@ class DiaryController < ApplicationController
     if session[:id] != nil
       @diary_good = DiaryGood.new(diary_id: params[:id], user_id: session[:id])
       if @diary_good.save
-        flash[:success] = "いいね成功"
+        flash[:success] = "success"
         redirect_to "/diary/view"
       else
-        flash[:danger] = "失敗"
+        flash[:danger] = "エラー"
         redirect_to "/diary/view"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -113,14 +113,14 @@ class DiaryController < ApplicationController
       params[:diary_comment][:diary_id] = params[:id]
       @diary_comment = DiaryComment.new(diary_comment_params)
       if @diary_comment.save
-        flash[:success] = "コメント成功"
+        flash[:success] = "success"
         redirect_to "/diary/show"
       else
-        flash[:danger] = "コメント失敗"
+        flash[:danger] = "エラー"
         redirect_to "/diary/show"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 

@@ -1,0 +1,34 @@
+header {
+  visibility: hidden;
+}
+body {
+  background-color: #FFF;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+}
+footer {
+  visibility: hidden;
+}
+.admin-row {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.admin-col-2 {
+  height: 100vh;
+  background-color: #CCC;
+}
+.admin-col-9 {
+  height: 100vh;
+  background-color: #EEE;
+  overflow: scroll;
+}
+.admin-create-box {
+  width: 60%;
+  margin: 0 auto;
+}
+.admin-side-menu {
+  margin-left: 13%;
+}
+.admin-top-link {
+  margin-top: 27%;
+}

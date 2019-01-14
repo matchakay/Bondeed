@@ -3,7 +3,7 @@ class MyPageController < ApplicationController
     begin
       if session[:id] == nil
         flash.now[:danger] = "ログインしてください"
-        redirect_to "/user/login"
+        redirect_to "/index"
       else
         @user = User.find(session[:id])
       end
@@ -28,10 +28,10 @@ class MyPageController < ApplicationController
       @user = User.find(session[:id])
       # :name => params[:user][:name], :email => params[:user][:email], :phone_number => params[:user][:phone_number], :postal_code => params[:user][:postal_code], :address_1 => params[:user][:address_1], :address_2 => params[:user][:address_2], :profile => params[:user][:profile]
       if @user.update_attributes(:avatar_path => params[:user][:avatar_path], :name => params[:user][:name], :email => params[:user][:email], :phone_number => params[:user][:phone_number], :profile => params[:user][:profile])
-        flash[:success] = "更新成功"
+        flash[:success] = "success"
         render :show
       else
-        flash.now[:danger] = "更新失敗"
+        flash.now[:danger] = "エラー"
         render :show
       end
     rescue => e

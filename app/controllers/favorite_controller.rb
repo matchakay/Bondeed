@@ -3,10 +3,10 @@ class FavoriteController < ApplicationController
     if session[:id] != nil
       @favorite = Favorite.new(user_id: session[:id], favorite_user_id: params[:id])
       if @favorite.save
-        flash[:success] = "お気に入り成功"
+        flash[:success] = "success"
         redirect_to "/page/creator/#{params[:id]}"
       else
-        flash[:danger] = "お気に入り失敗"
+        flash[:danger] = "エラー"
         redirect_to "/page/creator/#{params[:id]}"
       end
     else
@@ -17,10 +17,10 @@ class FavoriteController < ApplicationController
   def delete
     if session[:id] != nil
       if Favorite.where(user_id: session[:id]).where(favorite_user_id: params[:id]).delete_all
-        flash[:success] = "削除成功"
+        flash[:success] = "success"
         redirect_to "/page/creator/#{params[:id]}"
       else
-        flash[:danger] = "削除失敗"
+        flash[:danger] = "エラー"
         redirect_to "/page/creator/#{params[:id]}"
       end
     else

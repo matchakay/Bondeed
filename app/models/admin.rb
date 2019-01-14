@@ -1,3 +1,6 @@
 class Admin < ApplicationRecord
   has_secure_password
+  validates :password, presence: true, confirmation: true, length: {in: 8..16}
+  validates :name, presence: true, uniqueness: true, length: {minimum: 1}
+  validates :user_id, presence: true, uniqueness: true, length: {minimum: 1}
 end

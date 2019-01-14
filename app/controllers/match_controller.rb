@@ -5,7 +5,7 @@ class MatchController < ApplicationController
       @match = User.joins(:matches).where(matches: {is_ok: nil}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").order("matches.created_at ASC")
       render :appealed_list
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -16,7 +16,7 @@ class MatchController < ApplicationController
       @message_list = MessageList.new
       render :matching
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -25,14 +25,14 @@ class MatchController < ApplicationController
     if session[:creator] != nil
       match = Match.where(user_id: params[:id]).where(target_user_id: session[:id])
       if match.update_all(:is_ok => 1)
-        flash[:success] = "OK"
+        flash[:success] = "success"
         redirect_to "/appeal/list"
       else
-        flash[:danger] = "OK"
+        flash[:danger] = "エラー"
         redirect_to "/appeal/list"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -41,14 +41,14 @@ class MatchController < ApplicationController
     if session[:creator] != nil
       match = Match.where(user_id: params[:id]).where(target_user_id: session[:id])
       if match.update_all(:is_ok => 0)
-        flash[:success] = "NO"
+        flash[:success] = "success"
         redirect_to "/match/appeal/list"
       else
-        flash[:danger] = "NO"
+        flash[:danger] = "エラー"
         redirect_to "match/appeal/list"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -57,13 +57,13 @@ class MatchController < ApplicationController
     if session[:id] != nil
       @match = Match.new(user_id: session[:id], target_user_id: params[:id], is_scout: false)
       if @match.save
-        flash[:success] = "アピール成功"
+        flash[:success] = "success"
         redirect_to "/page/creator/#{params[:id]}"
       else
         redirect_to "/page/creator/#{params[:id]}"
       end
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -83,10 +83,10 @@ class MatchController < ApplicationController
     if session[:creator] != nil
       scout = Match.new(user_id: params[:id], target_user_id: session[:id], is_scout: true)
       if scout.save
-        flash[:success] = "スカウト成功"
+        flash[:success] = "success"
         redirect_to "/page/heir/#{params[:id]}"
       else
-        flash[:danger] = "スカウト失敗"
+        flash[:danger] = "エラー"
         redirect_to "/page/heir/#{params[:id]}"
       end
     else
@@ -115,10 +115,10 @@ class MatchController < ApplicationController
     if session[:id] != nil && session[:creator] == nil
       scout = Match.where(is_scout: true).where(user_id: session[:id]).where(target_user_id: params[:id])
       if scout.update_all(:is_ok => false)
-        flash[:success] = "スカウトアンサー"
+        flash[:success] = "success"
         redirect_to "/scouted/list"
       else
-        flash[:danger] = "スカウトアンサー"
+        flash[:danger] = "エラー"
         redirect_to "/scouted/list"
       end
     else
@@ -131,7 +131,7 @@ class MatchController < ApplicationController
     if session[:id]!= nil && session[:creator] == nil
       @match = Match.new
       @scout = User.joins(:matches, :creators).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time", "creators.*").where(users: {id: Match.where(user_id: session[:id]).select("matches.target_user_id")}).where(matches: {is_scout: true}).where(matches: {is_ok: nil}).order("matches.created_at ASC")
-      render :scouted_show
+      render :scout_check
     else
       redirect_to "/index"
     end

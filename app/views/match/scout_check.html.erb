@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "match" %>
 
-<h1 class="main-title">スカウト一覧</h1>
+<h1 class="main-title">スカウト確認</h1>
 
 <div class="wrapper">
 
@@ -8,18 +8,6 @@
   <div>
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <% if @match.errors.any? %>
-      <div id="error_explanation" class="alert alert-danger">
-        <ul>
-          <% @match.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
     <% end %>
   </div>
   <!--通知・エラー-->

@@ -947,11 +947,11 @@
     </column>
     <column id="252" parent="231" name="name">
       <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="231" name="login_id">
+    <column id="253" parent="231" name="user_id">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1487,7 +1487,6 @@
     <column id="345" parent="241" name="user_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="346" parent="241" name="inquiry_category_id">
@@ -1540,7 +1539,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="355" parent="241" name="fk_rails_7fdff2c1ec">
+    <foreign-key id="355" parent="241" name="inquiries_users_id_fk">
       <ColNames>user_id</ColNames>
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -2022,10 +2021,19 @@ tagger_type</ColNames>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="439" parent="250" name="PRIMARY">
+    <index id="439" parent="250" name="users_email_uindex">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="440" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="441" parent="250" name="users_email_uindex">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

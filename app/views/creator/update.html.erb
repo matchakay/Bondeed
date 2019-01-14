@@ -9,10 +9,13 @@
 
 <div>
   <% if @creator.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <ul>
+    <div id="error_explanation" class="error-box">
+      <p class="error-title">入力内容にエラーが<%= @creator.errors.count %>件あります</p>
+      <ul class="error-index">
         <% @creator.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class="error-content">
+            <%= message %>
+          </li>
         <% end %>
       </ul>
     </div>

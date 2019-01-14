@@ -71,12 +71,12 @@
                   <%= link_to "マイページ", "/my_page/my_page",class: "dropdown-item" %>
                   <%= link_to "日記", "/diary/view", class: "dropdown-item" %>
                   <%= link_to "マイ日記", "/diary/my_diary", class: "dropdown-item" %>
-                  <%= link_to "ギャラリー", "/gallery/view", class: "dropdown-item" %>
+                  <%= link_to "ギャラリー", "/gallery/favorite", class: "dropdown-item" %>
                   <%= link_to "マイギャラリー", "/gallery/my_gallery", class: "dropdown-item" %>
                   <%= link_to "メッセージ", "/message/list", class: "dropdown-item" %>
                   <%= link_to "アピールリスト", "/match/appealed/list", class: "dropdown-item" %>
                   <%= link_to "マッチング一覧", "/match/matching/list", class: "dropdown-item" %>
-                  <%= link_to "スカウト確認", "/match/scouted/list", class: "dropdown-item" %>
+                  <%= link_to "スカウト確認", "/match/scout/list_check", class: "dropdown-item" %>
                 </div>
               <% elsif session[:id] != nil && session[:creator] == nil %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -127,7 +127,7 @@
     <% end %>
     <!-- Footer -->
     <footer class="container-fluid original-footer">
-      <%= link_to "お問い合わせ", "#", class: "navbar-brand inquiry-link" %>
+      <%= link_to "お問い合わせ", "/inquiry/input", class: "navbar-brand inquiry-link" %>
       <p>&copy;SucSeed</p>
     </footer>
   </body>

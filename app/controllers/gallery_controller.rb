@@ -1,19 +1,22 @@
 class GalleryController < ApplicationController
 
-  #お気に入りのギャラリー
-  def view
-    @gallery = Gallery.new
-    render :view
+  #お気に入りユーザのギャラリー
+  def favorite_gallery
+    if session[:creator] != nil
+      @gallery = Gallery.new
+      @favorite_gallery = User.joins(:galleries).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: session[:id]}).or(User.joins(:galleries).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: Favorite.where(user_id: session[:id]).select("favorites.favorite_user_id")})).order("galleries.created_at DESC")
+      render :favorite_gallery
+    end
   end
 
   #マイギャラリー
   def my_gallery
     if session[:id] != nil
       @gallery = Gallery.new
-      @my_gallery = Gallery.where(user_id: session[:id]).order("created_at ASC")
+      @my_gallery = Gallery.where(user_id: session[:id]).order("created_at DESC")
       render :my_gallery
     else
-      redirect_to "/user/login"
+      redirect_to "/index"
     end
   end
 
@@ -21,7 +24,7 @@ class GalleryController < ApplicationController
   def user_view
     @gallery = Gallery.new
     @user = User.find(params[:id])
-    @user_gallery = User.left_joins(:galleries).select("users.*", "galleries.*").where(galleries: {user_id: params[:id]}).order("galleries.created_at ASC")
+    @user_gallery = User.left_joins(:galleries).select("users.*", "galleries.*").where(galleries: {user_id: params[:id]}).order("galleries.created_at DESCs")
     render :user_gallery_view
   end
 
@@ -31,8 +34,9 @@ class GalleryController < ApplicationController
       params[:gallery][:user_id] = session[:creator]
       @gallery = Gallery.new(gallery_params)
       if @gallery.save
-        flash[:success] = "投稿成功"
+        flash[:success] = "success"
       else
+        flash[:danger] = "エラー"
       end
       redirect_to "/gallery/my_gallery"
     else

@@ -1,55 +1,41 @@
 class CreatorController < ApplicationController
   def show
-    begin
-      if session[:creator] != nil && !Creator.find_by(user_id: session[:id])
-        @creator = Creator.new
-        render :create
-      else
-        @creator = Creator.find_by(user_id: session[:id])
-        @category = ArtCategory.find(@creator.art_category_id)
-        render :show
-      end
-    rescue => e
-
+    if session[:creator] != nil && !Creator.find_by(user_id: session[:id])
+      @creator = Creator.new
+      render :create
+    else
+      @creator = Creator.find_by(user_id: session[:id])
+      @category = ArtCategory.find(@creator.art_category_id)
+      render :show
     end
   end
 
   def create
-    begin
-      params[:creator][:user_id] = session[:id]
-      @creator = Creator.new(creator_params)
-      if @creator.save
-        flash.now[:success] = "登録完了"
-        redirect_to "/creator/show"
-      else
-        render :create
-      end
-    rescue => e
+    params[:creator][:user_id] = session[:id]
+    @creator = Creator.new(creator_params)
+    if @creator.save
+      flash.now[:success] = "success"
+      redirect_to "/creator/show"
+    else
+      render :create
     end
   end
 
   def edit
-    begin
-      if session[:creator] != nil
-        @creator = Creator.find_by(user_id: session[:id])
-        render :update
-      end
-    rescue => e
+    if session[:creator] != nil
+      @creator = Creator.find_by(user_id: session[:id])
+      render :update
     end
   end
 
   def update
-    begin
-      @creator = Creator.find_by(user_id: session[:id])
-      if @creator.update_attributes(title: params[:creator][:title], art_category_id: params[:creator][:art_category_id], establishment: params[:creator][:establishment], employee: params[:creator][:employee], postal_code: params[:creator][:postal_code], address_1: params[:creator][:address_1], address_2: params[:creator][:address_2],introduction: params[:creator][:introduction], is_recruitment: params[:creator][:is_recruitment])
-        flash[:success] = "更新成功"
-        redirect_to "/creator/update"
-      else
-        flash[:danger] = "更新失敗"
-        redirect_to "/creator/update"
-      end
-    rescue => e
-
+    @creator = Creator.find_by(user_id: session[:id])
+    if @creator.update_attributes(title: params[:creator][:title], art_category_id: params[:creator][:art_category_id], establishment: params[:creator][:establishment], employee: params[:creator][:employee], postal_code: params[:creator][:postal_code], address_1: params[:creator][:address_1], address_2: params[:creator][:address_2],introduction: params[:creator][:introduction], is_recruitment: params[:creator][:is_recruitment])
+      flash[:success] = "更新成功"
+      redirect_to "/creator/update"
+    else
+      flash[:danger] = "エラー"
+      redirect_to "/creator/update"
     end
   end
 
@@ -62,6 +48,7 @@ class CreatorController < ApplicationController
       @creator_image = CreatorImage.new
       render :upload_image
     else
+      redirect_to "/index"
     end
   end
 
@@ -70,10 +57,10 @@ class CreatorController < ApplicationController
       params[:creator_image][:user_id] = session[:id]
       @creator_image = CreatorImage.new(image_params)
       if @creator_image.save
-        flash[:success] = "投稿完了"
+        flash[:success] = "success"
         redirect_to "/creator/upload"
       else
-        flash[:danger] = "投稿失敗"
+        flash[:danger] = "エラー"
         redirect_to "/creator/upload"
       end
     end

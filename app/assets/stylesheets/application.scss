@@ -252,14 +252,12 @@ span.psw {
   font-size: 19px;
   background-color: #fff;
   color: #E50000;
-  border-radius: 5px;
 }
 .error-title {
   padding: 1%;
   font-size: 25px;
   color: #fff;
   background-color: #FF4C4C;
-  border-radius: 5px 5px 0 0;
 }
 .error-index {
   padding: 0.8% 0 0.8% 3.9%;
@@ -289,4 +287,7 @@ span.psw {
   button {
     background-color: #FFA30D;
   }
+}
+.my-alert {
+  margin: 0;
 }

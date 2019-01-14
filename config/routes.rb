@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'gallery/view/:id' => 'gallery#user_view'
   get 'gallery/my_gallery' => 'gallery#my_gallery'
   get 'gallery/selected/:id' => 'gallery#selected_gallery'
+  get 'gallery/favorite' => 'gallery#favorite_gallery'
 
   #認証
   get 'certify/set' => 'certify#set'
@@ -52,6 +53,19 @@ Rails.application.routes.draw do
   get 'match/scouted/list' => 'match#scouted_show'
   #スカウトした一覧
   get 'match/scout/list_check' => 'match#scout_check'
+
+  #問い合わせ
+  get 'inquiry/input' => 'inquiry#input_page'
+
+  #管理者
+  get 'admin/login' => 'admin#login'
+  get 'admin/create/07392' => 'admin#create'
+  get 'admin/index' => 'admin_edit#index'
+  get 'admin/management/user' => 'admin_edit#user'
+  get 'admin/management/diary' => 'admin_edit#diary'
+  get 'admin/management/diary_comment' => 'admin_edit#diary_comment'
+  get 'admin/management/gallery' => 'admin_edit#gallery'
+  get 'admin/management/inquiry' => 'admin_edit#inquiry'
 
 
   post 'index' => 'user#logout'
@@ -100,6 +114,11 @@ Rails.application.routes.draw do
   post 'scout/send/:id' => 'match#scout_send'
   post 'scout/ok/:id' => 'match#scout_answer_ok'
   post 'scout/sorry/:id' => 'match#scout_answer_sorry'
+
+  post 'inquiry/input' => 'inquiry#send_inquiry'
+
+  post 'admin/login' => 'admin#login_challenge'
+  post 'admin/create/user' => 'admin#create_user'
 
   get '*path', controller: 'application', action: 'render_404'
 end

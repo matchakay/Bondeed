@@ -19,7 +19,7 @@ class UserController < ApplicationController
   def logout
     session[:id] = nil
     session[:creator] = nil
-    flash[:success] = "ログアウト"
+    flash.now[:success] = "ログアウト"
     redirect_to "/index"
   end
 
@@ -30,8 +30,9 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "登録完了"
-      redirect_to "/user/login"
+      flash[:success] = "success"
+      GmailMailer.send_create(@user).deliver
+      redirect_to "/index"
     else
       render action: :regist
     end
@@ -66,25 +67,20 @@ class UserController < ApplicationController
   end
 
   def password_reset
-    begin
-      @user = User.find(session[:reset_id])
-      if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-        flash.now[:success] = "更新成功"
-        session[:reset_id] = nil
-        render :login
-      else
-        flash.now[:dangers] = "更新失敗"
-        render :password_edit
-      end
-    rescue => e
-
+    @user = User.find(session[:reset_id])
+    if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+      flash[:success] = "success"
+      session[:reset_id] = nil
+      render :login
+    else
+      flash.now[:danger] = "エラー"
+      render :password_edit
     end
   end
 
 end
 
 private
-
 def user_params
   params.require(:user).permit(:name, :password, :password_confirmation, :avatar_path, :email, :birthday, :is_man, :is_creator)
 end

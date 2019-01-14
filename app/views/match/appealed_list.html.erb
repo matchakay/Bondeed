@@ -34,12 +34,12 @@
         <div class="card-footer list-card-footer">
           <div class="row">
             <div class="col-6 left-btn-col">
-              <%= form_for :match, url: "/match/#{match.page_id}/ok", class: "form-control" do |f| %>
+              <%= form_for :match, url: "/match/ok/#{match.page_id}", class: "form-control" do |f| %>
                 <%= f.submit "話してみる", class:"btn btn-primary yes-btn" %>
               <% end %>
             </div>
             <div class="col-6 right-btn-col">
-              <%= form_for :match, url: "/match/#{match.page_id}/sorry", class: "form-control" do |f| %>
+              <%= form_for :match, url: "/match/sorry/#{match.page_id}", class: "form-control" do |f| %>
                 <%= f.submit "ごめんなさい", class:"btn btn-danger no-btn" %>
               <% end %>
             </div>

@@ -4,7 +4,7 @@
 <!--通知・エラー-->
 <div>
   <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
+    <div class="my-alert alert alert-<%= key %>"><%= value %></div>
   <% end %>
 </div>
 

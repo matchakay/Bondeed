@@ -20,5 +20,7 @@ ja:
         address_2: 作業所住所２
         introduction: 紹介文
 
-      art_category:
-        name:
+      inquiry:
+        content: お問い合わせ内容
+        inquiry_category_id: カテゴリー
+
