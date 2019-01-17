@@ -91,19 +91,16 @@
                 </div>
               <% end %>
             </li>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+<!--            search-->
+            <%= form_tag("/search/user", method: "post",class: "form-inline my-2 my-lg-0") do %>
+              <%= text_field_tag(:search_word,"", class: "form-control mr-sm-2", placeholder: "search...") %>
+              <%= button_tag "submit", class: "btn  my-2 my-sm-0 search_btn" do %>
+                <%= fa_icon "search lg",class: "search_icon" %>
+              <% end %>
+            <% end %>
+<!--              search-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-<!--            <li class="login-ul">-->
-              <%# if session[:id] == nil %>
-                <%#= button_to "ログイン", {controller: 'user', action: 'login'}, {method: :get, class: "btn btn-default my-login-btn"} %>
-              <%# else %>
-                <%#= button_to "ログアウト", {controller: 'user', action: 'logout'}, {method: :post, class: "btn btn-default my-login-btn"} %>
-              <%# end %>
-<!--            </li>-->
               <li class="login-ul">
                <% if session[:id] == nil %>
                 <!-- Button trigger modal -->

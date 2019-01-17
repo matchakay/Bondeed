@@ -36,8 +36,8 @@
           <th scope="col">削除日時</th>
         </tr>
       </thead>
-      <% @inquiry.each_with_index do |inquiry, i| %>
-        <tbody>
+      <tbody>
+        <% @inquiry.each_with_index do |inquiry, i| %>
           <tr>
             <th scope="row"><%= i + 1 %></th>
             <td><%= inquiry.id %></td>
@@ -48,8 +48,8 @@
             <td><%= inquiry.created_at %></td>
             <td><%= inquiry.deleted_at %></td>
           </tr>
-        </tbody>
-      <% end %>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

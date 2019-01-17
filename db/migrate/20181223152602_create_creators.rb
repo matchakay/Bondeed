@@ -1,7 +1,7 @@
 class CreateCreators < ActiveRecord::Migration[5.2]
   def change
     create_table :creators do |t|
-      t.references :user, null: false, foreign_key: true
+      t.string :user_id, null: false
       t.string :title, null: false, limit: 30
       t.references :art_category, null: false, foreign_key: true
       t.integer :establishment, null: false
@@ -15,6 +15,6 @@ class CreateCreators < ActiveRecord::Migration[5.2]
       t.timestamp :updated_at
       t.timestamp :deleted_at
     end
-    # add_foreign_key :creators, :art_categories, column: :art_category_id
+    add_foreign_key :creators, :users, column: :user_id
   end
 end

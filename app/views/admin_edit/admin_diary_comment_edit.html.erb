@@ -35,19 +35,19 @@
         <th scope="col">削除日時</th>
       </tr>
       </thead>
-      <% @diary_comment.each_with_index do |diary_comment, i| %>
-        <tbody>
-        <tr>
-          <th scope="row"><%= i + 1 %></th>
-          <td><%= diary_comment.id %></td>
-          <td><%= diary_comment.user_id %></td>
-          <td><%= diary_comment.diary_id %></td>
-          <td><%= diary_comment.comment %></td>
-          <td><%= diary_comment.created_at %></td>
-          <td><%= diary_comment.deleted_at %></td>
-        </tr>
-        </tbody>
-      <% end %>
+      <tbody>
+        <% @diary_comment.each_with_index do |diary_comment, i| %>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= diary_comment.id %></td>
+            <td><%= diary_comment.user_id %></td>
+            <td><%= diary_comment.diary_id %></td>
+            <td><%= diary_comment.comment %></td>
+            <td><%= diary_comment.created_at %></td>
+            <td><%= diary_comment.deleted_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

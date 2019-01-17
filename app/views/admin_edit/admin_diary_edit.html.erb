@@ -34,18 +34,18 @@
         <th scope="col">削除日時</th>
       </tr>
       </thead>
-      <% @diary.each_with_index do |diary, i| %>
-        <tbody>
-        <tr>
-          <th scope="row"><%= i + 1 %></th>
-          <td><%= diary.id %></td>
-          <td><%= diary.user_id %></td>
-          <td><%= diary.content %></td>
-          <td><%= diary.created_at %></td>
-          <td><%= diary.deleted_at %></td>
-        </tr>
-        </tbody>
-      <% end %>
+      <tbody>
+        <% @diary.each_with_index do |diary, i| %>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= diary.id %></td>
+            <td><%= diary.user_id %></td>
+            <td><%= diary.content %></td>
+            <td><%= diary.created_at %></td>
+            <td><%= diary.deleted_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

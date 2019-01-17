@@ -1041,7 +1041,7 @@
     </column>
     <column id="268" parent="234" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1116,7 +1116,7 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="281" parent="234" name="index_creators_on_user_id">
+    <index id="281" parent="234" name="fk_rails_f0c5a1a18a">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1143,14 +1143,13 @@
     </foreign-key>
     <column id="286" parent="235" name="id">
       <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="287" parent="235" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1178,7 +1177,7 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="292" parent="235" name="index_diaries_on_user_id">
+    <index id="292" parent="235" name="fk_rails_f03fd03c63">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1202,13 +1201,13 @@
     </column>
     <column id="296" parent="236" name="diary_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="297" parent="236" name="user_id">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1231,11 +1230,11 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="301" parent="236" name="index_diary_comments_on_diary_id">
+    <index id="301" parent="236" name="fk_rails_0f3d78174b">
       <ColNames>diary_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="302" parent="236" name="index_diary_comments_on_user_id">
+    <index id="302" parent="236" name="fk_rails_75f0ca877d">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1266,13 +1265,13 @@
     </column>
     <column id="307" parent="237" name="diary_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="308" parent="237" name="user_id">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1284,11 +1283,11 @@
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <index id="310" parent="237" name="index_diary_goods_on_diary_id">
+    <index id="310" parent="237" name="fk_rails_b7c652964c">
       <ColNames>diary_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="311" parent="237" name="index_diary_goods_on_user_id">
+    <index id="311" parent="237" name="fk_rails_da8d03400c">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1309,6 +1308,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="315" parent="238" name="id">
       <Position>1</Position>
@@ -1319,13 +1319,13 @@
     </column>
     <column id="316" parent="238" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="317" parent="238" name="favorite_user_id">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1337,11 +1337,11 @@
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <index id="319" parent="238" name="index_favorites_on_user_id">
+    <index id="319" parent="238" name="fk_rails_d15744e438">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="320" parent="238" name="index_favorites_on_favorite_user_id">
+    <index id="320" parent="238" name="fk_rails_0bb10dcefc">
       <ColNames>favorite_user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1364,14 +1364,13 @@
     </foreign-key>
     <column id="324" parent="239" name="id">
       <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="325" parent="239" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1400,7 +1399,7 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="330" parent="239" name="index_galleries_on_user_id">
+    <index id="330" parent="239" name="fk_rails_05f824a025">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1424,7 +1423,7 @@
     </column>
     <column id="334" parent="240" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1452,7 +1451,7 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="339" parent="240" name="index_heirs_on_user_id">
+    <index id="339" parent="240" name="fk_rails_94084789b8">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1486,7 +1485,7 @@
     </column>
     <column id="345" parent="241" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="346" parent="241" name="inquiry_category_id">
@@ -1526,7 +1525,7 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="352" parent="241" name="index_inquiries_on_user_id">
+    <index id="352" parent="241" name="fk_rails_7fdff2c1ec">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1539,7 +1538,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="355" parent="241" name="inquiries_users_id_fk">
+    <foreign-key id="355" parent="241" name="fk_rails_7fdff2c1ec">
       <ColNames>user_id</ColNames>
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1578,13 +1577,13 @@
     </column>
     <column id="361" parent="243" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="362" parent="243" name="target_user_id">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1612,11 +1611,11 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="367" parent="243" name="index_matches_on_user_id">
+    <index id="367" parent="243" name="fk_rails_1766d8a780">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="368" parent="243" name="index_matches_on_target_user_id">
+    <index id="368" parent="243" name="fk_rails_c475acfdab">
       <ColNames>target_user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1646,13 +1645,13 @@
     </column>
     <column id="373" parent="244" name="creator_user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="374" parent="244" name="heir_user_id">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1669,11 +1668,11 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="377" parent="244" name="index_message_lists_on_creator_user_id">
+    <index id="377" parent="244" name="fk_rails_c44687bc14">
       <ColNames>creator_user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="378" parent="244" name="index_message_lists_on_heir_user_id">
+    <index id="378" parent="244" name="fk_rails_8e0dafab66">
       <ColNames>heir_user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1703,13 +1702,13 @@
     </column>
     <column id="383" parent="245" name="send_user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="384" parent="245" name="receive_user_id">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1727,11 +1726,11 @@
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <index id="387" parent="245" name="index_messages_on_send_user_id">
+    <index id="387" parent="245" name="fk_rails_6613941af1">
       <ColNames>send_user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="388" parent="245" name="index_messages_on_receive_user_id">
+    <index id="388" parent="245" name="fk_rails_75141dd80c">
       <ColNames>receive_user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1761,7 +1760,7 @@
     </column>
     <column id="393" parent="246" name="user_id">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1779,7 +1778,7 @@
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <index id="396" parent="246" name="index_news_on_user_id">
+    <index id="396" parent="246" name="fk_rails_7b6cb9343d">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1944,96 +1943,80 @@ tagger_type</ColNames>
     </key>
     <column id="426" parent="250" name="id">
       <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="427" parent="250" name="password_digest">
-      <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="250" name="name">
-      <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="429" parent="250" name="email">
-      <Position>4</Position>
+    <column id="427" parent="250" name="email">
+      <Position>2</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="430" parent="250" name="profile">
-      <Position>5</Position>
-      <DataType>text|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="431" parent="250" name="avatar_path">
-      <Position>6</Position>
+    <column id="428" parent="250" name="avatar_path">
+      <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="432" parent="250" name="is_creator">
-      <Position>7</Position>
+    <column id="429" parent="250" name="is_creator">
+      <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="433" parent="250" name="birthday">
-      <Position>8</Position>
+    <column id="430" parent="250" name="birthday">
+      <Position>5</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="434" parent="250" name="is_man">
-      <Position>9</Position>
+    <column id="431" parent="250" name="is_man">
+      <Position>6</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="435" parent="250" name="is_certification">
-      <Position>10</Position>
+    <column id="432" parent="250" name="password_digest">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="433" parent="250" name="profile">
+      <Position>8</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="434" parent="250" name="is_certified">
+      <Position>9</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="436" parent="250" name="created_at">
-      <Position>11</Position>
+    <column id="435" parent="250" name="created_at">
+      <Position>10</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="437" parent="250" name="login_time">
+    <column id="436" parent="250" name="login_time">
+      <Position>11</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="437" parent="250" name="deleted_at">
       <Position>12</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="438" parent="250" name="deleted_at">
-      <Position>13</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="439" parent="250" name="users_email_uindex">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="440" parent="250" name="PRIMARY">
+    <key id="438" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-    </key>
-    <key id="441" parent="250" name="users_email_uindex">
-      <ColNames>email</ColNames>
-      <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

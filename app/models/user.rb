@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   mount_uploader :avatar_path, AvatarUploader
   has_secure_password
-  validates :password, allow_nil: true, presence: true, confirmation: true, length: { in: 8..16 }, format: {with: /[a-zA-Z0-9]/}
-  validates :name, presence: true
-  validates :email, presence: true
-  validates :email, uniqueness: true, on: :save
+  has_secure_token :id
+  validates :name, presence: true, length: {minimum: 1}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+  validates :email, uniqueness: true, on: :create
+  validates :password, allow_nil: true, presence: true, confirmation: true, length: { in: 8..16 }, format: {with: /[a-zA-Z0-9]/}
   has_many :creators
   has_many :diaries
   has_many :diary_comments

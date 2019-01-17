@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
   end
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "user_id", null: false
     t.string "title", limit: 30, null: false
     t.bigint "art_category_id", null: false
     t.integer "establishment", null: false
@@ -40,65 +40,65 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
     t.index ["art_category_id"], name: "index_creators_on_art_category_id"
-    t.index ["user_id"], name: "index_creators_on_user_id"
+    t.index ["user_id"], name: "fk_rails_f0c5a1a18a"
   end
 
-  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "diaries", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "user_id", null: false
     t.text "content", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
-    t.index ["user_id"], name: "index_diaries_on_user_id"
+    t.index ["user_id"], name: "fk_rails_f03fd03c63"
   end
 
   create_table "diary_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "diary_id", null: false
-    t.bigint "user_id", null: false
+    t.string "diary_id", null: false
+    t.string "user_id", null: false
     t.string "comment", limit: 100, null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "deleted_at"
-    t.index ["diary_id"], name: "index_diary_comments_on_diary_id"
-    t.index ["user_id"], name: "index_diary_comments_on_user_id"
+    t.index ["diary_id"], name: "fk_rails_0f3d78174b"
+    t.index ["user_id"], name: "fk_rails_75f0ca877d"
   end
 
   create_table "diary_goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "diary_id", null: false
-    t.bigint "user_id", null: false
+    t.string "diary_id", null: false
+    t.string "user_id", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["diary_id"], name: "index_diary_goods_on_diary_id"
-    t.index ["user_id"], name: "index_diary_goods_on_user_id"
+    t.index ["diary_id"], name: "fk_rails_b7c652964c"
+    t.index ["user_id"], name: "fk_rails_da8d03400c"
   end
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "favorite_user_id", null: false
+    t.string "user_id", null: false
+    t.string "favorite_user_id", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["favorite_user_id"], name: "index_favorites_on_favorite_user_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["favorite_user_id"], name: "fk_rails_0bb10dcefc"
+    t.index ["user_id"], name: "fk_rails_d15744e438"
   end
 
-  create_table "galleries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "galleries", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "user_id", null: false
     t.string "data", null: false
     t.string "comment", limit: 100, null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "deleted_at"
-    t.index ["user_id"], name: "index_galleries_on_user_id"
+    t.index ["user_id"], name: "fk_rails_05f824a025"
   end
 
   create_table "heirs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "user_id", null: false
     t.bigint "art_category_id", null: false
     t.text "introduction"
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
     t.index ["art_category_id"], name: "index_heirs_on_art_category_id"
-    t.index ["user_id"], name: "index_heirs_on_user_id"
+    t.index ["user_id"], name: "fk_rails_94084789b8"
   end
 
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "user_id"
     t.bigint "inquiry_category_id", null: false
     t.text "content", null: false
     t.boolean "is_check", default: false, null: false
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
     t.index ["inquiry_category_id"], name: "index_inquiries_on_inquiry_category_id"
-    t.index ["user_id"], name: "index_inquiries_on_user_id"
+    t.index ["user_id"], name: "fk_rails_7fdff2c1ec"
   end
 
   create_table "inquiry_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,39 +114,39 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
   end
 
   create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "target_user_id", null: false
+    t.string "user_id", null: false
+    t.string "target_user_id", null: false
     t.boolean "is_scout", null: false
     t.boolean "is_ok"
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
-    t.index ["target_user_id"], name: "index_matches_on_target_user_id"
-    t.index ["user_id"], name: "index_matches_on_user_id"
+    t.index ["target_user_id"], name: "fk_rails_c475acfdab"
+    t.index ["user_id"], name: "fk_rails_1766d8a780"
   end
 
   create_table "message_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "creator_user_id", null: false
-    t.bigint "heir_user_id", null: false
+    t.string "creator_user_id", null: false
+    t.string "heir_user_id", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
-    t.index ["creator_user_id"], name: "index_message_lists_on_creator_user_id"
-    t.index ["heir_user_id"], name: "index_message_lists_on_heir_user_id"
+    t.index ["creator_user_id"], name: "fk_rails_c44687bc14"
+    t.index ["heir_user_id"], name: "fk_rails_8e0dafab66"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "send_user_id", null: false
-    t.bigint "receive_user_id", null: false
+    t.string "send_user_id", null: false
+    t.string "receive_user_id", null: false
     t.text "content", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["receive_user_id"], name: "index_messages_on_receive_user_id"
-    t.index ["send_user_id"], name: "index_messages_on_send_user_id"
+    t.index ["receive_user_id"], name: "fk_rails_75141dd80c"
+    t.index ["send_user_id"], name: "fk_rails_6613941af1"
   end
 
   create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "user_id", null: false
     t.text "content", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["user_id"], name: "index_news_on_user_id"
+    t.index ["user_id"], name: "fk_rails_7b6cb9343d"
   end
 
   create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -174,16 +174,16 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "password_digest", null: false
-    t.string "name", limit: 50, null: false
+  create_table "users", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", limit: 20, null: false
     t.string "email", limit: 256, null: false
-    t.text "profile"
     t.string "avatar_path"
     t.boolean "is_creator", default: false, null: false
     t.date "birthday", null: false
     t.boolean "is_man", null: false
-    t.boolean "is_certification", default: false, null: false
+    t.string "password_digest", null: false
+    t.text "profile"
+    t.boolean "is_certified", default: false, null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "login_time"
     t.timestamp "deleted_at"
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
   add_foreign_key "diary_comments", "diaries", on_delete: :cascade
   add_foreign_key "diary_comments", "users"
   add_foreign_key "diary_goods", "diaries", on_delete: :cascade
-  add_foreign_key "diary_goods", "users"
+  add_foreign_key "diary_goods", "users", on_delete: :cascade
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "users", column: "favorite_user_id"
   add_foreign_key "galleries", "users"

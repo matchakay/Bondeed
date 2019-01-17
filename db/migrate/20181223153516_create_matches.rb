@@ -1,8 +1,8 @@
 class CreateMatches < ActiveRecord::Migration[5.2]
   def change
     create_table :matches do |t|
-      t.references :user, null: false
-      t.references :target_user, null: false
+      t.string :user_id, null: false
+      t.string :target_user_id, null: false
       t.boolean :is_scout, null: false
       t.boolean :is_ok
       t.timestamp :created_at, null: false

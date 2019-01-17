@@ -12,4 +12,8 @@ class IndexController < ApplicationController
   def root
     redirect_to "/index"
   end
+
+  def search_user
+
+  end
 end

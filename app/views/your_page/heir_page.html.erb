@@ -1,24 +1,13 @@
 <%= stylesheet_link_tag "your_page" %>
 
 <!--通知・エラー-->
-<!--<div>-->
-  <%# flash.each do |key, value| %>
-<!--    <div class="alert alert-<%#= key %>"><%#= value %></div>-->
-  <%# end %>
+<div>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
 <!--</div>-->
 
-<!--<div>-->
-  <%# if @heir.errors.any? %>
-<!--    <div id="error_explanation" class="alert alert-danger">-->
-<!--      <ul>-->
-        <%# @heir.errors.full_messages.each do |message| %>
-<!--          <li><%#= message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-<!--</div>-->
-<!--通知・エラー-->
 <div>
   <div class="background-img-box">
     <%= image_tag "main1.jpg", height: "800px", width: "100%", alt: "背景画像" %>

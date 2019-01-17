@@ -36,17 +36,17 @@
         </tr>
       </thead>
       <tbody>
-      <% @user.each_with_index do |user, i| %>
-          <tr>
-            <th scope="row"><%= i + 1 %></th>
-            <td><%= user.id %></td>
-            <td><%= user.name %></td>
-            <td><%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "30x30" %></td>
-            <td><%= user.created_at %></td>
-            <td><%= user.deleted_at %></td>
-            <td><%= user.login_time %></td>
-          </tr>
-      <% end %>
+        <% @user.each_with_index do |user, i| %>
+            <tr>
+              <th scope="row"><%= i + 1 %></th>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td><%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "30x30" %></td>
+              <td><%= user.created_at %></td>
+              <td><%= user.deleted_at %></td>
+              <td><%= user.login_time %></td>
+            </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

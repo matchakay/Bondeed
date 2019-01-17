@@ -69,6 +69,7 @@ Rails.application.routes.draw do
 
 
   post 'index' => 'user#logout'
+  post 'search/user' => 'index#search_user'
 
   post 'user/login' => 'user#login'
   post 'user/create' => 'user#create'

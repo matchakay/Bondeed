@@ -30,8 +30,8 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "success"
-      GmailMailer.send_create(@user).deliver
+      flash.now[:success] = "success"
+      # GmailMailer.send_create(@user).deliver
       redirect_to "/index"
     else
       render action: :regist
@@ -82,5 +82,5 @@ end
 
 private
 def user_params
-  params.require(:user).permit(:name, :password, :password_confirmation, :avatar_path, :email, :birthday, :is_man, :is_creator)
+  params.require(:user).permit(:id, :name, :avatar_path, :email, :birthday, :password, :password_confirmation, :is_man, :is_creator)
 end
