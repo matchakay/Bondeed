@@ -93,7 +93,7 @@
             </li>
 <!--            search-->
             <%= form_tag("/search/user", method: "post",class: "form-inline my-2 my-lg-0") do %>
-              <%= text_field_tag(:search_word,"", class: "form-control mr-sm-2", placeholder: "search...") %>
+              <%= text_field_tag(:search_word,"", class: "form-control", size: "28x1", placeholder: "search user ...") %>
               <%= button_tag "submit", class: "btn  my-2 my-sm-0 search_btn" do %>
                 <%= fa_icon "search lg",class: "search_icon" %>
               <% end %>

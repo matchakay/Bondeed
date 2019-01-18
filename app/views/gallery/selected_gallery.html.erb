@@ -26,22 +26,24 @@
       </div>
     </div>
 
-    <div class=" match-tag-box">
-      <div class="match-tag-box-header">
-        関連画像
-      </div>
-      <div class="row justify-content-center my-match-row">
-        <% @match_tag.each do |match_tag| %>
-          <% if match_tag.id != @selected_gallery.id %>
-            <div class="col-4 match-tag-content">
-                <%= link_to("/gallery/selected/#{match_tag.id}", {method: "get"}) do %>
-                <%= image_tag "#{match_tag.data}", width: "100%", height: "100%" %>
-              <% end %>
-            </div>
+    <% if !@match_tag.empty? %>
+      <div class=" match-tag-box">
+        <div class="match-tag-box-header">
+          関連画像
+        </div>
+        <div class="row justify-content-center my-match-row">
+          <% @match_tag.each do |match_tag| %>
+            <% if match_tag.id != @selected_gallery.id %>
+              <div class="col-4 match-tag-content">
+                  <%= link_to("/gallery/selected/#{match_tag.id}", {method: "get"}) do %>
+                  <%= image_tag "#{match_tag.data}", width: "100%", height: "100%" %>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 <!--  right-->
 
@@ -89,18 +91,20 @@
       </div>
     </div>
 <!--    first-->
-    <div class="other-box">
-      <div class="other-box-header">
-        その他の投稿
-      </div>
-      <% @other_gallery.each do |other_gallery| %>
-        <div class="other-content">
-          <%= link_to("/gallery/selected/#{other_gallery.id}", {method: "get"}) do %>
-            <%= image_tag "#{other_gallery.data}", width: "100%", height: "100%" %>
-          <% end %>
+    <% if !@other_gallery.empty? %>
+      <div class="other-box">
+        <div class="other-box-header">
+          その他の投稿
         </div>
-      <% end %>
-    </div>
+        <% @other_gallery.each do |other_gallery| %>
+          <div class="other-content">
+            <%= link_to("/gallery/selected/#{other_gallery.id}", {method: "get"}) do %>
+              <%= image_tag "#{other_gallery.data}", width: "100%", height: "100%" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <!--  left-->
 </div>

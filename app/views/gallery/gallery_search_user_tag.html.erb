@@ -22,8 +22,6 @@
 </div>
 <!--error-->
 
-
-<% if !@user_gallery.empty? %>
   <div class="gallery-search-box">
     <!--            search-->
     <%= form_tag("/gallery/user/search/tag/#{@user.id}", method: "post",class: "gallery-search-tag") do %>
@@ -34,7 +32,6 @@
     <% end %>
     <!--              search-->
   </div>
-<% end %>
 <!--left-->
 <div class="row user-gallery-row">
   <div class="col-md-12 gallery-col">
@@ -67,7 +64,7 @@
       <% end %>
     <% else %>
       <div class="nil-box">
-        <p class="empty-text">まだありません</p>
+        <p class="empty-text">検索結果なし</p>
       </div>
     <% end %>
   </div>

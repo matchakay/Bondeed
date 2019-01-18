@@ -97,6 +97,7 @@ Rails.application.routes.draw do
   #ギャラリー
   post 'gallery/view' => 'gallery#upload'
   post 'gallery/my_gallery' => 'gallery#my_gallery'
+  post 'gallery/user/search/tag/:id' => 'gallery#search_user_tag'
 
   #メッセージ
   post 'message/send/:id' => 'message#send_message'

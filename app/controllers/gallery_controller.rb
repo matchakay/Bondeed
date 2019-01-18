@@ -2,10 +2,12 @@ class GalleryController < ApplicationController
 
   #お気に入りユーザのギャラリー
   def favorite_gallery
-    if session[:creator] != nil
+    if session[:id] != nil
       @gallery = Gallery.new
-      @favorite_gallery = User.joins(:galleries).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: session[:id]}).or(User.joins(:galleries).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: Favorite.where(user_id: session[:id]).select("favorites.favorite_user_id")})).order("galleries.created_at DESC")
+      @favorite_gallery = Gallery.joins(:user).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: session[:id]}).or(Gallery.joins(:user).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: Favorite.where(user_id: session[:id]).select("favorites.favorite_user_id")})).order("galleries.created_at DESC")
       render :favorite_gallery
+    else
+      redirect_to "/index"
     end
   end
 
@@ -23,8 +25,8 @@ class GalleryController < ApplicationController
   #ユーザ別ギャラリー
   def user_view
     @gallery = Gallery.new
-    @user = User.find(params[:id])
-    @user_gallery = User.left_joins(:galleries).select("users.*", "galleries.*").where(galleries: {user_id: params[:id]}).order("galleries.created_at DESCs")
+    @user = User.find_by("id = ?", params[:id])
+    @user_gallery = Gallery.joins(:user).select("users.*", "galleries.*").where(galleries: {user_id: params[:id]}).order("galleries.created_at DESC")
     render :user_gallery_view
   end
 
@@ -51,7 +53,17 @@ class GalleryController < ApplicationController
     #タグ検索
     @match_tag = Gallery.tagged_with([@selected_gallery.tag_list], :any => true).where.not(user_id: @selected_gallery.user_id).order("RAND()").limit(3)
     #ユーザの他投稿
-    @other_gallery = Gallery.where(user_id: @selected_gallery.user_id).where.not(id: params[:id]).order("RAND()").limit(2)
+    @other_gallery = Gallery.where(user_id: @selected_gallery.user_id).where.not("id = ?", params[:id]).order("RAND()").limit(2)
+  end
+
+  #タグ検索
+  def search_user_tag
+    if params[:search_tag] != ""
+      @gallery = Gallery.new
+      @user = User.find_by("id = ?", params[:id])
+      @user_gallery = Gallery.tagged_with([params[:search_tag]], :any => true).where("user_id = ?", params[:id])
+      render :gallery_search_user_tag
+    end
   end
 
 end

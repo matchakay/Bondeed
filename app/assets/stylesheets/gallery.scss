@@ -38,7 +38,8 @@
   opacity: 0.8;
 }
 .card-col {
-  padding: 2px;
+  padding: 5px 2px 0 2px;
+  padding-bottom: 10%;
 }
 .gallery-col {
   padding: 0 0 0 0.3%;
@@ -114,7 +115,15 @@
   width: 90%;
   margin: 8% auto 0 auto;
 }
-
+.gallery-search-box {
+  width: 100%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  text-align: right;
+}
+.gallery-search-tag {
+  display: inline-flex;
+}
 
 //selected_gallery
 .selected-gallery-box {
@@ -152,6 +161,7 @@
 .my-selected-row {
   width: 100%;
   padding-left: 1.5%;
+  margin-bottom: 13%;
 }
 .selected-gallery-tag {
   padding: 8px 5px 8px 8px;
@@ -245,7 +255,9 @@
   width: 100%;
 }
 .other-box {
-  background-color: #c9e2b3;
+  padding: 2%;
+  background-color: #6846A5;
+  border-radius: 5px 5px 0 0;
 }
 .other-content {
   padding: 0;
