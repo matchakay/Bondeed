@@ -37,9 +37,6 @@ Rails.application.routes.draw do
   get 'gallery/selected/:id' => 'gallery#selected_gallery'
   get 'gallery/favorite' => 'gallery#favorite_gallery'
 
-  #認証
-  get 'certify/set' => 'certify#set'
-
   #後継者ページ
   get 'heir/show' => 'heir#heir_show'
   get 'heir/edit' => 'heir#heir_edit'
@@ -76,6 +73,9 @@ Rails.application.routes.draw do
   post 'user/password_forgot' => 'user#email_exist'
   patch 'user/password_reset' => 'user#password_reset'
   post 'user/password_reset' => 'user#password_reset'
+
+  #メールアドレス認証
+  post "email/certified/:id" => 'user#email_certified'
 
   patch 'my_page/update' => 'my_page#update'
 

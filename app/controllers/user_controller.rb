@@ -31,7 +31,8 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = "success"
-      # GmailMailer.send_create(@user).deliver
+      GmailMailer.send_create(@user).deliver
+      GmailMailer.send_certification(@user).deliver
       redirect_to "/index"
     else
       render action: :regist
@@ -75,6 +76,20 @@ class UserController < ApplicationController
     else
       flash.now[:danger] = "エラー"
       render :password_edit
+    end
+  end
+
+  #メールアドレス認証
+  def email_certified
+    if User.find_by("id = ?", params[:id]).select("users.is_certified")
+      redirect_to "/index"
+    else
+      user = User.find_by("id = ?", params[:id])
+      if user.update_all(:is_certified => 1)
+        flash[:success] = "メールアドレス認証完了"
+      else
+        flash[:danger] = "メールアドレス認証エラー"
+      end
     end
   end
 
