@@ -2,34 +2,7 @@
 
 <h1 class="main-title">お問い合わせ</h1>
 
-
-
 <div class="wrapper">
-
-
-  <!--エラー-->
-  <div>
-    <div>
-      <% flash.each do |key, value| %>
-        <div class="alert-<%= key %>"><%= value %></div>
-      <% end %>
-    </div>
-    <% if @inquiry.errors.any? %>
-      <div id="error_explanation" class="error-box">
-        <p class="error-title">入力内容にエラーが<%= @inquiry.errors.count %>件あります</p>
-        <ul class="error-index">
-          <% @inquiry.errors.full_messages.each do |message| %>
-            <li class="error-content">
-              <%= message %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
-  <!--エラー-->
-
-
 
   <%= form_for @inquiry, url: "/inquiry/input" do |f| %>
     <div class="form-group">

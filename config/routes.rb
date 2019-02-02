@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'user/password_forgot' => 'user#password_forgot'
   get 'user/password_reset' => 'user#password_edit'
   get 'user/create' => 'user#regist'
+  get 'email/certified/:id' => 'user#email_certified_show'
 
   get 'my_page/my_page' => 'my_page#my_page'
   get 'my_page/update' => 'my_page#show'
@@ -75,7 +76,7 @@ Rails.application.routes.draw do
   post 'user/password_reset' => 'user#password_reset'
 
   #メールアドレス認証
-  post "email/certified/:id" => 'user#email_certified'
+  post 'email/certified/:id' => 'user#email_certified'
 
   patch 'my_page/update' => 'my_page#update'
 

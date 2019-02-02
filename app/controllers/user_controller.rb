@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-
   def login
     if session[:id] == nil
       user = User.find_by(email: params[:session][:email].downcase)
@@ -76,6 +75,15 @@ class UserController < ApplicationController
     else
       flash.now[:danger] = "エラー"
       render :password_edit
+    end
+  end
+
+  def email_certified_show
+    if session[:id] != nil
+      @user = User.find_by("id = ?", params[:id])
+      render :email_certified
+    else
+      redirect_to "/index"
     end
   end
 

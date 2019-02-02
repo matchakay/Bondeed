@@ -10,7 +10,7 @@
 </p>
 
 <div class="text-center">
-  <%= button_to("http://matcha-kay.work/email/certified/#{@user.id}", {method: "post"}, class: "btn btn-success") do %>
-    メールアドレス認証
+  <%= button_to("http://matcha-kay.work/email/certified/#{@user.id}", {method: "get"}, {class: "btn btn-success"}) do %>
+    メールアドレスを認証する
   <% end %>
 </div>
