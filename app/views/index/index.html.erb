@@ -6,11 +6,11 @@
 </div>
 
 <% if session[:id] == nil %>
-  <div class="bg-1 container-fluid text-center bar">
+  <div class="bg-1 text-center bar">
   </div>
-  <div class="container-fluid bg-3 text-center zone">
-    <h3 class="margin info-title">どんなシステム？</h3>
-    <div class="row justify-content-around">
+  <div class="text-center zone">
+    <h3 class="info-title">どんなシステム？</h3>
+    <div class="col-lg-12 row justify-content-around my-row">
       <div class="col-md-4">
         <div class="three-box">
           <%= image_tag "user.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-  <div class="bg-1 container-fluid text-center bar"></div>
+  <div class="bg-1 text-center bar"></div>
 <% end %>
 
   <div class="row card-group justify-content-center my-row">
@@ -49,9 +49,9 @@
               <div class="card profile-card">
                 <div class="text-center">
                   <% if user.avatar_path == nil %>
-                    <%= image_tag "default.png", class: "rounded-circle", size: "300x300" %>
+                    <%= image_tag "default.png", class: "rounded-circle", size: "100%x100%" %>
                   <% else %>
-                    <%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "300x300" %>
+                    <%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "100%x100%" %>
                   <% end %>
                 </div>
                 <div class="card-body">

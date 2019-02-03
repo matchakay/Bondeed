@@ -7,6 +7,6 @@ class CreateHeirs < ActiveRecord::Migration[5.2]
       t.timestamp :created_at, null: false
       t.timestamp :updated_at
     end
-    add_foreign_key :heirs, :users, column: :user_id
+    add_foreign_key :heirs, :users, column: :user_id, on_delete: :cascade
   end
 end

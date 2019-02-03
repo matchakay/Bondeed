@@ -122,8 +122,9 @@
         <% end %>
       </div>
 
-
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
 
     <% if session[:id] != nil %>
       <div class="none-margin-box"></div>

@@ -6,7 +6,7 @@ class CreateMessageLists < ActiveRecord::Migration[5.2]
       t.timestamp :created_at, null: false
       t.timestamp :updated_at
     end
-    add_foreign_key :message_lists, :users, column: :creator_user_id
-    add_foreign_key :message_lists, :users, column: :heir_user_id
+    add_foreign_key :message_lists, :users, column: :creator_user_id, on_delete: :cascade
+    add_foreign_key :message_lists, :users, column: :heir_user_id, on_delete: :cascade
   end
 end

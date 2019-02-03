@@ -6,7 +6,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.text :content, null: false
       t.timestamp :created_at, null: false
     end
-    add_foreign_key :messages, :users, column: :send_user_id
-    add_foreign_key :messages, :users, column: :receive_user_id
+    add_foreign_key :messages, :users, column: :send_user_id, on_delete: :cascade
+    add_foreign_key :messages, :users, column: :receive_user_id, on_delete: :cascade
   end
 end

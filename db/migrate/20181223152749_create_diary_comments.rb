@@ -8,6 +8,6 @@ class CreateDiaryComments < ActiveRecord::Migration[5.2]
       t.timestamp :deleted_at
     end
     add_foreign_key :diary_comments, :diaries, on_delete: :cascade
-    add_foreign_key :diary_comments, :users, column: :user_id
+    add_foreign_key :diary_comments, :users, column: :user_id, on_delete: :cascade
   end
 end

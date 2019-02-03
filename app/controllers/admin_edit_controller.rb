@@ -9,12 +9,8 @@ class AdminEditController < ApplicationController
   end
 
   def user
-    if session[:admin] != nil
       @user = User.all
       render :admin_user_edit
-    else
-      redirect_to "/admin/index"
-    end
   end
 
   def diary
@@ -39,6 +35,66 @@ class AdminEditController < ApplicationController
   def inquiry
     @inquiry = Inquiry.all
     render :admin_inquiry_edit
+  end
+
+  #ユーザー削除
+  def user_delete
+    if User.delete(params[:id])
+      flash[:success] = "success"
+      render action: :user
+    else
+      flash[:danger] = "error"
+    end
+  end
+
+  #ユーザー編集
+  def user_edit_show
+    @user = User.find_by("id = ?", params[:id])
+    render :selected_user_edit
+  end
+
+  #patch
+  def user_edit
+    user = User.find_by("id = ?", params[:id])
+    if user.update_attributes(:avatar_path => params[:user][:avatar_path], :profile => params[:user][:profile])
+      flash[:success] = "success"
+      redirect_to "/admin/management/user"
+    else
+      flash.now[:danger] = "error"
+    end
+  end
+
+  #ダイアリー削除
+  def diary_delete
+    if Diary.delete(params[:id])
+      flash[:success] = "success"
+      render action: :diary
+    else
+      flash[:danger] = "error"
+      render action: :diary
+    end
+  end
+
+  #ダイアリーコメント削除
+  def diary_comment_delete
+    if DiaryComment.delete(params[:id])
+      flash[:success] = "success"
+      render action: :diary_comment
+    else
+      flash[:danger] = "error"
+      render action: :diary_comment
+    end
+  end
+
+  #ギャラリー削除
+  def gallery_delete
+    if Gallery.delete(params[:id])
+      flash[:success] = "success"
+      render action: :gallery
+    else
+      flash[:danger] = "error"
+      render action: :gallery
+    end
   end
 
   private

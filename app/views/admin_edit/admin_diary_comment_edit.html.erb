@@ -33,6 +33,7 @@
         <th scope="col">コメント</th>
         <th scope="col">登録日時</th>
         <th scope="col">削除日時</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -45,6 +46,13 @@
             <td><%= diary_comment.comment %></td>
             <td><%= diary_comment.created_at %></td>
             <td><%= diary_comment.deleted_at %></td>
+            <td>
+              <%= form_for :admin, url: "/admin/diary_comment/delete/#{diary_comment.id}" do |f| %>
+                <%= f.button type: "submit", method: "post", class: "btn btn-danger" do %>
+                  削除
+                <% end %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

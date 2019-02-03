@@ -30,22 +30,36 @@
           <th scope="col">ID</th>
           <th scope="col">名前</th>
           <th scope="col">アバター</th>
+          <th scope="col">プロフィール</th>
           <th scope="col">登録日時</th>
           <th scope="col">削除日時</th>
           <th scope="col">最新ログイン時間</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @user.each_with_index do |user, i| %>
-            <tr>
-              <th scope="row"><%= i + 1 %></th>
-              <td><%= user.id %></td>
-              <td><%= user.name %></td>
-              <td><%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "30x30" %></td>
-              <td><%= user.created_at %></td>
-              <td><%= user.deleted_at %></td>
-              <td><%= user.login_time %></td>
-            </tr>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "30x30" %></td>
+            <td><%= user.profile %></td>
+            <td><%= user.created_at %></td>
+            <td><%= user.deleted_at %></td>
+            <td><%= user.login_time %></td>
+            <td>
+              <%= button_to "編集", {controller: 'admin_edit', action: 'user_edit_show', id: user.id}, {method: :get, class: "btn btn-warning"} %>
+            </td>
+            <td>
+              <%= form_for :admin, url: "/admin/user/delete/#{user.id}" do |f| %>
+                <%= f.button type: "submit", method: "post", class: "btn btn-danger", :confirm => "本当に削除しますか？" do %>
+                  削除
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

@@ -8,6 +8,6 @@ class CreateGalleries < ActiveRecord::Migration[5.2]
       t.timestamp :created_at, null: false
       t.timestamp :deleted_at
     end
-    add_foreign_key :galleries, :users, column: :user_id
+    add_foreign_key :galleries, :users, column: :user_id, on_delete: :cascade
   end
 end

@@ -5,6 +5,6 @@ class CreateNews < ActiveRecord::Migration[5.2]
       t.text :content, null: false
       t.timestamp :created_at, null: false
     end
-    add_foreign_key :news, :users, column: :user_id
+    add_foreign_key :news, :users, column: :user_id, on_delete: :cascade
   end
 end

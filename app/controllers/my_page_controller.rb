@@ -27,7 +27,7 @@ class MyPageController < ApplicationController
     begin
       @user = User.find(session[:id])
       # :name => params[:user][:name], :email => params[:user][:email], :phone_number => params[:user][:phone_number], :postal_code => params[:user][:postal_code], :address_1 => params[:user][:address_1], :address_2 => params[:user][:address_2], :profile => params[:user][:profile]
-      if @user.update_attributes(:avatar_path => params[:user][:avatar_path], :name => params[:user][:name], :email => params[:user][:email], :phone_number => params[:user][:phone_number], :profile => params[:user][:profile])
+      if @user.update_attributes(:avatar_path => params[:user][:avatar_path], :name => params[:user][:name], :email => params[:user][:email],  :profile => params[:user][:profile])
         flash[:success] = "success"
         render :show
       else

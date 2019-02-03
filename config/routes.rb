@@ -60,10 +60,12 @@ Rails.application.routes.draw do
   get 'admin/create/07392' => 'admin#create'
   get 'admin/index' => 'admin_edit#index'
   get 'admin/management/user' => 'admin_edit#user'
+  get 'admin/user/edit/:id' => 'admin_edit#user_edit_show'
   get 'admin/management/diary' => 'admin_edit#diary'
   get 'admin/management/diary_comment' => 'admin_edit#diary_comment'
   get 'admin/management/gallery' => 'admin_edit#gallery'
   get 'admin/management/inquiry' => 'admin_edit#inquiry'
+
 
 
   post 'index' => 'user#logout'
@@ -122,6 +124,12 @@ Rails.application.routes.draw do
 
   post 'admin/login' => 'admin#login_challenge'
   post 'admin/create/user' => 'admin#create_user'
+
+  post 'admin/user/delete/:id' => 'admin_edit#user_delete'
+  patch 'admin/user/edit/:id' => 'admin_edit#user_edit'
+  post 'admin/diary/delete/:id' => 'admin_edit#diary_delete'
+  post 'admin/diary_comment/delete/:id' => 'admin_edit#diary_comment_delete'
+  post 'admin/gallery/delete/:id' => 'admin_edit#gallery_delete'
 
   get '*path', controller: 'application', action: 'render_404'
 end

@@ -9,6 +9,6 @@ class CreateInquiries < ActiveRecord::Migration[5.2]
       t.timestamp :updated_at
       t.timestamp :deleted_at
     end
-    add_foreign_key :inquiries, :users, column: :user_id
+    add_foreign_key :inquiries, :users, column: :user_id, on_delete: :cascade
   end
 end
