@@ -190,24 +190,24 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
   end
 
   add_foreign_key "creators", "art_categories"
-  add_foreign_key "creators", "users"
-  add_foreign_key "diaries", "users"
+  add_foreign_key "creators", "users", on_delete: :cascade
+  add_foreign_key "diaries", "users", on_delete: :cascade
   add_foreign_key "diary_comments", "diaries", on_delete: :cascade
-  add_foreign_key "diary_comments", "users"
+  add_foreign_key "diary_comments", "users", on_delete: :cascade
   add_foreign_key "diary_goods", "diaries", on_delete: :cascade
   add_foreign_key "diary_goods", "users", on_delete: :cascade
-  add_foreign_key "favorites", "users"
-  add_foreign_key "favorites", "users", column: "favorite_user_id"
-  add_foreign_key "galleries", "users"
+  add_foreign_key "favorites", "users", column: "favorite_user_id", on_delete: :cascade
+  add_foreign_key "favorites", "users", on_delete: :cascade
+  add_foreign_key "galleries", "users", on_delete: :cascade
   add_foreign_key "heirs", "art_categories"
-  add_foreign_key "heirs", "users"
+  add_foreign_key "heirs", "users", on_delete: :cascade
   add_foreign_key "inquiries", "inquiry_categories"
-  add_foreign_key "inquiries", "users"
-  add_foreign_key "matches", "users"
-  add_foreign_key "matches", "users", column: "target_user_id"
-  add_foreign_key "message_lists", "users", column: "creator_user_id"
-  add_foreign_key "message_lists", "users", column: "heir_user_id"
-  add_foreign_key "messages", "users", column: "receive_user_id"
-  add_foreign_key "messages", "users", column: "send_user_id"
-  add_foreign_key "news", "users"
+  add_foreign_key "inquiries", "users", on_delete: :cascade
+  add_foreign_key "matches", "users", column: "target_user_id", on_delete: :cascade
+  add_foreign_key "matches", "users", on_delete: :cascade
+  add_foreign_key "message_lists", "users", column: "creator_user_id", on_delete: :cascade
+  add_foreign_key "message_lists", "users", column: "heir_user_id", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "receive_user_id", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "send_user_id", on_delete: :cascade
+  add_foreign_key "news", "users", on_delete: :cascade
 end

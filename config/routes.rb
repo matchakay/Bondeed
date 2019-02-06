@@ -67,7 +67,6 @@ Rails.application.routes.draw do
   get 'admin/management/inquiry' => 'admin_edit#inquiry'
 
 
-
   post 'index' => 'user#logout'
   post 'search/user' => 'index#search_user'
 

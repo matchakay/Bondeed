@@ -30,8 +30,8 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = "success"
-      GmailMailer.send_create(@user).deliver
-      GmailMailer.send_certification(@user).deliver
+      # GmailMailer.send_create(@user).deliver
+      # GmailMailer.send_certification(@user).deliver
       redirect_to "/index"
     else
       render action: :regist

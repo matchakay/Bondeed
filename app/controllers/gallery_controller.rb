@@ -49,7 +49,8 @@ class GalleryController < ApplicationController
   #個別画像
   def selected_gallery
     @selected_gallery = Gallery.find_by("id = ?", params[:id])
-    @selected_gallery_user = User.joins(:creators).select("users.*, creators.*").find(@selected_gallery.user_id)
+    @user = User.find_by("id = ?", @selected_gallery.user_id)
+    @selected_gallery_user = User.joins(:creators).select("users.*, creators.user_id , creators.title, creators.establishment, creators.employee").find(@selected_gallery.user_id)
     #タグ検索
     @match_tag = Gallery.tagged_with([@selected_gallery.tag_list], :any => true).where.not(user_id: @selected_gallery.user_id).order("RAND()").limit(3)
     #ユーザの他投稿

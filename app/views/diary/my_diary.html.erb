@@ -8,13 +8,15 @@
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 </div>
-
 <div>
-  <% if @diary_good.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <ul>
-        <% @diary_good.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <% if @diary.errors.any? %>
+    <div id="error_explanation" class="error-box">
+      <p class="error-title">入力内容にエラーが<%= @diary.errors.count %>件あります</p>
+      <ul class="error-index">
+        <% @diary.errors.full_messages.each do |message| %>
+          <li class="error-content">
+            <%= message %>
+          </li>
         <% end %>
       </ul>
     </div>

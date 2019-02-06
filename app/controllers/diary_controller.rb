@@ -90,7 +90,6 @@ class DiaryController < ApplicationController
     end
   end
 
-
   #いいねボタン
   def good
     if session[:id] != nil
@@ -107,6 +106,7 @@ class DiaryController < ApplicationController
     end
   end
 
+  #コメント
   def comment
     if session[:id] != nil
       params[:diary_comment][:user_id] = session[:id]
@@ -114,10 +114,10 @@ class DiaryController < ApplicationController
       @diary_comment = DiaryComment.new(diary_comment_params)
       if @diary_comment.save
         flash[:success] = "success"
-        redirect_to "/diary/show"
+        redirect_to "/diary/view"
       else
         flash[:danger] = "エラー"
-        redirect_to "/diary/show"
+        redirect_to "/diary/view"
       end
     else
       redirect_to "/index"

@@ -10,16 +10,28 @@
 </div>
 
 <div>
-  <% if @diary_good.errors.any? %>
+  <% if @diary.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <ul>
-        <% @diary_good.errors.full_messages.each do |message| %>
+        <% @diary.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 </div>
+
+<!--<div>-->
+  <%# if @diary_comment.errors.any? %>
+<!--    <div id="error_explanation" class="alert alert-danger">-->
+<!--      <ul>-->
+        <%# @diary_comment.errors.full_messages.each do |message| %>
+<!--          <li><%#= message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+<!--</div>-->
 <!--  通知・エラー-->
 
 <div class="wrapper">

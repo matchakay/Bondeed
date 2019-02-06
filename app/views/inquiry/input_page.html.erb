@@ -4,6 +4,23 @@
 
 <div class="wrapper">
 
+  <!--エラー-->
+  <div>
+    <% if @inquiry.errors.any? %>
+      <div id="error_explanation" class="error-box">
+        <p class="error-title">入力内容にエラーが<%= @inquiry.errors.count %>件あります</p>
+        <ul class="error-index">
+          <% @inquiry.errors.full_messages.each do |message| %>
+            <li class="error-content">
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <!--エラー-->
+
   <%= form_for @inquiry, url: "/inquiry/input" do |f| %>
     <div class="form-group">
       <%= f.label "カテゴリー", class: "inquiry-input-label" %>

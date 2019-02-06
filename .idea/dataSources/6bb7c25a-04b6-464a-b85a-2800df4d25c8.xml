@@ -2,7 +2,7 @@
 <dataSource name="SucSeed@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.14">
     <root id="1">
-      <ServerVersion>5.7.24</ServerVersion>
+      <ServerVersion>5.7.25</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>exact</DefaultCasing>
@@ -1134,6 +1134,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="285" parent="234" name="fk_rails_ade7cf0ecb">
       <ColNames>art_category_id</ColNames>
@@ -1191,6 +1192,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="295" parent="236" name="id">
       <Position>1</Position>
@@ -1255,6 +1257,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="306" parent="237" name="id">
       <Position>1</Position>
@@ -1355,12 +1358,14 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="323" parent="238" name="fk_rails_0bb10dcefc">
       <ColNames>favorite_user_id</ColNames>
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="324" parent="239" name="id">
       <Position>1</Position>
@@ -1413,6 +1418,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="333" parent="240" name="id">
       <Position>1</Position>
@@ -1469,6 +1475,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="343" parent="240" name="fk_rails_1793f7d885">
       <ColNames>art_category_id</ColNames>
@@ -1543,6 +1550,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="356" parent="241" name="fk_rails_1353602a25">
       <ColNames>inquiry_category_id</ColNames>
@@ -1629,12 +1637,14 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="371" parent="243" name="fk_rails_c475acfdab">
       <ColNames>target_user_id</ColNames>
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="372" parent="244" name="id">
       <Position>1</Position>
@@ -1686,12 +1696,14 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="381" parent="244" name="fk_rails_8e0dafab66">
       <ColNames>heir_user_id</ColNames>
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="382" parent="245" name="id">
       <Position>1</Position>
@@ -1744,12 +1756,14 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="391" parent="245" name="fk_rails_75141dd80c">
       <ColNames>receive_user_id</ColNames>
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="392" parent="246" name="id">
       <Position>1</Position>
@@ -1792,6 +1806,7 @@
       <RefSchemaName>SucSeed</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="399" parent="247" name="version">
       <Position>1</Position>

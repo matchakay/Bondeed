@@ -1,15 +1,16 @@
 .wrapper {
   width: 85%;
   margin:  0 auto 5% auto;
-  padding: 3%;
   background-color: #275D39;
   border: solid 1px #1F4B2E;
   border-radius: 7px;
 }
 .main-title {
-  margin: 2% 0 3% 2%;
+  margin: 2% 0 3% 0;
+  padding-left: 2%;
   font-size: 71px;
   color: #fff;
+  background-color: #6846A5;
 }
 .left-col {
   padding-top: 0.7%;
@@ -64,6 +65,9 @@
   font-size: 27px;
   padding: 2% 0 2% 0;
   background-color: #FCF2D3;
+}
+.profile-text {
+  padding-left: 11%;
 }
 .bottom-box {
   padding-bottom: 5%;
