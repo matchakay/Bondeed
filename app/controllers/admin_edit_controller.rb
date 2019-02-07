@@ -97,6 +97,25 @@ class AdminEditController < ApplicationController
     end
   end
 
+  #お問い合わせ詳細表示
+  def inquiry_detail_show
+    @inquiry_detail = Inquiry.find_by("id = ?", params[:id])
+    @category = InquiryCategory.find(@inquiry_detail.inquiry_category_id)
+    render :inquiry_detail
+  end
+
+  #あ問い合わせ対応
+  def inquiry_detail_check
+    inquiry_detail = Inquiry.find_by("id = ?", params[:id])
+    if inquiry_detail.update_attributes(:is_check => params[:check][:is_check])
+      flash[:success] = "success"
+      redirect_to "/admin/management/inquiry"
+    else
+      flash[:danger] = "エラー"
+      render action: :inquiry_detail_show
+    end
+  end
+
   private
   def session_check
     if session[:admin] == nil

@@ -13,28 +13,27 @@
     <div class="col-lg-12 row justify-content-around my-row">
       <div class="col-md-4">
         <div class="three-box">
-          <%= image_tag "user.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
+          <%= image_tag "user.png", class: "img-responsive margin img-circle img-icon", width: "100px", height: "100px", alt: "Image" %>
           <h3>後継者を募れる</h3>
           <p>素晴らしい伝統技術が失われてしまうのは勿体無い。<br>次世代に受け継ぐために後継者を募れます。</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="three-box">
-          <%= image_tag "info.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
+          <%= image_tag "info.png", class: "img-responsive margin img-circle img-icon", width: "100px", height: "100px", alt: "Image" %>
           <h3>詳細情報を入れる</h3>
           <p>自分の制作している作品を多くの人に宣伝して、知ってもらおう。<br>魅力を知ってもらうことで作品の評価などに繋がります。</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="three-box">
-          <%= image_tag "handshake.png", class: "img-responsive margin img-circle img-icon", size: "100x100", alt: "Image" %>
+          <%= image_tag "handshake.png", class: "img-responsive margin img-circle img-icon", width: "100px", height: "100px", alt: "Image" %>
           <h3>マッチング</h3>
           <p>制作者サイドはスカウト機能で気になった方をスカウトしてお話ができます。<br>後継を検討されている方はアピール機能で自分を宣伝できます。</p>
         </div>
       </div>
     </div>
   </div>
-<!--  <div class="bg-1 text-center bar"></div>-->
 <% end %>
 
   <div class="row card-group justify-content-center my-row">
@@ -45,13 +44,13 @@
             <div class="row card-group justify-content-center my-row">
           <% end %>
           <div class="col-md-3 my-card-col">
-            <%= link_to("/page/creator/#{creator.user_id}", {method:"get"}) do %>
+            <%= link_to("/page/creator/#{creator.user_id}", {method:"get", class: "nav-link"}) do %>
               <div class="card profile-card">
                 <div class="text-center">
                   <% if user.avatar_path == nil %>
-                    <%= image_tag "default.png", class: "rounded-circle", size: "100%x100%" %>
+                    <%= image_tag "default.png", class: "rounded-circle", width: "100%", height: "100%" %>
                   <% else %>
-                    <%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "100%x100%" %>
+                    <%= image_tag "#{user.avatar_path}", class: "rounded-circle", width: "100%", height: "100%" %>
                   <% end %>
                 </div>
                 <div class="card-body">

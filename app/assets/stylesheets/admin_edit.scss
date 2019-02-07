@@ -8,19 +8,29 @@ body {
 footer {
   visibility: hidden;
 }
+.table {
+  width: 100vw;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
 .admin-row {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 .admin-col-2 {
   height: 100vh;
   background-color: #CCC;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 .admin-col-9 {
   height: 100vh;
   background-color: #EEE;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 .admin-create-box {
   width: 60%;
@@ -31,4 +41,7 @@ footer {
 }
 .admin-top-link {
   margin-top: 27%;
+}
+.badge {
+  font-size: 19px;
 }

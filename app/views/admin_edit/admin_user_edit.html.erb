@@ -23,6 +23,12 @@
   <div class="col-10 admin-col-9">
     <h1 class="admin-main-title">ユーザー管理</h1>
 
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -44,7 +50,7 @@
             <th scope="row"><%= i + 1 %></th>
             <td><%= user.id %></td>
             <td><%= user.name %></td>
-            <td><%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "30x30" %></td>
+            <td><%= image_tag "#{user.avatar_path}", class: "rounded-circle", size: "39x39" %></td>
             <td><%= user.profile %></td>
             <td><%= user.created_at %></td>
             <td><%= user.deleted_at %></td>

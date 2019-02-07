@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   get 'admin/management/diary_comment' => 'admin_edit#diary_comment'
   get 'admin/management/gallery' => 'admin_edit#gallery'
   get 'admin/management/inquiry' => 'admin_edit#inquiry'
+  get 'admin/inquiry/detail/:id' => 'admin_edit#inquiry_detail_show'
 
 
   post 'index' => 'user#logout'
@@ -129,6 +130,8 @@ Rails.application.routes.draw do
   post 'admin/diary/delete/:id' => 'admin_edit#diary_delete'
   post 'admin/diary_comment/delete/:id' => 'admin_edit#diary_comment_delete'
   post 'admin/gallery/delete/:id' => 'admin_edit#gallery_delete'
+  post 'admin/inquiry/detail/:id' => 'admin_edit#inquiry_detail'
+  post 'admin/inquiry/detail/check/:id' => 'admin_edit#inquiry_detail_check'
 
   get '*path', controller: 'application', action: 'render_404'
 end

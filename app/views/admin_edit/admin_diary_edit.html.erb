@@ -23,6 +23,12 @@
   <div class="col-10 admin-col-9">
     <h1 class="admin-main-title">日記管理</h1>
 
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
     <table class="table table-striped">
       <thead>
       <tr>

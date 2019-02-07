@@ -6,6 +6,12 @@
 
   <!--エラー-->
   <div>
+    <% flash.each do |key, value| %>
+      <div class="my-alert alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+
+  <div>
     <% if @inquiry.errors.any? %>
       <div id="error_explanation" class="error-box">
         <p class="error-title">入力内容にエラーが<%= @inquiry.errors.count %>件あります</p>

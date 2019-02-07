@@ -23,6 +23,12 @@
   <div class="col-10 admin-col-9">
     <h1 class="admin-main-title">問い合わせ管理</h1>
 
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -33,21 +39,37 @@
           <th scope="col">内容</th>
           <th scope="col">対応チェック</th>
           <th scope="col">登録日時</th>
+          <th scope="col">更新日時</th>
+          <th scope="col">経過日数</th>
           <th scope="col">削除日時</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @inquiry.each_with_index do |inquiry, i| %>
           <tr>
-            <th scope="row"><%= i + 1 %></th>
-            <td><%= inquiry.id %></td>
-            <td><%= inquiry.user_id %></td>
-            <td><%= inquiry.inquiry_category_id %></td>
-            <td><%= inquiry.content %></td>
-            <td><%= inquiry.is_check %></td>
-            <td><%= inquiry.created_at %></td>
-            <td><%= inquiry.deleted_at %></td>
+            <%= link_to("/admin/inquiry/detail/#{inquiry.id}", {method: "get"}) do %>
+              <th scope="row"><%= i + 1 %></th>
+              <td><%= inquiry.id %></td>
+              <td><%= inquiry.user_id %></td>
+              <td><%= inquiry.inquiry_category_id %></td>
+              <td><%= inquiry.content %></td>
+              <td>
+                <% if inquiry.is_check %>
+                  <span class="badge badge-success">OK</span>
+                <% else %>
+                  <span class="badge badge-danger">No</span>
+                <% end %>
+              </td>
+              <td><%= inquiry.created_at %></td>
+              <td><%= time_ago_in_words(inquiry.created_at) %></td>
+              <td><%= inquiry.updated_at %></td>
+              <td><%= inquiry.deleted_at %></td>
+              <td>
+                <%= button_to "チェック", {controller: 'admin_edit', action: 'inquiry_detail_show', id: inquiry.id}, {method: :get, class: "btn btn-warning"} %>
+              </td>
           </tr>
+        <% end %>
         <% end %>
       </tbody>
     </table>

@@ -38,6 +38,7 @@
             <div class="card-body diary-card-body">
               <div class="diary-time">
                 <%= diary_user.post_time %>
+                <%= time_ago_in_words(diary_user.post_time) %>
               </div>
               <div class="diary-content">
                 <p>
@@ -80,6 +81,15 @@
                             <%= @good[diary_user.diaries_id] %>
                           <% end %>
                         <% end %>
+                      <% end %>
+                    <% end %>
+                  <% elsif session[:id] == nil %>
+                    <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn", disabled: true do %>
+                      <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                      <% if @good[diary_user.diaries_id] == nil %>
+                        <%= 0 %>
+                      <% else %>
+                        <%= @good[diary_user.diaries_id] %>
                       <% end %>
                     <% end %>
                   <% else %>

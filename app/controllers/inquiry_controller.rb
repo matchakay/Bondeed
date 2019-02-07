@@ -13,14 +13,14 @@ class InquiryController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
       flash[:success] = "お問い合わせありがとうございます"
-      render :'inquiry/input_page'
+      redirect_to "/inquiry/input"
     else
-      render :'inquiry/input_page'
+      render action: :input_page
     end
   end
 end
 
 private
 def inquiry_params
-  params.require(:inquiry).permit(:inquiry_category_id, :content)
+  params.require(:inquiry).permit(:user_id, :inquiry_category_id, :content)
 end

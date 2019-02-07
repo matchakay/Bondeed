@@ -7,30 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e745687-c24d-4423-96ac-aecdd76a4584" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb7c25a-04b6-464a-b85a-2800df4d25c8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb7c25a-04b6-464a-b85a-2800df4d25c8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/creator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/creator.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/my_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/my_page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/diary_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/diary_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/gallery_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/gallery_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/art_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/art_category.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/diary.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/diary.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/admin_edit.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/admin_edit.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/diary.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/diary.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/admin_edit_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin_edit_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/inquiry_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/inquiry_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/inquiry_category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/inquiry_category.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/creator/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/creator/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/creator/update.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/creator/update.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/diary/my_diary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/diary/my_diary.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin_edit/admin_diary_comment_edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin_edit/admin_diary_comment_edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin_edit/admin_diary_edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin_edit/admin_diary_edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin_edit/admin_gallery_edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin_edit/admin_gallery_edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin_edit/admin_inquiry_edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin_edit/admin_inquiry_edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin_edit/admin_user_edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin_edit/admin_user_edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/diary/select_diary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/diary/select_diary.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/diary/your_diary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/diary/your_diary.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/index/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/index/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/inquiry/input_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/inquiry/input_page.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/your_page/your_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/your_page/your_page.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +80,20 @@
         <item name="SucSeed@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="SucSeed: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="inquiries: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SucSeed@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="SucSeed: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="inquiry_categories: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SucSeed@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="SucSeed: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
@@ -95,10 +102,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+        <entry file="file://$PROJECT_DIR$/app/controllers/admin_edit_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-865">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="944">
+              <caret line="108" column="15" lean-forward="true" selection-start-line="108" selection-start-column="15" selection-end-line="108" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/inquiry_category.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_inquiry_edit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1844">
+              <caret line="76" column="6" lean-forward="true" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin_edit/inquiry_detail.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1136">
+              <caret line="49" column="8" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/diary/your_diary.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -106,75 +149,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/diary/my_diary.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="848">
+            <state relative-caret-position="5503">
               <caret line="190" column="57" selection-start-line="190" selection-start-column="57" selection-end-line="190" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/gallery_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="896">
-              <caret line="52" column="76" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin_edit_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/admin_edit/selected_user_edit.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="958">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/your_page/heir_page.html.erb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/diary/select_diary.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3088">
-              <caret line="173" column="15" selection-start-line="173" selection-start-column="15" selection-end-line="173" selection-end-column="15" />
+            <state relative-caret-position="-4048">
+              <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/your_page/your_page.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/admin_edit.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="62" selection-end-column="129" />
+            <state relative-caret-position="256">
+              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/diary/your_diary.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/creator/update.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3984" />
+            <state relative-caret-position="16">
+              <caret line="46" column="77" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1072">
+              <caret line="133" column="6" selection-start-line="133" selection-start-column="6" selection-end-line="133" selection-end-column="6" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -208,23 +221,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/gmail_mailer/send_create.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/gmail_mailer/send_create.text.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/config/puma.rb" />
-        <option value="$PROJECT_DIR$/app/mailers/application_mailer.rb" />
-        <option value="$PROJECT_DIR$/app/mailers/gmail_mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/gmail_mailer/send_certification.html.erb" />
         <option value="$PROJECT_DIR$/app/views/gmail_mailer/send_certification.text.erb" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/app/views/user/email_certified.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_gallery_edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_diary_edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_diary_comment_edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_user_edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/my_page_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin_edit_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/admin_edit/selected_user_edit.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20181223152602_create_creators.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20181223152617_create_diaries.rb" />
@@ -238,13 +239,10 @@
         <option value="$PROJECT_DIR$/db/migrate/20181229174800_create_news.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20190107142705_create_message_lists.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/views/index/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/index.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/inquiry/input_page.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/user.scss" />
         <option value="$PROJECT_DIR$/app/models/art_category.rb" />
-        <option value="$PROJECT_DIR$/app/models/inquiry_category.rb" />
         <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/app/views/creator/create.html.erb" />
@@ -252,13 +250,28 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/my_page.scss" />
         <option value="$PROJECT_DIR$/app/views/creator/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/creator.scss" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/diary_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/diary/my_diary.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/diary/select_diary.html.erb" />
         <option value="$PROJECT_DIR$/app/models/diary.rb" />
         <option value="$PROJECT_DIR$/app/controllers/gallery_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_user_edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_diary_comment_edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_diary_edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_gallery_edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/your_page/your_page.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/inquiry/input_page.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/inquiry_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/diary/select_diary.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/diary.scss" />
+        <option value="$PROJECT_DIR$/app/views/index/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/inquiry_category.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin_edit_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin_edit/inquiry_detail.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admin_edit/admin_inquiry_edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/admin_edit.scss" />
+        <option value="$PROJECT_DIR$/app/views/diary/your_diary.html.erb" />
       </list>
     </option>
   </component>
@@ -605,12 +618,12 @@
       <workItem from="1548137609995" duration="13908000" />
       <workItem from="1548867922092" duration="37661000" />
       <workItem from="1549385715172" duration="106000" />
-      <workItem from="1549386016961" duration="9604000" />
+      <workItem from="1549386016961" duration="28962000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427976000" />
+    <option name="totallyTimeSpent" value="447334000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -623,8 +636,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="13" width="3360" height="2013" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1277506" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1277506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -637,7 +651,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32869565" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49969438" visible="true" weight="0.1542029" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49969438" visible="true" weight="0.1542029" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50030565" side_tool="true" weight="0.18739054" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3298307" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -650,71 +664,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153241_create_inquiry_categories.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153306_create_favorites.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="8" column="86" selection-start-line="8" selection-start-column="86" selection-end-line="8" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153337_create_messages.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="84" selection-start-line="9" selection-start-column="84" selection-end-line="9" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153349_create_inquiries.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="11" column="77" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153440_create_galleries.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="10" column="77" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153506_create_heirs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181223153516_create_matches.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181227155533_acts_as_taggable_on_migration.acts_as_taggable_on_engine.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181229174800_create_news.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20190107142705_create_message_lists.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="86" selection-start-line="9" selection-start-column="86" selection-end-line="9" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20181230073409_create_admins.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1248">
@@ -733,13 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1073">
           <caret line="129" column="1" selection-start-line="129" selection-start-column="1" selection-end-line="129" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/index/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -767,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/inquiry_category.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -792,13 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/creator/update.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -849,13 +777,6 @@
     <entry file="file://$PROJECT_DIR$/app/models/gallery.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/inquiry/input_page.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user/login.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -872,32 +793,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/diary/post.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/creator/create.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-384">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/diary/your_diary.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3984" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-865">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/diary/my_diary.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="848">
-          <caret line="190" column="57" selection-start-line="190" selection-start-column="57" selection-end-line="190" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/diary_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -912,22 +807,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/your_page/your_page.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="62" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/your_page/heir_page.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/diary/select_diary.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3088">
-          <caret line="173" column="15" selection-start-line="173" selection-start-column="15" selection-end-line="173" selection-end-column="15" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/gallery_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
@@ -938,22 +819,161 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="1792">
           <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin_edit_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_index.html.erb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/diary.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="528">
+          <caret line="169" column="15" selection-start-line="169" selection-start-column="15" selection-end-line="169" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/your_page/your_page.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="89" column="17" lean-forward="true" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/inquiry_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/inquiry/input_page.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin_edit/selected_user_edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="958">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="96">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_diary_comment_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_diary_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_gallery_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/index/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="29" column="123" selection-start-line="29" selection-start-column="123" selection-end-line="29" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_user_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="57" column="16" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="59" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/inquiry.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/creator/create.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="102" column="26" lean-forward="true" selection-start-line="102" selection-start-column="26" selection-end-line="103" selection-end-column="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1072">
+          <caret line="133" column="6" selection-start-line="133" selection-start-column="6" selection-end-line="133" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/creator/update.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="46" column="77" selection-start-line="46" selection-start-column="77" selection-end-line="46" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/inquiry_category.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin_edit_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="944">
+          <caret line="108" column="15" lean-forward="true" selection-start-line="108" selection-start-column="15" selection-end-line="108" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/diary/my_diary.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5503">
+          <caret line="190" column="57" selection-start-line="190" selection-start-column="57" selection-end-line="190" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/diary/select_diary.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4048">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/admin_inquiry_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1844">
+          <caret line="76" column="6" lean-forward="true" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/admin_edit.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin_edit/inquiry_detail.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1136">
+          <caret line="49" column="8" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/diary/your_diary.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
         </state>
       </provider>
     </entry>
