@@ -13,6 +13,7 @@
       <li class="setting-item"><%= link_to "プロフィール変更", "/my_page/update", class: "dropdown-item" %></li>
       <% if session[:creator] != nil %>
         <li class="setting-item"><%= link_to "プロフィール詳細", "/creator/show", class: "dropdown-item" %></li>
+        <li class="setting-item"><%= link_to "プロフィール詳細変更", "/creator/edit", class: "dropdown-item" %></li>
       <% else %>
         <li class="setting-item"><%= link_to "プロフィール詳細", "/heir/show", class: "dropdown-item" %></li>
         <li class="setting-item"><%= link_to "プロフィール詳細変更", "/heir/edit", class: "dropdown-item" %></li>

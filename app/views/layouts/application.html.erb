@@ -91,14 +91,16 @@
                 </div>
               <% end %>
             </li>
-<!--            search-->
-            <%= form_tag("/search/user", method: "post",class: "form-inline my-2 my-lg-0") do %>
-              <%= text_field_tag(:search_word,"", class: "form-control", size: "28x1", placeholder: "search user ...") %>
-              <%= button_tag "submit", class: "btn  my-2 my-sm-0 search_btn" do %>
-                <%= fa_icon "search lg",class: "search_icon" %>
+            <div class="form-inline">
+<!--             search-->
+              <%= form_for :search, url: "/search/user" do |f| %>
+                <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: " select category ... "}, {class: "form-control"} %>
+                <%= f.button type: "submit", class: "btn search_btn" do %>
+                  <%= fa_icon "search lg", class: "search_icon" %>
+                <% end %>
               <% end %>
-            <% end %>
 <!--              search-->
+            </div>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="login-ul">
@@ -115,7 +117,6 @@
           </div>
         </nav>
       </header>
-
     <div class="container-fluid">
       <%= yield %>
     </div>

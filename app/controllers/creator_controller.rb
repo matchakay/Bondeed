@@ -23,7 +23,7 @@ class CreatorController < ApplicationController
 
   def edit
     if session[:creator] != nil
-      @creator = Creator.find_by(user_id: session[:id])
+      @creator = ArtCategory.joins(:creators).select("creators.*, art_categories.name").find_by(creators: {user_id: session[:id]})
       render :update
     end
   end
@@ -39,18 +39,18 @@ class CreatorController < ApplicationController
     end
   end
 
-  def data
-    if session[:creator] != nil
-      @count = CreatorImage.where(user_id: session[:id]).count
-      if @count > 0
-        @get_image = CreatorImage.where(user_id: session[:id])
-      end
-      @creator_image = CreatorImage.new
-      render :upload_image
-    else
-      redirect_to "/index"
-    end
-  end
+  # def data
+  #   if session[:creator] != nil
+  #     @count = CreatorImage.where(user_id: session[:id]).count
+  #     if @count > 0
+  #       @get_image = CreatorImage.where(user_id: session[:id])
+  #     end
+  #     @creator_image = CreatorImage.new
+  #     render :upload_image
+  #   else
+  #     redirect_to "/index"
+  #   end
+  # end
 
   def upload
     if session[:creator] != nil

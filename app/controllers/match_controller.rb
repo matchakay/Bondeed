@@ -26,10 +26,10 @@ class MatchController < ApplicationController
       match = Match.where(user_id: params[:id]).where(target_user_id: session[:id])
       if match.update_all(:is_ok => 1)
         flash[:success] = "success"
-        redirect_to "/appeal/list"
+        redirect_to "/match/appealed/list"
       else
         flash[:danger] = "エラー"
-        redirect_to "/appeal/list"
+        render action: :appealed_list_view
       end
     else
       redirect_to "/index"
@@ -45,7 +45,7 @@ class MatchController < ApplicationController
         redirect_to "/match/appeal/list"
       else
         flash[:danger] = "エラー"
-        redirect_to "match/appeal/list"
+        redirect_to "/match/appeal/list"
       end
     else
       redirect_to "/index"

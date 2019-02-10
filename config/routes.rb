@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'diary/show'
   get 'your_page/your_page'
 
-  get 'user/login' => 'user#login'
   get 'user/password_forgot' => 'user#password_forgot'
   get 'user/password_reset' => 'user#password_edit'
   get 'user/create' => 'user#regist'
@@ -15,8 +14,7 @@ Rails.application.routes.draw do
 
   get 'creator/show' => 'creator#show'
   get 'creator/create' => 'creator#create'
-  get 'creator/upload' => 'creator#data'
-  get 'creator/update' => 'creator#edit'
+  get 'creator/edit' => 'creator#edit'
 
   #相手ページ
   get 'page/creator/:id' => 'your_page#creator_show'
@@ -112,9 +110,9 @@ Rails.application.routes.draw do
   patch 'heir/update' => 'heir#heir_update'
 
   #マッチ
-  post 'match/:id/send' => 'match#appeal_send'
-  post 'match/:id/ok' => 'match#appeal_answer_ok'
-  post 'match/:id/sorry' => 'match#appeal_answer_sorry'
+  post 'match/send/:id' => 'match#appeal_send'
+  post 'match/ok/:id' => 'match#appeal_answer_ok'
+  post 'match/sorry/:id' => 'match#appeal_answer_sorry'
   #スカウト
   post 'scout/send/:id' => 'match#scout_send'
   post 'scout/ok/:id' => 'match#scout_answer_ok'

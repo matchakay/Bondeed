@@ -40,7 +40,7 @@
   <div class="col-md-12 gallery-col">
     <% if !@user_gallery.empty? %>
       <% @user_gallery.each_with_index do |user_gallery, i| %>
-        <% if i % 3 == 2 %>
+        <% if i % 3 == 0 %>
           <div class="row my-row">
         <% end %>
         <div class="col-md-4 card-col">

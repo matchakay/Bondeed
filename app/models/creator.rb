@@ -7,6 +7,6 @@ class Creator < ApplicationRecord
   validates :postal_code, presence: true, numericality: true, length: { is: 7 }
   validates :address_1, presence: true
   validates :address_2,  presence: true
-  has_many :art_categories
+  belongs_to :art_category
   belongs_to :user
 end
