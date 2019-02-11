@@ -28,7 +28,7 @@
       工芸名
     </div>
     <div class="card-body my-card-body text-center">
-      <p><%= @creator.title %></p>
+      <%= @creator.title %>
     </div>
   </div>
 
@@ -37,9 +37,7 @@
       工芸カテゴリー
     </div>
     <div class="card-body my-card-body text-center">
-      <p>
-        <%= @category.name %>
-      </p>
+      <%= @category.name %>
     </div>
   </div>
 
@@ -48,9 +46,7 @@
       創業年数
     </div>
     <div class="card-body my-card-body text-center">
-      <p>
-        <%= @creator.establishment %>年
-      </p>
+      <%= @creator.establishment %>年
     </div>
   </div>
 
@@ -59,9 +55,7 @@
       従業員数
     </div>
     <div class="card-body my-card-body text-center">
-      <p>
-        <%= @creator.employee %>人
-      </p>
+      <%= @creator.employee %>人
     </div>
   </div>
 
@@ -70,42 +64,27 @@
       作業所郵便番号
     </div>
     <div class="card-body my-card-body text-center">
-      <p>
-        <%= @creator.postal_code %>
-      </p>
+      <%= @creator.postal_code %>
     </div>
   </div>
 
   <div class="card out-line">
     <div class="card-header my-card-header">
-      作業所住所１
+      募集チェック
     </div>
     <div class="card-body my-card-body text-center">
-      <p>
-        <%= @creator.address_1 %>
-      </p>
+      <% if @creator.is_recruitment %>
+        <p>
+          募集中
+        </p>
+      <% else %>
+        <p>
+          募集停止中
+        </p>
+      <% end %>
     </div>
   </div>
 
-  <div class="card out-line">
-    <div class="card-header my-card-header">
-      作業所住所２
-    </div>
-    <div class="card-body my-card-body text-center">
-      <p>
-        <%= @creator.address_2 %>
-      </p>
-    </div>
-  </div>
-
-  <div class="card out-line">
-    <div class="card-header my-card-header">
-      紹介文
-    </div>
-    <div class="card-body my-card-body">
-      <%= simple_format(h(@creator.introduction), class: "profile-text") %>
-    </div>
-  </div>
   <div class="bottom-box">
   </div>
 </div>

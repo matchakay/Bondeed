@@ -5,6 +5,7 @@ class CreateInquiries < ActiveRecord::Migration[5.2]
       t.references :inquiry_category, null: false, foreign_key: true
       t.text :content, null: false
       t.boolean :is_check, null: false, default: false
+      t.references :admin, foreign_key: true
       t.timestamp :created_at, null: false
       t.timestamp :updated_at
       t.timestamp :deleted_at

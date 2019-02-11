@@ -1,3 +1,3 @@
 class InquiryCategory < ApplicationRecord
-  belongs_to :inquiry
+  has_many :inquiries
 end

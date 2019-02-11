@@ -44,7 +44,7 @@
       <div class="col-xl-3 my-card-col new-box">
         <%= link_to("/page/creator/#{creator.user_id}", {method:"get", class: "nav-link"}) do %>
           <div class="card profile-card new-tag-content">
-            <% if (time_ago_in_words(creator.created_at)).to_i <= 3 %>
+            <% if (time_ago_in_words(creator.created_at)).to_i <= 72 %>
               <span class="new-tag">NEW</span>
             <% end %>
             <div class="text-center">
@@ -65,5 +65,7 @@
         </div>
       <% end %>
     <% end %>
-    <div class="creator-card-last-bottom"></div>
+    <% if !@creator.empty? %>
+      <div class="creator-card-last-bottom"></div>
+    <% end %>
   </div>

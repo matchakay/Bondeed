@@ -1,39 +1,31 @@
 class AdminEditController < ApplicationController
   before_action :session_check
   def index
-    if session[:admin] != nil
-      render :admin_index
-    else
-      redirect_to "/admin/login"
-    end
+    render :admin_index
   end
 
   def user
-      @user = User.all
-      render :admin_user_edit
+    @user = User.all.order("created_at DESC")
+    render :admin_user_edit
   end
 
   def diary
-    if session[:admin] != nil
-      @diary = Diary.all
-      render :admin_diary_edit
-    else
-      redirect_to "/admin/index"
-    end
+    @diary = Diary.all.order("created_at DESC")
+    render :admin_diary_edit
   end
 
   def diary_comment
-    @diary_comment = DiaryComment.all
+    @diary_comment = DiaryComment.all.order("created_at DESC")
     render :admin_diary_comment_edit
   end
 
   def gallery
-    @gallery = Gallery.all
+    @gallery = Gallery.all.order("created_at DESC")
     render :'admin_edit/admin_gallery_edit'
   end
 
   def inquiry
-    @inquiry = Inquiry.all
+    @inquiry = InquiryCategory.joins(:inquiry).select("inquiries.*, inquiry_categories.name").order("inquiries.created_at DESC")
     render :admin_inquiry_edit
   end
 
@@ -68,10 +60,10 @@ class AdminEditController < ApplicationController
   def diary_delete
     if Diary.delete(params[:id])
       flash[:success] = "success"
-      render action: :diary
+      redirect_to "/admin/management/diary"
     else
       flash[:danger] = "error"
-      render action: :diary
+      render :diary
     end
   end
 
@@ -79,10 +71,10 @@ class AdminEditController < ApplicationController
   def diary_comment_delete
     if DiaryComment.delete(params[:id])
       flash[:success] = "success"
-      render action: :diary_comment
+      redirect_to "/admin/management/diary_comment"
     else
       flash[:danger] = "error"
-      render action: :diary_comment
+      render :diary_comment
     end
   end
 
@@ -90,29 +82,34 @@ class AdminEditController < ApplicationController
   def gallery_delete
     if Gallery.delete(params[:id])
       flash[:success] = "success"
-      render action: :gallery
+      redirect_to "/admin/management/gallery"
     else
       flash[:danger] = "error"
-      render action: :gallery
+      render :gallery
     end
   end
 
   #お問い合わせ詳細表示
   def inquiry_detail_show
+    @inquiry = Inquiry.new
     @inquiry_detail = Inquiry.find_by("id = ?", params[:id])
     @category = InquiryCategory.find(@inquiry_detail.inquiry_category_id)
+    if @inquiry_detail.is_check
+      @check = true
+    else
+      @check = false
+    end
     render :inquiry_detail
   end
 
-  #あ問い合わせ対応
+  #お問い合わせ対応
   def inquiry_detail_check
-    inquiry_detail = Inquiry.find_by("id = ?", params[:id])
-    if inquiry_detail.update_attributes(:is_check => params[:check][:is_check])
+    if Inquiry.where("id = ?", params[:id]).update_all(:is_check => params[:inquiry][:is_check], :admin_id => session[:admin])
       flash[:success] = "success"
       redirect_to "/admin/management/inquiry"
     else
       flash[:danger] = "エラー"
-      render action: :inquiry_detail_show
+      redirect_to "/admin/management/inquiry"
     end
   end
 

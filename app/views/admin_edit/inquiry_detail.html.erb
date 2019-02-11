@@ -37,8 +37,8 @@
       </div>
       <div class="card-footer">
         <div class="form-check">
-          <%= form_for :check, url: "/admin/inquiry/detail/check/#{@inquiry_detail.id}" do |f| %>
-            <%= f.check_box :is_check, { checked: @inquiry_detail.is_check, class: "form-check-input", id: "check" }, true%>
+          <%= form_for @inquiry, url: "/admin/inquiry/detail/check/#{@inquiry_detail.id}" do |f| %>
+            <%= f.check_box :is_check, { checked: @check, class: "form-check-input", id: "check" }, "1", "0" %>
             <%= f.label "対応チェック", class: "form-check-label", for: "check" %>
             <div class="text-right">
               <%= f.submit "更新", class: "btn btn-warning btn-lg" %>

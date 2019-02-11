@@ -81,7 +81,7 @@ Rails.application.routes.draw do
   patch 'my_page/update' => 'my_page#update'
 
   post 'creator/create' => 'creator#create'
-  patch 'creator/update' => 'creator#update'
+  patch 'creator/edit' => 'creator#update'
   post 'creator/upload' => 'creator#upload'
   post 'creator/:id/delete' => 'creator#delete'
 

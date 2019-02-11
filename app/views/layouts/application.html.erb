@@ -44,9 +44,9 @@
           <% end %>
         </div>
         <div class="modal-footer">
-          <div>
-            <%= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-danger"} %>
-          </div>
+<!--          <div>-->
+            <%#= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-danger"} %>
+<!--          </div>-->
           <div>
             <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn create-user-btn"} %>
           </div>
@@ -94,9 +94,9 @@
             <div class="form-inline">
 <!--             search-->
               <%= form_for :search, url: "/search/user" do |f| %>
-                <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: " select category ... "}, {class: "form-control"} %>
+                <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: " select category ..."}, {class: "form-control"} %>
                 <%= f.button type: "submit", class: "btn search_btn" do %>
-                  <%= fa_icon "search lg", class: "search_icon" %>
+                  <%= icon("fas", "search lg", class: "search_icon") %>
                 <% end %>
               <% end %>
 <!--              search-->

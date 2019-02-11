@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :email, uniqueness: true, on: :create
   validates :password, allow_nil: true, presence: true, confirmation: true, length: { in: 8..16 }, format: {with: /[a-zA-Z0-9]/}
-  has_many :creators
+  has_one :creator
   has_many :diaries
   has_many :diary_comments
   has_many :diary_goods
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :galleries
   has_many :matches, class_name: 'Match', :foreign_key => 'target_user_id'
   has_many :matches, class_name: 'Match', :foreign_key => 'user_id'
-  has_many :heirs
+  has_one :heir
   has_many :message_lists, class_name: 'MessageList', :foreign_key => 'creator_user_id'
   has_many :message_lists, class_name: 'MessageList', :foreign_key => 'heir_user_id'
   acts_as_tagger

@@ -30,7 +30,7 @@
   <%= form_for @inquiry, url: "/inquiry/input" do |f| %>
     <div class="form-group">
       <%= f.label "カテゴリー", class: "inquiry-input-label" %>
-      <%= f.collection_select :inquiry_category_id, InquiryCategory.all, :id, :name, {prompt: "選択してください"}, {class: "form-control"} %>
+      <%= f.collection_select :inquiry_category, InquiryCategory.all, :id, :name, {prompt: "選択してください"}, {class: "form-control"} %>
     </div>
     <div class="form-group my-form-inquiry">
       <%= f.label "お問い合わせ内容", class: "inquiry-input-label" %>

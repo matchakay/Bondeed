@@ -85,7 +85,7 @@ gem 'better_errors', '>= 2.5.0'
 gem 'activeadmin', '>= 1.3.1'
 
 # アイコン
-gem 'font-awesome-rails', '4.7.0.4'
+gem 'font-awesome-sass', '~>5.0.6'
 
 gem 'binding_of_caller', '>= 0.8.0'
 

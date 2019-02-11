@@ -59,7 +59,7 @@
         </div>
         <div class="card-body my-card-body">
           <p><%= @user.name%></p>
-          <%= f.text_field :name, class: "form-control", maxlength: 50, placeholder: "ユーザ名", value: @user.name %>
+          <%= f.text_field :name, class: "form-control update-form-input", maxlength: 50, placeholder: "ユーザ名", value: @user.name %>
         </div>
       </div>
 
@@ -69,7 +69,7 @@
         </div>
         <div class="card-body my-card-body">
           <p><%= @user.email %></p>
-          <%= f.email_field :email, class: "form-control", maxlength: 50, placeholder: "メールアドレス", value: @user.email %>
+          <%= f.email_field :email, class: "form-control update-form-input", maxlength: 50, placeholder: "メールアドレス", value: @user.email %>
         </div>
       </div>
 
@@ -78,7 +78,7 @@
           紹介文
         </div>
         <div class="card-body my-card-body">
-          <%= f.text_area :profile, class: "form-control", placeholder: "紹介文", size: "20x15", value: @user.profile %>
+          <%= f.text_area :profile, class: "form-control update-form-input", placeholder: "紹介文", size: "20x15", value: @user.profile %>
         </div>
       </div>
       <div class="bottom-box">

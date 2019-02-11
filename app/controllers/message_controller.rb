@@ -63,6 +63,7 @@ class MessageController < ApplicationController
         @to_user = User.find(params[:id])
         render :message
       else
+        flash[:danger] = "エラー"
         redirect_to "/message/list"
       end
     else

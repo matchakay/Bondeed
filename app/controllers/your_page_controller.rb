@@ -2,7 +2,7 @@ class YourPageController < ApplicationController
   #クリエイターページ
   def creator_show
     @user = User.find(params[:id])
-    @creator = Creator.find_by(user_id: params[:id])
+    @creator = User.joins(:creator).select("users.*, creators.*").find_by(creators: {user_id: params[:id]})
     @art_category = ArtCategory.find_by(id: @creator.art_category_id)
     # @creator_image = CreatorImage.where(user_id: params[:id]).first
     @favorite = Favorite.new

@@ -4,7 +4,7 @@ class CreatorController < ApplicationController
       @creator = Creator.new
       render :create
     else
-      @creator = Creator.find_by(user_id: session[:id])
+      @creator = User.joins(:creator).select("users.*, creators.*").find_by(creators: {user_id: session[:id]})
       @category = ArtCategory.find(@creator.art_category_id)
       render :show
     end
@@ -24,18 +24,22 @@ class CreatorController < ApplicationController
   def edit
     if session[:creator] != nil
       @creator = ArtCategory.joins(:creators).select("creators.*, art_categories.name").find_by(creators: {user_id: session[:id]})
+      if @creator.is_recruitment == 1
+        @check = true
+      else
+        @check = false
+      end
       render :update
     end
   end
 
   def update
-    @creator = Creator.find_by(user_id: session[:id])
-    if @creator.update_attributes(title: params[:creator][:title], art_category_id: params[:creator][:art_category_id], establishment: params[:creator][:establishment], employee: params[:creator][:employee], postal_code: params[:creator][:postal_code], address_1: params[:creator][:address_1], address_2: params[:creator][:address_2],introduction: params[:creator][:introduction], is_recruitment: params[:creator][:is_recruitment])
-      flash[:success] = "更新成功"
-      redirect_to "/creator/update"
+    if Creator.find_by(user_id: session[:id]).update_attributes(title: params[:art_category][:title], art_category_id: params[:art_category][:art_category_id], establishment: params[:art_category][:establishment], employee: params[:art_category][:employee], postal_code: params[:art_category][:postal_code], is_recruitment: params[:art_category][:is_recruitment])
+      flash[:success] = "success"
+      redirect_to "/creator/edit"
     else
       flash[:danger] = "エラー"
-      redirect_to "/creator/update"
+      redirect_to "/creator/edit"
     end
   end
 
@@ -52,32 +56,32 @@ class CreatorController < ApplicationController
   #   end
   # end
 
-  def upload
-    if session[:creator] != nil
-      params[:creator_image][:user_id] = session[:id]
-      @creator_image = CreatorImage.new(image_params)
-      if @creator_image.save
-        flash[:success] = "success"
-        redirect_to "/creator/upload"
-      else
-        flash[:danger] = "エラー"
-        redirect_to "/creator/upload"
-      end
-    end
-  end
+  # def upload
+  #   if session[:creator] != nil
+  #     params[:creator_image][:user_id] = session[:id]
+  #     @creator_image = CreatorImage.new(image_params)
+  #     if @creator_image.save
+  #       flash[:success] = "success"
+  #       redirect_to "/creator/upload"
+  #     else
+  #       flash[:danger] = "エラー"
+  #       redirect_to "/creator/upload"
+  #     end
+  #   end
+  # end
 
-  def delete
-    @creator_image = CreatorImage.find_by(id: params[:id])
-    @creator_image.destroy
-    redirect_to "/creator/upload"
-  end
+  # def delete
+  #   @creator_image = CreatorImage.find_by(id: params[:id])
+  #   @creator_image.destroy
+  #   redirect_to "/creator/upload"
+  # end
 end
 
 private
 def creator_params
-  params.require(:creator).permit(:user_id, :title, :art_category_id, :establishment, :employee, :postal_code, :address_1, :address_2, :introduction, :is_recruitment)
+  params.require(:creator).permit(:user_id, :title, :art_category_id, :establishment, :employee, :postal_code, :is_recruitment)
 end
 
-def image_params
-  params.require(:creator_image).permit(:user_id, :media_data, :created_at, :updated_at)
-end
+# def image_params
+#   params.require(:creator_image).permit(:user_id, :media_data, :created_at, :updated_at)
+# end

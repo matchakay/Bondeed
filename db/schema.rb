@@ -32,9 +32,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.integer "establishment", null: false
     t.integer "employee", null: false
     t.string "postal_code", limit: 7, null: false
-    t.string "address_1", limit: 50, null: false
-    t.string "address_2", limit: 50, null: false
-    t.text "introduction"
     t.boolean "is_recruitment", null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
@@ -102,9 +99,11 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.bigint "inquiry_category_id", null: false
     t.text "content", null: false
     t.boolean "is_check", default: false, null: false
+    t.bigint "admin_id"
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
+    t.index ["admin_id"], name: "index_inquiries_on_admin_id"
     t.index ["inquiry_category_id"], name: "index_inquiries_on_inquiry_category_id"
     t.index ["user_id"], name: "fk_rails_7fdff2c1ec"
   end
@@ -201,6 +200,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
   add_foreign_key "galleries", "users", on_delete: :cascade
   add_foreign_key "heirs", "art_categories"
   add_foreign_key "heirs", "users", on_delete: :cascade
+  add_foreign_key "inquiries", "admins"
   add_foreign_key "inquiries", "inquiry_categories"
   add_foreign_key "inquiries", "users", on_delete: :cascade
   add_foreign_key "matches", "users", column: "target_user_id", on_delete: :cascade
