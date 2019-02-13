@@ -66,7 +66,7 @@
                     <% @my_good.each do |my_good| %>
                       <% if diary_user.diaries_id == my_good.id %>
                         <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn", disabled: true do %>
-                          <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                          <%= icon("fas", "thumbs-up", class: "thumbs-up-icon") %>
                           <% if @good[diary_user.diaries_id] == nil %>
                             <%= 0 %>
                           <% else %>
@@ -75,7 +75,7 @@
                         <% end %>
                       <% else %>
                         <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
-                          <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                          <%= icon("fas", "thumbs-up", class: "thumbs-up-icon") %>
                           <% if @good[diary_user.diaries_id] == nil %>
                             <%= 0 %>
                           <% else %>
@@ -86,7 +86,7 @@
                     <% end %>
                   <% else %>
                     <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
-                      <%= fa_icon "thumbs-up lg", class: "thumbs-up-icon" %>
+                      <%= icon("fas", "thumbs-up", class: "thumbs-up-icon") %>
                       <% if @good[diary_user.diaries_id] == nil %>
                         <%= 0 %>
                       <% else %>
@@ -98,7 +98,7 @@
   <!--              end-->
                 <!-- コメント -->
                 <button class="btn icon-btn good-and-comment" data-toggle="collapse" data-target="#<%= diary_user.diaries_id %>">
-                  <%= fa_icon "comment lg", class: "comment-icon" %>
+                  <%= icon("fas", "comment-alt", class: "comment-icon") %>
                   <% if @comment_count[diary_user.diaries_id] == nil %>
                     <%= 0 %>
                   <% else %>
@@ -109,7 +109,7 @@
                 <!-- 削除ボタン -->
                 <%= form_for @diary_good, url: "/diary/post/#{diary_user.diaries_id}/delete" do |f| %>
                   <%= f.button type: "submit", remote: "true", method: "post", class: "btn icon-btn" do %>
-                    <%= fa_icon "trash lg", class: "trash-icon" %>
+                    <%= icon("fas", "trash-alt", class: "trash-icon") %>
                   <% end %>
                 <% end %>
               </div>

@@ -298,6 +298,8 @@ span.psw {
   background-color: #FFA30D;
 }
 .search_icon {
+  padding: 0;
+  font-size: 20px;
   color: #1F8A70;
 }
 
@@ -329,4 +331,7 @@ span.psw {
 .search-form-box {
   width: 300px;
   display: inline-block;
+}
+.logo {
+  margin-left: 0.6%;
 }

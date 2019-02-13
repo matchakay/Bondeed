@@ -2,6 +2,7 @@
 <html lang="ja">
   <head>
     <title>SucSeed</title>
+    <%= favicon_link_tag "logo.png" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -56,6 +57,7 @@
   </div>
     <header>
       <nav class="navbar navbar-expand-lg  my_nav index-nav">
+        <%= image_tag "logo.png", class: "logo", size: "50x50" %>
         <%= link_to "SucSeed", "/index", class: "navbar-brand my-brand" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -96,7 +98,7 @@
               <%= form_for :search, url: "/search/user" do |f| %>
                 <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: " select category ..."}, {class: "form-control"} %>
                 <%= f.button type: "submit", class: "btn search_btn" do %>
-                  <%= icon("fas", "search lg", class: "search_icon") %>
+                  <%= icon("fas", "search", class: "search_icon") %>
                 <% end %>
               <% end %>
 <!--              search-->
