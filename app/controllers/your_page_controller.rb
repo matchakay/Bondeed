@@ -13,7 +13,8 @@ class YourPageController < ApplicationController
 
   #後継者ページ
   def heir_show
-    @user = User.joins(:heirs).select("users.*", "heirs.*").where(users: {id: params[:id]}).first
+    @user = User.find_by("id = ?", params[:id])
+    @art_name = ArtCategory.joins(:heirs).select("art_categories.name").find_by(heirs: {user_id: params[:id]})
     @scout = Match.where(user_id: session[:id]).where(target_user_id: params[:id])
     render :heir_page
   end

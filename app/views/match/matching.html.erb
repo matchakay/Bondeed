@@ -32,8 +32,10 @@
           </div>
         <% end %>
         <div class="card-footer list-card-footer">
-          <%= form_for @message_list, url: "/message/add/#{match.page_id}", class: "form-control" do |f| %>
-            <%= f.submit "メッセージ", class:"btn btn-success yes-btn" %>
+          <% if match.is_add_list == 0 %>
+            <%= form_for @message_list, url: "/message/add/#{match.page_id}", class: "form-control" do |f| %>
+              <%= f.submit "メッセージ", class:"btn btn-success yes-btn" %>
+            <% end %>
           <% end %>
         </div>
         </div>

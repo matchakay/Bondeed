@@ -85,8 +85,8 @@
             <div class="input-group">
               <%= f.text_field :content, class: "form-control", placeholder: "メッセージ" %>
               <span class="input-group-btn">
-              <%= f.button type: "submit", method: "post", class: "btn btn-default send-btn" do %>
-                <%= fa_icon "paper-plane lg" %>
+              <%= f.button type: "submit", method: "post", class: "btn send-btn" do %>
+                <%= icon("far", "paper-plane", class: "message-icon") %>
               <% end %>
             </span>
             </div>

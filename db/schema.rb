@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.string "target_user_id", null: false
     t.boolean "is_scout", null: false
     t.boolean "is_ok"
+    t.boolean "is_add_list", default: false, null: false
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "updated_at"
     t.index ["target_user_id"], name: "fk_rails_c475acfdab"

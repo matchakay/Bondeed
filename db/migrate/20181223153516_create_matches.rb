@@ -5,6 +5,7 @@ class CreateMatches < ActiveRecord::Migration[5.2]
       t.string :target_user_id, null: false
       t.boolean :is_scout, null: false
       t.boolean :is_ok
+      t.boolean :is_add_list, null: false, default: false
       t.timestamp :created_at, null: false
       t.timestamp :updated_at
     end

@@ -70,13 +70,13 @@
       <% if @fv_check == nil %>
         <%= form_for @favorite, url: "/favorite/#{params[:id]}/add" do |f| %>
           <%= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default btn-lg favorite_btn" do %>
-            <%= fa_icon ("star 2x"), class: "favorite_star_none" %>
+            <%= icon("far", "star", class: "favorite_star_none") %>
           <% end %>
         <% end %>
       <% else %>
         <%= form_for @favorite, url: "/favorite/#{params[:id]}/delete" do |f| %>
           <%= f.button type: "submit", remote: "true", method: "post", class: "btn btn-default btn-lg favorite_btn" do %>
-            <%= fa_icon ("star 2x"), class: "favorite_star_set" %>
+            <%= icon("fas", "star", class: "favorite_star_set") %>
           <% end %>
         <% end %>
       <% end %>

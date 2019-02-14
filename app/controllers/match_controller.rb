@@ -12,7 +12,7 @@ class MatchController < ApplicationController
   #マッチングリスト
   def matching_list_view
     if session[:id] != nil
-      @match = User.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {is_ok: true}).where(matches: {target_user_id: session[:id]}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).order("matches.created_at ASC")
+      @match = User.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {is_ok: true}).where(matches: {target_user_id: session[:id]}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).order("matches.created_at DESC")
       @message_list = MessageList.new
       render :matching
     else
@@ -71,7 +71,7 @@ class MatchController < ApplicationController
   def appeal_check
     if session[:id] != nil && session[:creator] == nil
       @match = Match.new
-      @appeal = User.joins(:matches, :creators).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time", "creators.*").where(matches: {user_id: session[:id]}).where(matches: {is_ok: nil}).order("matches.created_at ASC")
+      @appeal = User.joins(:matches, :creator).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time", "creators.*").where(matches: {user_id: session[:id]}).where(matches: {is_ok: nil}).order("matches.created_at ASC")
       render :appeal_show
     else
       redirect_to "/index"

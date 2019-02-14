@@ -41,7 +41,7 @@
         <%= f.label "工芸カテゴリ", class: "form-input-label" %>
       </div>
       <div class="col-10">
-        <%= f.collection_select :art_categories, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control"} %>
+        <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control"} %>
         <small class="form-text small-text">必須　選択</small>
       </div>
     </div>
