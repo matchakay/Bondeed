@@ -47,6 +47,10 @@ body {
   //background-color: #FCF2D3;
   //background-color: #FFA30D;
 }
+.navbar-toggler {
+  background-color: #FFA30D;
+  opacity: 0.9;
+}
 .my_nav {
   a:link {color: #fff;}
   a:visited {color: #fff;}
@@ -334,4 +338,13 @@ span.psw {
 }
 .logo {
   margin-left: 0.6%;
+}
+.mini-list {
+  padding: 0;
+  color: #333;
+  font-size: 26px;
+}
+.modal-footer {
+  background-color: #b8daff;
+  border-radius: 0 0 5px 5px;
 }

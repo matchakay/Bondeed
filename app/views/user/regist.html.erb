@@ -55,12 +55,12 @@
       <div class="form-group col-10">
         <div class="form-check form-check-inline">
           <%= f.radio_button :is_man, 1, {checked: true, class: "form-check-input", id: "woman"} %>
-          <%= f.label "女性", class: "form-check-label radio-text", for: "woman" %>
+          <%= f.label "男性", class: "form-check-label radio-text", for: "woman" %>
         </div>
 
         <div class="form-check form-check-inline">
           <%= f.radio_button :is_man, 0, {class: "form-check-input", id: "man"} %>
-          <%= f.label "男性", class: "form-check-label radio-text", for: "man" %>
+          <%= f.label "女性", class: "form-check-label radio-text", for: "man" %>
         </div>
         <div>
           <small class="small-text">必須</small>

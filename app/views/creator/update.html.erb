@@ -56,7 +56,7 @@
           <%= @creator.title %>
         </div>
         <%= f.text_field :title, class: "form-control update-form-input", placeholder: "制作工芸名", value: @creator.title%>
-        <small class="form-text text-muted">必須</small>
+        <small class="update-form-sub-text">必須</small>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
           <%= @creator.name %>
         </div>
         <%= f.collection_select :art_category_id, ArtCategory.all, :id, :name, { prompt: "選択してください"}, {class: "form-control update-form-input", selectd: @creator.art_category_id} %>
-        <small class="form-text text-muted">必須</small>
+        <small class="update-form-sub-text">必須</small>
       </div>
     </div>
 
@@ -82,7 +82,7 @@
           <%= @creator.establishment %>年
         </div>
         <%= f.number_field :establishment, class: "form-control update-form-input", placeholder: "創業年数", value: @creator.establishment %>
-        <small class="form-text text-muted">必須</small>
+        <small class="update-form-sub-text">必須</small>
       </div>
     </div>
 
@@ -95,7 +95,7 @@
           <%= @creator.employee %>人
         </div>
         <%= f.number_field :employee, class: "form-control update-form-input", placeholder: "従業員数", value: @creator.employee %>
-        <small class="form-text text-muted">必須</small>
+        <small class="update-form-sub-text">必須</small>
       </div>
     </div>
 
@@ -108,7 +108,7 @@
           <%= @creator.postal_code %>
         </div>
         <%= f.text_field :postal_code, class: "form-control update-form-input", placeholder: "郵便番号", value: @creator.postal_code %>
-        <small class="form-text text-muted">必須</small>
+        <small class="update-form-sub-text">必須</small>
       </div>
     </div>
 
@@ -122,8 +122,8 @@
       </div>
     </div>
 
-    <div class="text-right">
-      <%= f.submit "変更", class: "btn btn-lg" %>
+    <div class="text-right update-btn-box">
+      <%= f.submit "変更", class: "btn btn-lg my-update-btn" %>
     </div>
 
     <div class="bottom-box">

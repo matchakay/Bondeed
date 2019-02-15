@@ -49,7 +49,7 @@
             <%#= button_to "パスワードを忘れた方", {controller: 'user', action: 'password_reset'}, {method: :get, class: "btn btn-danger"} %>
 <!--          </div>-->
           <div>
-            <%= button_to "ユーザ登録", {controller: 'user', action: 'create'}, {method: :get, class: "btn create-user-btn"} %>
+            <%= button_to "ユーザ登録はこちらから", {controller: 'user', action: 'create'}, {method: :get, class: "btn create-user-btn"} %>
           </div>
         </div>
       </div>
@@ -62,7 +62,9 @@
           <%= image_tag "title.png", width: "150vw", height: "18%" %>
         <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon">
+            <%= icon("fas", "list", class: "mini-list") %>
+          </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">

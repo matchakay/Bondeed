@@ -1,4 +1,5 @@
-<%=stylesheet_link_tag "message" %>
+<%= stylesheet_link_tag "message" %>
+<%= javascript_include_tag "message" %>
 
 <h1 class="main-title">メッセージ</h1>
 
@@ -66,7 +67,7 @@
               <% else %>
                 <div class="to-message-box text-left">
                   <div class="media text-left">
-                    <%= image_tag "#{@from_user.avatar_path}", size: "60x60", class: "rounded-circle" %>
+                    <%= image_tag "#{@to_user.avatar_path}", size: "60x60", class: "rounded-circle" %>
                     <div class="media-body to-message-content">
                       <p><%= message_history.content %></p>
                     </div>

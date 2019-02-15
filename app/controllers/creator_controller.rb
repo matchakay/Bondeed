@@ -36,7 +36,7 @@ class CreatorController < ApplicationController
   def update
     if Creator.find_by(user_id: session[:id]).update_attributes(title: params[:art_category][:title], art_category_id: params[:art_category][:art_category_id], establishment: params[:art_category][:establishment], employee: params[:art_category][:employee], postal_code: params[:art_category][:postal_code], is_recruitment: params[:art_category][:is_recruitment])
       flash[:success] = "success"
-      redirect_to "/creator/edit"
+      redirect_to "/creator/show"
     else
       flash[:danger] = "エラー"
       redirect_to "/creator/edit"

@@ -41,15 +41,15 @@ class MessageController < ApplicationController
   def get_history
     if session[:id] != nil && session[:creator] == nil
       @message = Message.new
-      @message_list = User.joins(:message_lists).select("users.*, users.id AS user, message_lists.*").where(message_lists: {heir_user_id: session[:id]}).order("message_lists.updated_at DESC")
-      @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at ASC")
+      @message_list = User.joins("inner join message_lists on users.id = message_lists.creator_user_id").select("users.*, users.id AS user, message_lists.*").where(message_lists: {heir_user_id: session[:id]}).order("message_lists.updated_at DESC")
+      @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at DESC")
       @from_user = User.find(session[:id])
       @to_user = User.find(params[:id])
       render :message
     elsif session[:id] != nil && session[:creator] != nil
       @message = Message.new
       @message_list = User.joins(:message_lists).select("users.*, users.id AS user, message_lists.*").where(message_lists: {creator_user_id: session[:id]}).order("message_lists.updated_at DESC")
-      @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at ASC")
+      @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at DESC")
       @from_user = User.find(session[:id])
       @to_user = User.find(params[:id])
       render :message
@@ -67,15 +67,21 @@ class MessageController < ApplicationController
       @message = Message.new(message_params)
       if @message.save
         @message = Message.new
-        @message_list = User.joins(:message_lists).select("users.*, users.id AS user, message_lists.*").where(message_lists: {creator_user_id: session[:id]}).order("message_lists.updated_at DESC")
+        # @message_list = User.joins(:message_lists).select("users.*, users.id AS user, message_lists.*").where(message_lists: {creator_user_id: session[:id]}).order("message_lists.updated_at DESC")
         @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at ASC")
         @from_user = User.find(session[:id])
         @to_user = User.find(params[:id])
-        render :message
       else
         flash[:danger] = "エラー"
-        redirect_to "/message/list"
       end
+      if session[:id] != nil && session[:creator] != nil
+        @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at ASC")
+        @message_list = User.joins(:message_lists).select("users.*, users.id AS user, message_lists.*").where(message_lists: {creator_user_id: session[:id]}).order("message_lists.updated_at DESC")
+      elsif session[:id] != nil && session[:creator] == nil
+        @message_list = User.joins("inner join message_lists on users.id = message_lists.creator_user_id").select("users.*, users.id AS user, message_lists.*").where(message_lists: {heir_user_id: session[:id]}).order("message_lists.updated_at DESC")
+        @message_history = Message.where(send_user_id: session[:id]).where(receive_user_id: params[:id]).or(Message.where(send_user_id: params[:id]).where(receive_user_id: session[:id])).order("messages.created_at ASC")
+      end
+      redirect_to "/message/history/#{@to_user.id}"
     else
       redirect_to "/index"
     end

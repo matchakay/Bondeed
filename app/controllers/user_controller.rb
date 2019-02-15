@@ -27,6 +27,7 @@ class UserController < ApplicationController
   end
 
   def create
+    expires_in 1.hour
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = "success"
@@ -34,7 +35,7 @@ class UserController < ApplicationController
       # GmailMailer.send_certification(@user).deliver
       redirect_to "/index"
     else
-      render action: :regist
+      render :regist
     end
   end
 
