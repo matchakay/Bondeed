@@ -21,6 +21,12 @@
   </div>
 <!--  setting-->
 
+  <% if @created == nil %>
+    <div class="alert alert-warning creator-alert-box">
+      ユーザーの詳細情報登録お願いします。
+    </div>
+  <% end %>
+
   <div class="card out-line">
     <div class="card-header my-card-header">
       アバター

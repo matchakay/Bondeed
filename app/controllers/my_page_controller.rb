@@ -10,8 +10,13 @@ class MyPageController < ApplicationController
 
   def show
     if session[:id] != nil
+      if session[:creator] != nil
+        @created = Creator.find_by(user_id: session[:id])
+      end
       @user = User.find(session[:id])
       render :update
+    else
+      redirect_to "/index"
     end
   end
 
