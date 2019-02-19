@@ -36,6 +36,36 @@
   </div>
 <% end %>
 
+<!--recommend-->
+<% if !@recommend.nil? %>
+  <div class="row card-group justify-content-center my-row">
+    おすすめ職人
+    <% @recommend.each do |recommend| %>
+      <div class="col-xl-3 my-card-col new-box">
+        <%= link_to("/page/creator/#{recommend.user_id}", {method:"get", class: "nav-link"}) do %>
+          <div class="card profile-card new-tag-content">
+            <% if (time_ago_in_words(recommend.created_at)).to_i <= 72 %>
+              <span class="new-tag">NEW</span>
+            <% end %>
+            <div class="text-center">
+              <%= image_tag "#{recommend.avatar_path}", class: "rounded-circle avatar"%>
+            </div>
+            <div class="card-body">
+              <h4 class="card-box-name text-center">
+                <%= recommend.name %>
+              </h4>
+              <p class="card-box-title text-center">
+                <%= recommend.title %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<!--recommend-->
+
   <div class="row card-group justify-content-center my-row">
     <% @creator.each_with_index do |creator, i| %>
       <% if i % 4 == 0 %>

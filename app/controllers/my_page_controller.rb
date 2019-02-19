@@ -3,16 +3,24 @@ class MyPageController < ApplicationController
     if session[:id] == nil
       flash.now[:danger] = "ログインしてください"
       redirect_to "/index"
+    elsif session[:creator] != nil
+      if !Creator.find_by(user_id: session[:id])
+        @created = 1
+      else
+        @created = 0
+      end
     else
-      @user = User.find(session[:id])
+      if !Heir.find_by(user_id: session[:id])
+        @created = 1
+      else
+        @created = 0
+      end
     end
+    @user = User.find(session[:id])
   end
 
   def show
     if session[:id] != nil
-      if session[:creator] != nil
-        @created = Creator.find_by(user_id: session[:id])
-      end
       @user = User.find(session[:id])
       render :update
     else

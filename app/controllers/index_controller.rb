@@ -2,6 +2,10 @@ class IndexController < ApplicationController
   def index
     if session[:creator] != nil
       @creator = User.joins(:creator).select("users.*, creators.title, creators.user_id").where.not(creators: {user_id: session[:id]}).where(creators: {is_recruitment: true})
+    elsif session[:id] != nil && session[:creator] == nil
+      @creator = User.joins(:creator).select("users.*, creators.title, creators.user_id").where(creators: {is_recruitment: true})
+      @interest = Heir.select("heirs.art_category_id").find(session[:id])
+      @recommend = User.joins(:creator).select("users.*, creator.title, creators.user_id").where(creators: {art_category_id: @interest}).where(creators: {is_recruitment: true}).order("RAND()").limit(4)
     else
       @creator = User.joins(:creator).select("users.*, creators.title, creators.user_id").where(creators: {is_recruitment: true})
     end
