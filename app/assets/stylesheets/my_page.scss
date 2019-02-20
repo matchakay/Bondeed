@@ -1,3 +1,6 @@
+.all-cover-box {
+  min-height: 100vh;
+}
 h1 {
   margin: 2% 0 3% 0;
   padding-left: 2%;
@@ -18,6 +21,7 @@ h1 {
   margin-bottom: 20px;
 }
 .out-line {
+  min-height: 9vh;
   width: 93%;
   margin: 3%  auto 0 auto;
   border: solid 1px #21442D;
@@ -33,7 +37,7 @@ h1 {
   background-color: #6846A5;
 }
 .my-card-body {
-  font-size: 27px;
+  font-size: 2.3em;
   padding: 2% 0 2% 0;
   background-color: #FCF2D3;
   p {

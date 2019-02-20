@@ -13,6 +13,9 @@ class GalleryUploader < CarrierWave::Uploader::Base
     "uploads/galleries/#{model.id}"
   end
 
+  def size_range
+    1..5.megabytes
+  end
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #

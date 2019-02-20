@@ -6,6 +6,7 @@
   background-color: #6846A5;
 }
 .wrapper{
+  min-height: 55vh;
   width: 71%;
   margin: 0 auto;
   padding: 1%;
@@ -19,12 +20,19 @@
 }
 .inquiry-input-label {
   color: #FFF;
-  font-size: 23px;
+  font-size: 1.5em;
 }
 .inquiry-form-btn {
-  width: 8vw;
+  width: 15%;
+  font-size: 1.5em;
   background-color: #FFA30D;
 }
 .inquiry-form-btn:hover {
   opacity: 0.8;
+}
+.input-inquiry {
+  min-height: 30vh;
+}
+.all-cover-box {
+  min-height: 100vh;
 }

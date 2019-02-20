@@ -3,6 +3,7 @@
   margin: 0 auto;
 }
 .wrapper {
+  min-height: 66vh;
   width: 85%;
   margin:  0 auto 5% auto;
   padding: 3%;
@@ -34,8 +35,8 @@
 }
 .regist-btn {
   margin-right: 1%;
-  width: 9vw;
-  font-size: 20px;
+  width: 17%;
+  font-size: 1.3em;
   background-color: #FFA30D;
 }
 .regist-btn:hover {

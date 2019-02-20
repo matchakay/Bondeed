@@ -5,6 +5,9 @@
   border: solid 1px #1F4B2E;
   border-radius: 7px;
 }
+.all-cover-box {
+  min-height: 100vh;
+}
 .main-title {
   margin: 2% 0 3% 0;
   padding-left: 2%;
@@ -24,6 +27,7 @@
   padding: 0;
 }
 .form-box {
+  min-height: 9vh;
   margin: 2.7% 0;
 }
 .my-check-label {
@@ -46,8 +50,9 @@
   margin: 5% 1% 1% 0;
 }
 .out-line {
+  min-height: 9vh;
   width: 93%;
-  margin: 3%  auto 0 auto;
+  margin: 4vh  auto 0 auto;
   border: solid 2px #D7CDE9;
   border-radius: 8px;
 }

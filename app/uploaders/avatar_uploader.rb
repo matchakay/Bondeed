@@ -13,6 +13,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "default.png"
   end
 
+  def size_range
+    1..5.megabytes
+  end
+
   #画像リサイズ
   process :resize_to_fill => [300, 300]
 

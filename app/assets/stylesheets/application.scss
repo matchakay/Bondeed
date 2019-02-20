@@ -277,6 +277,9 @@ span.psw {
   margin-top: 3%;
 }
 //エラー
+.error-page-box {
+  min-height: 100vh;
+}
 .error-box {
   font-size: 19px;
   background-color: #fff;
@@ -347,4 +350,7 @@ span.psw {
 .modal-footer {
   background-color: #b8daff;
   border-radius: 0 0 5px 5px;
+}
+.navbar-collapse {
+  z-index: 1600;
 }

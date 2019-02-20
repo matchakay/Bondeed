@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'diary/post' => 'diary#regist'
   get 'diary/my_diary' => 'diary#my_diary'
   get 'diary/show/:id' => 'diary#your_diary'
+  get 'diary/heir/favorite' => 'diary#heir_favorite_diary'
 
   #メッセージ
   get 'message/list' => 'message#view'
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   get 'gallery/my_gallery' => 'gallery#my_gallery'
   get 'gallery/selected/:id' => 'gallery#selected_gallery'
   get 'gallery/favorite' => 'gallery#favorite_gallery'
+  get 'gallery/heir/favorite' => 'gallery#heir_favorite_gallery'
 
   #後継者ページ
   get 'heir/show' => 'heir#heir_show'

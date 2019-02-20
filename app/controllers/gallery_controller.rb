@@ -67,6 +67,16 @@ class GalleryController < ApplicationController
     end
   end
 
+  #後継者側のお気に入り
+  def heir_favorite_gallery
+    if session[:id] != nil
+      @favorite_gallery = Gallery.joins(:user).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: session[:id]}).or(Gallery.joins(:user).select("users.*, galleries.*, galleries.id AS page_id").where(galleries: {user_id: Favorite.where(user_id: session[:id]).select("favorites.favorite_user_id")})).order("galleries.created_at DESC")
+      render :heir_favorite_gallery
+    else
+      redirect_to "/index"
+    end
+  end
+
 end
 
 private
