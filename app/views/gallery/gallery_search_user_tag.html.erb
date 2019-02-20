@@ -27,7 +27,7 @@
     <%= form_tag("/gallery/user/search/tag/#{@user.id}", method: "post",class: "gallery-search-tag") do %>
       <%= text_field_tag(:search_tag, "", class: "form-control", size: "35x1", placeholder: "search tag ...") %>
       <%= button_tag type: "submit", class: "btn  my-2 my-sm-0 search_btn" do %>
-        <%= fa_icon "search lg",class: "search_icon" %>
+        <%= icon("fas" , "search",class: "search_icon") %>
       <% end %>
     <% end %>
     <!--              search-->

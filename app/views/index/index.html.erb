@@ -37,9 +37,9 @@
 <% end %>
 
 <!--recommend-->
-<% if !@recommend.nil? %>
+<% if !@recommend.nil? && !@recommend.empty? %>
   <div class="row card-group justify-content-center my-row">
-    おすすめ職人
+  <p class="recommend-title">おすすめ職人さん</p>
     <% @recommend.each do |recommend| %>
       <div class="col-xl-3 my-card-col new-box">
         <%= link_to("/page/creator/#{recommend.user_id}", {method:"get", class: "nav-link"}) do %>
