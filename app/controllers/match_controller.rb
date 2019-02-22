@@ -12,7 +12,7 @@ class MatchController < ApplicationController
   #マッチングリスト
   def matching_list_view
     if session[:id] != nil
-      @match = User.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {target_user_id: session[:id]}).or(Match.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {user_id: session[:id]})).where(matches: {is_ok: true}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).or(User.joins(:matches).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(users: {id: Match.where(user_id: session[:id]).select("matches.user_id")})).order("matches.created_at DESC")
+      @match = User.joins(:matches).select("users.name", "users.birthday", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {target_user_id: session[:id]}).or(Match.joins(:matches).select("users.name", "users.birthday", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {user_id: session[:id]})).where(matches: {is_ok: true}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).or(User.joins(:matches).select("users.name", "users.birthday", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(users: {id: Match.where(user_id: session[:id]).select("matches.user_id")})).order("matches.created_at DESC")
       @message_list = MessageList.new
       render :matching
     else
@@ -130,7 +130,7 @@ class MatchController < ApplicationController
   def scouted_show
     if session[:id]!= nil && session[:creator] == nil
       @match = Match.new
-      @scout = User.joins(:matches, :creators).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time", "creators.*").where(users: {id: Match.where(user_id: session[:id]).select("matches.target_user_id")}).where(matches: {is_scout: true}).where(matches: {is_ok: nil}).order("matches.created_at ASC")
+      @scout = User.joins(:matches, :creator).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time", "creators.*").where(users: {id: Match.where(user_id: session[:id]).select("matches.target_user_id")}).where(matches: {is_scout: true}).where(matches: {is_ok: nil}).order("matches.created_at ASC")
       render :scout_check
     else
       redirect_to "/index"

@@ -5,12 +5,12 @@
   color: #fff;
   background-color: #6846A5;
 }
-.my-row {
+.all-cover-box {
   min-height: 100vh;
+}
+.my-row {
   margin: 0;
   padding: 0;
-  padding-left: 0.7%;
-  width: 100%;
 }
 .user-gallery-row {
   min-height: 70vh;
@@ -40,11 +40,11 @@
   opacity: 0.8;
 }
 .card-col {
+  height: auto;
   padding: 5px 2px 0 2px;
-  padding-bottom: 10%;
 }
 .gallery-col {
-  padding: 0 0 0 0.3%;
+  padding: 0;
   margin-bottom: 10%;
   background-color: #275D39;
   border: solid 1px #1F4B2E;

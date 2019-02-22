@@ -28,7 +28,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # environment rails_env
 
 # socketでbindする。nginxからsocket経由で接続するため
-# bind "unix://#{tmp_dir}/sockets/puma.sock"
+# bind "unix://home/ubuntu/SucSeed/tmp/sockets/puma.sock"l
 
 # ログ出力ファイルの指定
 # stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
@@ -37,8 +37,6 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # pidfile "#{tmp_dir}/pids/puma.pid"
 # state_path "#{tmp_dir}/pids/puma.state"
 
-# app_dir = File.expand_path("../../", __FILE__)
-# bind "unix://home/ubuntu/SucSeed/tmp/sockets/puma.sock"
 #
 
 # Specifies the number of `workers` to boot in clustered mode.

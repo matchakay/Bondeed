@@ -32,12 +32,12 @@
     <% if @art_name != nil %>
       <div class="label-box">
         <span class="badge badge-primary">
-          <%= @art_name %>
+          <%= @art_name.name %>
         </span>
       </div>
     <% end %>
     <div class="profile-avatar">
-      <%= image_tag "#{@user.avatar_path}", class: "card-img-top img-circle", width: "100%", height: "100%", alt: "アバター画像" %>
+      <%= image_tag "#{@user.avatar_path}", class: "card-img-top rounded-circle", width: "100%", height: "100%", alt: "アバター画像" %>
     </div>
   </div>
 

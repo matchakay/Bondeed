@@ -29,13 +29,13 @@
           <%= form_for :session, url: "/user/login", class: "form-group" do |f| %>
             <div class="">
               <%= f.label "メールアドレス", class: "" %>
-              <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス", required: true %>
             </div>
             <small class="modal-small">半角英数</small>
 
             <div class="modal-password-box">
               <%= f.label "パスワード", class: "input-group-addon" %>
-              <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード" %>
+              <%= f.password_field :password, class: "form-control", maxlength: 16, placeholder: "パスワード", required: true %>
             </div>
             <small class="modal-small">半角英数、８文字以上１６文字以内</small>
 
