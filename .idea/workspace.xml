@@ -6,25 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e745687-c24d-4423-96ac-aecdd76a4584" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/gallery.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/index_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/index_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/match_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/match_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/message_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/message_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gallery/favorite_gallery.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gallery/favorite_gallery.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gallery/my_gallery.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gallery/my_gallery.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/heir/heir.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/heir/heir.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/heir/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/heir/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/heir/update.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/heir/update.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/index/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/index/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/match/matching.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/match/matching.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/match/scout_show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/match/scout_show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/regist.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/regist.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/your_page/heir_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/your_page/heir_page.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/puma.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/puma.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/match_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1152">
-              <caret line="132" column="44" lean-forward="true" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
+              <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -117,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/message_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1600">
-              <caret line="50" column="87" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="87" />
+            <state relative-caret-position="954">
+              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -153,20 +136,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/gallery/favorite_gallery.html.erb">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1402">
-              <caret line="90" column="6" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+            <state relative-caret-position="1024">
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/gallery_controller.rb">
+        <entry file="file://$PROJECT_DIR$/app/views/gallery/favorite_gallery.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2336">
-              <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+            <state relative-caret-position="1402">
+              <caret line="90" column="6" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -207,7 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/index/search_user.html.erb" />
@@ -258,6 +240,7 @@
         <option value="$PROJECT_DIR$/app/views/index/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/index.scss" />
         <option value="$PROJECT_DIR$/app/controllers/message_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -639,7 +622,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="591340000" />
+    <option name="totallyTimeSpent" value="592107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -874,13 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-678">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1184">
@@ -967,7 +943,7 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/match_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1152">
-          <caret line="132" column="44" lean-forward="true" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
+          <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1008,8 +984,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/message_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="50" column="87" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="87" />
+        <state relative-caret-position="954">
+          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1024">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
         </state>
       </provider>
     </entry>
