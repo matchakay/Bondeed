@@ -179,8 +179,8 @@
   font-size: 23px;
 }
 .selected-gallery-box-in-box {
-  padding-bottom: 3%;
-  background-color: #6846A5;
+  //padding-bottom: 3%;
+  background-color: #FFF;
   border-radius: 0 0 7px 7px;
 }
 .selected-gallery-box-text {
@@ -280,4 +280,8 @@
 }
 .heir-favorite-box {
   min-height: 55vh;
+}
+.tag-list-box {
+  background-color: #6846A5;
+  padding: 1% 0 1.5% 0.5%;
 }

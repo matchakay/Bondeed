@@ -92,14 +92,23 @@ class DiaryController < ApplicationController
 
   #いいねボタン
   def good
-    if session[:id] != nil
+    if session[:id] != nil && session[:creator] != nil
       @diary_good = DiaryGood.new(diary_id: params[:id], user_id: session[:id])
       if @diary_good.save
-        flash[:success] = "success"
+        flash.now[:success] = "success"
         redirect_to "/diary/view"
       else
-        flash[:danger] = "エラー"
+        flash.now[:danger] = "エラー"
         redirect_to "/diary/view"
+      end
+    elsif session[:id] != nil && session[:creator] == nil
+      @diary_good = DiaryGood.new(diary_id: params[:id], user_id: session[:id])
+      if @diary_good.save
+        flash.now[:success] = "success"
+        redirect_to "/diary/heir/favorite"
+      else
+        flash.now[:danger] = "エラー"
+        redirect_to "/diary/heir/favorite"
       end
     else
       redirect_to "/index"
@@ -108,7 +117,7 @@ class DiaryController < ApplicationController
 
   #コメント
   def comment
-    if session[:id] != nil
+    if session[:id] != nil && session[:creator] != nil
       params[:diary_comment][:user_id] = session[:id]
       params[:diary_comment][:diary_id] = params[:id]
       @diary_comment = DiaryComment.new(diary_comment_params)
@@ -118,6 +127,17 @@ class DiaryController < ApplicationController
       else
         flash[:danger] = "エラー"
         redirect_to "/diary/view"
+      end
+    elsif session[:id] != nil && session[:creator] == nil
+      params[:diary_comment][:user_id] = session[:id]
+      params[:diary_comment][:diary_id] = params[:id]
+      @diary_comment = DiaryComment.new(diary_comment_params)
+      if @diary_comment.save
+        flash[:success] = "success"
+        redirect_to "/diary/heir/favorite"
+      else
+        flash[:danger] = "エラー"
+        redirect_to "/diary/heir/favorite"
       end
     else
       redirect_to "/index"
@@ -152,6 +172,11 @@ class DiaryController < ApplicationController
     else
       redirect_to "/index"
     end
+  end
+
+  #後継者側個別
+  def heir_user_diary
+
   end
 end
 

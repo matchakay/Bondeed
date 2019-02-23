@@ -15,15 +15,15 @@
           <%= @selected_gallery.comment %>
         </p>
       </div>
-      <div>
-        <% @selected_gallery.tag_list.each do |tag| %>
-          <p class="selected-gallery-tag">
+    </div>
+    <div class="tag-list-box">
+      <% @selected_gallery.tag_list.each do |tag| %>
+        <p class="selected-gallery-tag">
             <span class="label selected-gallery-tag-in">
               <%= tag %>
             </span>
-          </p>
-        <% end %>
-      </div>
+        </p>
+      <% end %>
     </div>
 
     <% if !@match_tag.empty? %>

@@ -20,11 +20,6 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div>
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
-          <% end %>
-        </div>
         <div class="modal-body">
           <%= form_for :session, url: "/user/login", class: "form-group" do |f| %>
             <div class="">

@@ -5,7 +5,7 @@ class IndexController < ApplicationController
     elsif session[:id] != nil && session[:creator] == nil
       @creator = User.joins(:creator).select("users.*, creators.title, creators.user_id").where(creators: {is_recruitment: true})
       @interest = Heir.select("heirs.art_category_id").find_by(user_id: session[:id])
-      @recommend = User.joins(:creator).select("users.*, creators.title, creators.user_id").where(creators: {art_category_id: @interest.art_category_id}).where(creators: {is_recruitment: true}).order("RAND()").limit(4)
+      @recommend = User.joins(:creator).select("users.*, creators.title, creators.user_id").where(creators: {art_category_id: @interest}).where(creators: {is_recruitment: true}).order("RAND()").limit(4)
     else
       @creator = User.joins(:creator).select("users.*, creators.title, creators.user_id").where(creators: {is_recruitment: true})
     end

@@ -1,5 +1,12 @@
 <%= stylesheet_link_tag "index" %>
 
+<div class="alert-box">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
+
+
 <div class="text-center main-visual-box">
   <%= image_tag "main1.jpg", class: "img-responsive margin main-visual", alt: "メインヴィジュアル", width: "100%" %>
   <h1><%= image_tag "title.png", width: "115%", height: "115%" %></h1>
@@ -72,7 +79,7 @@
       <% if i % 4 == 0 %>
         <div class="row card-group justify-content-center my-row">
       <% end %>
-      <div class="col-xl-3 my-card-col new-box">
+      <div class="col-lg-3 my-card-col new-box">
         <%= link_to("/page/creator/#{creator.user_id}", {method:"get", class: "nav-link"}) do %>
           <div class="card profile-card new-tag-content">
             <% if (time_ago_in_words(creator.created_at)).to_i <= 72 %>
