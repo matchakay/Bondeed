@@ -16,28 +16,19 @@ port        ENV.fetch("PORT") { 3000 }
 environment ENV.fetch("RAILS_ENV") { "development" }
 
 
-# アプリケーションがあるディレクトリと各種ファイルを生成するディレクトリを指定する
-# tmpディレクトリは存在していないが、手動で作成するか起動時のスクリプトで作成するようにする
-#  socketやlogやpidファイルを格納するディレクトリも存在していないので手動かスクリプトで作成
-#  存在しないと起動出来ずに落ちます
 # app_dir = File.expand_path("../..", __FILE__)
 # tmp_dir = "#{app_dir}/tmp"
 
-# 環境変数を指定する。起動時に変数があればそれを見る。無ければテスト環境である"staging"としている
-# rails_env = ENV['RAILS_ENV'] || "staging"
+# rails_env = ENV['RAILS_ENV'] || "development"
 # environment rails_env
 
 # socketでbindする。nginxからsocket経由で接続するため
 # bind "unix://home/ubuntu/SucSeed/tmp/sockets/puma.sock"l
 
-# ログ出力ファイルの指定
 # stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
 
-# pidとstateファイルの格納
 # pidfile "#{tmp_dir}/pids/puma.pid"
 # state_path "#{tmp_dir}/pids/puma.state"
-
-#
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
