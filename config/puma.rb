@@ -23,7 +23,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # environment rails_env
 
 # socketでbindする。nginxからsocket経由で接続するため
-# bind "unix://home/ubuntu/SucSeed/tmp/sockets/puma.sock"l
+# bind "unix://home/ubuntu/SucSeed/tmp/sockets/puma.sock"
 
 # stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
 
