@@ -16,19 +16,19 @@ port        ENV.fetch("PORT") { 3000 }
 environment ENV.fetch("RAILS_ENV") { "development" }
 
 
-# app_dir = File.expand_path("../..", __FILE__)
-# tmp_dir = "#{app_dir}/tmp"
+app_dir = File.expand_path("../..", __FILE__)
+tmp_dir = "#{app_dir}/tmp"
 
-# rails_env = ENV['RAILS_ENV'] || "development"
-# environment rails_env
+rails_env = ENV['RAILS_ENV'] || "development"
+environment rails_env
 
 # socketでbindする。nginxからsocket経由で接続するため
-# bind "unix:///home/ubuntu/SucSeed/tmp/sockets/puma.sock"
+bind "unix:///home/ubuntu/SucSeed/tmp/sockets/puma.sock"
 
-# stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
+stdout_redirect "#{tmp_dir}/logs/puma.stdout.log", "#{tmp_dir}/logs/puma.stderr.log", true
 
-# pidfile "#{tmp_dir}/pids/puma.pid"
-# state_path "#{tmp_dir}/pids/puma.state"
+pidfile "#{tmp_dir}/pids/puma.pid"
+state_path "#{tmp_dir}/pids/puma.state"
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together

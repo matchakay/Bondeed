@@ -41,7 +41,7 @@ Rails.application.configure do
     enable_starttls_auto:  true
   }
 
-  #config.force_ssl = true
+  config.force_ssl = true
 
   config.action_mailer.perform_caching = false
 
