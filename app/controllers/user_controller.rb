@@ -7,6 +7,7 @@ class UserController < ApplicationController
         if user[:is_creator]
           session[:creator] = user[:id]
         end
+        flash[:success] = "ログイン成功"
         redirect_to "/index"
       else
         flash[:danger] = '『メールアドレス』もしくは『パスワード』が誤っています'
@@ -18,7 +19,7 @@ class UserController < ApplicationController
   def logout
     session[:id] = nil
     session[:creator] = nil
-    flash.now[:success] = "ログアウト"
+    flash[:success] = "ログアウト"
     redirect_to "/index"
   end
 
@@ -30,9 +31,9 @@ class UserController < ApplicationController
     expires_in 1.hour
     @user = User.new(user_params)
     if @user.save
-      flash.now[:success] = "success"
       # GmailMailer.send_create(@user).deliver
       # GmailMailer.send_certification(@user).deliver
+      flash[:success] = "登録完了"
       redirect_to "/index"
     else
       render :regist

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_142705) do
+ActiveRecord::Schema.define(version: 2019_02_25_161150) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 20, null: false
@@ -82,6 +82,24 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
     t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.timestamp "deleted_at"
     t.index ["user_id"], name: "fk_rails_05f824a025"
+  end
+
+  create_table "gallery_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "gallery_id", null: false
+    t.string "user_id", null: false
+    t.string "comment", limit: 100, null: false
+    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "deleted_at"
+    t.index ["gallery_id"], name: "fk_rails_a5a859737a"
+    t.index ["user_id"], name: "fk_rails_a90bc1d938"
+  end
+
+  create_table "gallery_goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "gallery_id", null: false
+    t.string "user_id", null: false
+    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["gallery_id"], name: "fk_rails_d33d7a5d17"
+    t.index ["user_id"], name: "fk_rails_2769ec3bc8"
   end
 
   create_table "heirs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -199,6 +217,10 @@ ActiveRecord::Schema.define(version: 2019_01_07_142705) do
   add_foreign_key "favorites", "users", column: "favorite_user_id", on_delete: :cascade
   add_foreign_key "favorites", "users", on_delete: :cascade
   add_foreign_key "galleries", "users", on_delete: :cascade
+  add_foreign_key "gallery_comments", "galleries", on_delete: :cascade
+  add_foreign_key "gallery_comments", "users", on_delete: :cascade
+  add_foreign_key "gallery_goods", "galleries", on_delete: :cascade
+  add_foreign_key "gallery_goods", "users", on_delete: :cascade
   add_foreign_key "heirs", "art_categories"
   add_foreign_key "heirs", "users", on_delete: :cascade
   add_foreign_key "inquiries", "admins"

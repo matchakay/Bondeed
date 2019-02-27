@@ -29,39 +29,65 @@
 <div class="all-cover-box">
   <div class="row my-row">
     <div class="col-lg-9 gallery-col">
-        <% if !@my_gallery.empty? %>
-          <% @my_gallery.each_with_index do |my_gallery, i| %>
-            <% if i % 3 == 0 && i != 0 %>
-              <div class="row my-row">
-            <% end %>
-            <div class="col-md-4 card-col">
-              <%= link_to("/gallery/selected/#{my_gallery.id}", {method: "get"}) do %>
-                <div class="card gallery-card">
-                  <div class="card-header gallery-card-header">
-                    <%= image_tag "#{my_gallery.data}", width: "100%", height: "380px" %>
-                  </div>
-                  <div class="card-body gallery-card-body">
-                    <p class="card-tag">
-                      <% my_gallery.tag_list.each_with_index do |tag, i| %>
-                        <% if i < 3 %>
-                          <span class="label my-label">
-                            <%= tag %>
-                          </span>
-                         <% end %>
-                        <% end %>
-                      </p>
-                   </div>
-                 </div>
-               <% end %>
-             </div>
-            <% if i % 3 == 2 %>
-              </div>
-           <% end %>
+      <% if !@my_gallery.empty? %>
+        <% @my_gallery.each_with_index do |my_gallery, i| %>
+          <% if i % 3 == 0 %>
+            <div class="row my-row">
           <% end %>
-        <% else %>
-         <p class="empty-text">まだありません</p>
+          <div class="col-md-4 card-col">
+            <%= link_to("/gallery/selected/#{my_gallery.id}", {method: "get"}) do %>
+              <div class="card gallery-card">
+                <div class="card-header gallery-card-header">
+                  <%= image_tag "#{my_gallery.data}", width: "100%", height: "380px" %>
+                </div>
+                <div class="card-body gallery-card-body">
+                  <p class="card-tag">
+                    <% my_gallery.tag_list.each_with_index do |tag, i| %>
+                      <% if i < 3 %>
+                        <span class="label my-label">
+                          <%= tag %>
+                        </span>
+                      <% end %>
+                    <% end %>
+                  </p>
+                  <div class="text-right gallery-icon-box">
+                    <!-- いいねボタン -->
+                    <% if !@my_good.empty? %>
+                      <% @my_good.each_with_index do |my_good, i| %>
+                        <% if favorite_gallery.page_id == my_good.id %>
+                          <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                          <% if @good_count[favorite_gallery.page_id] == nil %>
+                            <%= 0 %>
+                          <% else %>
+                            <%= @good_count[favorite_gallery.page_id] %>
+                          <% end %>
+                        <% elsif i == @my_good.length - 1  %>
+                          <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                          <% if @good_count[favorite_gallery.page_id] == nil %>
+                            <%= 0 %>
+                          <% else %>
+                            <%= @good_count[favorite_gallery.page_id] %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                      <%= 0 %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% if i % 3 == 2 %>
+            </div>
+          <% end %>
         <% end %>
-      </div>
+      <% else %>
+        <p class="empty-text">まだありません</p>
+      <% end %>
+    </div>
+  </div>
   <!--right-->
     <div class="col-sm-3 post-col">
       <div class="right-box">
@@ -88,4 +114,5 @@
     </div>
   </div>
 </div>
+
 <%= javascript_include_tag "bootstrap-tagsinput.js" %>

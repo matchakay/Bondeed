@@ -23,5 +23,7 @@ class User < ApplicationRecord
   has_one :heir
   has_many :message_lists, class_name: 'MessageList', :foreign_key => 'creator_user_id'
   has_many :message_lists, class_name: 'MessageList', :foreign_key => 'heir_user_id'
+  has_many :gallery_goods
+  has_many :gallery_comments
   acts_as_tagger
 end

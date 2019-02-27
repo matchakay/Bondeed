@@ -55,7 +55,7 @@
                   <!-- いいねユーザアイコン -->
                   <% @good_avatar.each_with_index do |good_avatar, i| %>
                     <% if diary_user.diaries_id == good_avatar.diary_id && i < 10%>
-                      <%= image_tag "#{good_avatar.avatar_path}", class: "img-circle", size: "35x35" %>
+                      <%= image_tag "#{good_avatar.avatar_path}", class: "rounded-circle", size: "35x35" %>
                     <% end %>
                   <% end %>
                 </div>

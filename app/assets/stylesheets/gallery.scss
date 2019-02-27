@@ -285,3 +285,93 @@
   background-color: #6846A5;
   padding: 1% 0 1.5% 0.5%;
 }
+.thumbs-up-icon {
+  font-size: 23px;
+  color: #1F8A70;
+}
+.gallery-icon-box {
+  padding-top: 1%;
+  padding-right: 2%;
+  color: #FFF;
+}
+.icon-btn-box {
+  padding: 1%;
+  background-color: #6846A5;
+  form {
+    display: inline-block;
+  }
+  button {
+    display: inline-block;
+    color: #000;
+  }
+}
+.icon-btn:hover {
+  opacity: 0.8;
+}
+.comment-card {
+  margin: 1% 0 1% 1%;
+  background-color: #FFF;
+}
+.comment-header {
+  padding-top: 0.3%;
+  padding-left: 0.5%;
+  padding-bottom: 0;
+  font-size: 18px;
+}
+.comment-body {
+  padding: 0.5%;
+  padding-left: 2%;
+  p {
+    font-size: 19px;
+  }
+}
+.comment-time {
+  padding: 0.1%;
+  color: #555;
+}
+.input-comment-box {
+  margin: 1.5% 9% 1.5% 10%;
+}
+.input-comment-header {
+  padding: 0.5% 0.5% 0 0.5%;
+  font-size: 19px;
+  background-color: #FCF2D3;
+}
+.input-comment-header-in {
+
+}
+.input-comment-body {
+  background-color: #FCF2D3;
+  padding: 0.5%;
+}
+.input-comment-footer {
+  padding: 0.5% 2% 0.5% 0.5%;
+  background-color: #5cb85c;
+}
+.comment-btn {
+  background-color: #FFA30D;
+}
+.icon-btn {
+  color: #1F8A70;
+  font-size: 21px;
+  background-color: #FFA30D;
+}
+.comment-icon {
+  color: #1F8A70;
+}
+.sub-thumbs-up-icon {
+  color: #FFA30D;
+}
+.no-login-text {
+  padding: 0.7% 0 1% 3%;
+  font-size: 23px;
+  color: #fff;
+}
+.empty-text {
+  font-size: 39px;
+  color: #fff;
+}
+.user-gallery-icon {
+  background-color: #6846A5;
+  color: #FFA30D;
+}

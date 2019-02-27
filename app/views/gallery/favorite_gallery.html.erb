@@ -48,21 +48,46 @@
                         <span class="label my-label">
                           <%= tag %>
                         </span>
+                      <% end %>
+                    </p>
+                    <div class="text-right gallery-icon-box">
+                      <!-- いいねボタン -->
+                      <% if !@my_good.empty? %>
+                        <% @my_good.each_with_index do |my_good, i| %>
+                          <% if favorite_gallery.page_id == my_good.id %>
+                            <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                            <% if @good_count[favorite_gallery.page_id] == nil %>
+                              <%= 0 %>
+                            <% else %>
+                              <%= @good_count[favorite_gallery.page_id] %>
+                            <% end %>
+                          <% elsif i == @my_good.length - 1  %>
+                            <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                            <% if @good_count[favorite_gallery.page_id] == nil %>
+                              <%= 0 %>
+                            <% else %>
+                              <%= @good_count[favorite_gallery.page_id] %>
+                            <% end %>
+                          <% end %>
                         <% end %>
-                     </p>
+                      <% else %>
+                        <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                        <%= 0 %>
+                      <% end %>
                     </div>
                   </div>
-               <% end %>
+                </div>
+                <% end %>
               </div>
-             <% if i % 3 == 2 %>
+              <% if i % 3 == 2 %>
                 </div>
               <% end %>
-           <% end %>
-        <% else %>
-          <p class="empty-text">まだありません</p>
-        <% end %>
+            <% end %>
+          <% else %>
+            <p class="empty-text">まだありません</p>
+          <% end %>
+        </div>
       </div>
-    </div>
     <!--right-->
     <div class="col-sm-3 post-col">
       <div class="right-box">
@@ -89,4 +114,5 @@
     </div>
   </div>
 </div>
+
 <%= javascript_include_tag "bootstrap-tagsinput.js" %>
