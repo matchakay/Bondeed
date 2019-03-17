@@ -2,7 +2,7 @@ class MatchController < ApplicationController
   #アピールされたリスト表示
   def appealed_list_view
     if session[:creator] != nil
-      @match = User.joins(:matches).where(matches: {is_ok: nil}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).select("users.*", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").order("matches.created_at ASC")
+      @match = User.joins(:matches).where(matches: {is_ok: nil}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).select("users.*", "users.id AS page_id", "users.id", "matches.created_at AS match_time").order("matches.created_at ASC")
       render :appealed_list
     else
       redirect_to "/index"
@@ -12,7 +12,7 @@ class MatchController < ApplicationController
   #マッチングリスト
   def matching_list_view
     if session[:id] != nil
-      @match = User.joins(:matches).select("users.name", "users.birthday", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {target_user_id: session[:id]}).or(Match.joins(:matches).select("users.name", "users.birthday", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(matches: {user_id: session[:id]})).where(matches: {is_ok: true}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).or(User.joins(:matches).select("users.name", "users.birthday", "users.id AS page_id", "matches.*", "matches.created_at AS match_time").where(users: {id: Match.where(user_id: session[:id]).select("matches.user_id")})).order("matches.created_at DESC")
+      @match = User.joins(:matches).select("users.id, users.name, users.birthday, users.avatar_path, matches.is_add_list, matches.created_at AS match_time").where(matches: {target_user_id: session[:id]}).or(Match.joins(:matches).select("users.id, users.name, users.birthday, users.avatar_path, matches.is_add_list, matches.created_at AS match_time").where(matches: {user_id: session[:id]})).where(matches: {is_ok: true}).where(users: {id: Match.where(target_user_id: session[:id]).select("matches.user_id")}).or(User.joins(:matches).select("users.id, users.name, users.birthday, users.avatar_path, matches.is_add_list, matches.created_at AS match_time").where(users: {id: Match.where(user_id: session[:id]).select("matches.user_id")})).order("matches.created_at DESC")
       @message_list = MessageList.new
       render :matching
     else

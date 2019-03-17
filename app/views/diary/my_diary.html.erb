@@ -179,7 +179,7 @@
       <div class="in-box">
         <div class="card diary-post-card">
           <div class="diary-post-card-header">
-            <%= image_tag "#{@user.avatar_path}", class: "img-circle", size: "60x60" %>
+            <%= image_tag "#{@user.avatar_path}", class: "rounded-circle", size: "60x60" %>
             <%= @user.name %>
           </div>
           <%= form_for @diary, url: "/diary/post" do |f| %>

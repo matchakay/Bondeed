@@ -80,6 +80,7 @@ body {
   a:link {color: #000;}
   a:visited {color: #000;}
   a:hover {color: #FFA30D;}
+  z-index: 5000;
 }
 
 body {
@@ -366,4 +367,8 @@ span.psw {
 }
 .navbar-collapse {
   z-index: 1600;
+}
+.alert-box {
+  opacity: 0.8;
+  z-index: 1;
 }

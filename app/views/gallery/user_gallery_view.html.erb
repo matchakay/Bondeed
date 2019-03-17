@@ -59,32 +59,31 @@
                 </p>
                 <div class="text-right gallery-icon-box">
                   <!-- いいねボタン -->
-                  <% if !@my_good.empty? %>
-                    <% @my_good.each_with_index do |my_good, i| %>
-                      <% if user_gallery.id == my_good.gallery_id %>
-                        <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                  <%# if !@my_good.empty? %>
+                    <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                    <%# @my_good.each_with_index do |my_good, i| %>
+                      <%# if user_gallery.id == my_good.gallery_id %>
                         <% if @good_count[user_gallery.id] == nil %>
                           <%= 0 %>
                         <% else %>
                           <%= @good_count[user_gallery.id] %>
                         <% end %>
-                      <% elsif i == @my_good.length - 1 %>
-                        <%= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
-                        <% if @good_count[user_gallery.id] == nil %>
-                          <%= 0 %>
-                        <% else %>
-                          <%= @good_count[user_gallery.id] %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                  <% else %>
-                    <%= icon("fas", "thumbs-up", class: "thumbs-up-icon icon-btn user-gallery-icon") %>
-                    <% if @good_count[user_gallery.id] == nil %>
-                      <%= 0 %>
-                    <% else %>
-                      <%= @good_count[user_gallery.id] %>
-                    <% end %>
-                  <% end %>
+                      <%# elsif i == @my_good.length - 1 %>
+                        <%# if @good_count[user_gallery.id] == nil %>
+                      <%#= 0 %>
+                      <%# else %>
+                      <%#= @good_count[user_gallery.id] %>
+                        <%# end %>
+                      <%# end %>
+                    <%# end %>
+                  <%# else %>
+                    <%#= icon("fas", "thumbs-up", class: "thumbs-up-icon sub-thumbs-up-icon") %>
+                    <%# if @good_count[user_gallery.id] == nil %>
+                      <%#= 0 %>
+                    <%# else %>
+                      <%#= @good_count[user_gallery.id] %>
+                    <%# end %>
+                  <%# end %>
                 </div>
               </div>
             </div>

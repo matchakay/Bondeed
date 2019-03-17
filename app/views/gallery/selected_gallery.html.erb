@@ -166,7 +166,7 @@
       <div class="user-img-box">
         <%= link_to("/page/creator/#{@selected_gallery_user.user_id}", {method: "get"}) do %>
           <div class="user-img">
-            <%= image_tag "#{@selected_gallery_user.avatar_path}", class: "rounded-circle", size: "180x180", alt: "アバター" %>
+            <%= image_tag "#{@user.avatar_path}", class: "rounded-circle", size: "180x180", alt: "アバター" %>
           </div>
           <div class="user-name">
             <h3>

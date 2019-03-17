@@ -30,7 +30,7 @@ class GalleryController < ApplicationController
     @gallery = Gallery.new
     @user = User.find_by("id = ?", params[:id])
     @user_gallery = Gallery.joins(:user).select("users.name", "galleries.*").where(galleries: {user_id: params[:id]}).order("galleries.created_at DESC")
-    @my_good = Gallery.joins(:gallery_goods).where(gallery_goods: {user_id: session[:id]}).where(galleries: {user_id: params[:id]}).order("galleries.created_at DESC")
+    @my_good = Gallery.joins(:gallery_goods).select("galleries.*, gallery_goods.*").where(gallery_goods: {user_id: session[:id]}).where(galleries: {user_id: params[:id]}).order("galleries.created_at DESC")
     @good_count = GalleryGood.group(:gallery_id).count
     render :user_gallery_view
   end
@@ -59,7 +59,7 @@ class GalleryController < ApplicationController
     @good_count = GalleryGood.group(:gallery_id).count
     @comment = User.joins(:gallery_comments).select("gallery_comments.*, gallery_comments.created_at AS post_time, users.*").order("gallery_comments.created_at DESC")
     @comment_count = GalleryComment.group(:gallery_id).count
-    @my_good = Gallery.joins(:gallery_goods).where(gallery_goods: {user_id: session[:id]}).where(galleries: {user_id: session[:id]}).or(Gallery.joins(:gallery_goods).where(galleries: {user_id: Favorite.where(user_id: session[:id]).select("favorites.favorite_user_id")})).select("galleries.id AS id").order("galleries.created_at DESC")
+    @my_good = Gallery.joins(:gallery_goods).select("galleries.*, gallery_goods.user_id, gallery_goods.gallery_id").where(gallery_goods: {user_id: session[:id]}).order("galleries.created_at DESC")
     @gallery_comment = GalleryComment.new
     #タグ検索
     @match_tag = Gallery.tagged_with([@selected_gallery.tag_list], :any => true).where.not(user_id: @selected_gallery.user_id).order("RAND()").limit(3)

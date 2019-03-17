@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "name", limit: 20, null: false
     t.string "user_id", null: false
     t.string "password_digest", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
   end
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.integer "employee", null: false
     t.string "postal_code", limit: 7, null: false
     t.boolean "is_recruitment", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
     t.index ["art_category_id"], name: "index_creators_on_art_category_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
   create_table "diaries", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id", null: false
     t.text "content", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
     t.index ["user_id"], name: "fk_rails_f03fd03c63"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "diary_id", null: false
     t.string "user_id", null: false
     t.string "comment", limit: 100, null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "deleted_at"
     t.index ["diary_id"], name: "fk_rails_0f3d78174b"
     t.index ["user_id"], name: "fk_rails_75f0ca877d"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
   create_table "diary_goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "diary_id", null: false
     t.string "user_id", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.index ["diary_id"], name: "fk_rails_b7c652964c"
     t.index ["user_id"], name: "fk_rails_da8d03400c"
   end
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id", null: false
     t.string "favorite_user_id", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.index ["favorite_user_id"], name: "fk_rails_0bb10dcefc"
     t.index ["user_id"], name: "fk_rails_d15744e438"
   end
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "user_id", null: false
     t.string "data", null: false
     t.string "comment", limit: 100, null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "deleted_at"
     t.index ["user_id"], name: "fk_rails_05f824a025"
   end
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "gallery_id", null: false
     t.string "user_id", null: false
     t.string "comment", limit: 100, null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "deleted_at"
     t.index ["gallery_id"], name: "fk_rails_a5a859737a"
     t.index ["user_id"], name: "fk_rails_a90bc1d938"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
   create_table "gallery_goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "gallery_id", null: false
     t.string "user_id", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.index ["gallery_id"], name: "fk_rails_d33d7a5d17"
     t.index ["user_id"], name: "fk_rails_2769ec3bc8"
   end
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "user_id", null: false
     t.bigint "art_category_id", null: false
     t.text "introduction"
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.index ["art_category_id"], name: "index_heirs_on_art_category_id"
     t.index ["user_id"], name: "fk_rails_94084789b8"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.text "content", null: false
     t.boolean "is_check", default: false, null: false
     t.bigint "admin_id"
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.timestamp "deleted_at"
     t.index ["admin_id"], name: "index_inquiries_on_admin_id"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.boolean "is_scout", null: false
     t.boolean "is_ok"
     t.boolean "is_add_list", default: false, null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.index ["target_user_id"], name: "fk_rails_c475acfdab"
     t.index ["user_id"], name: "fk_rails_1766d8a780"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
   create_table "message_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "creator_user_id", null: false
     t.string "heir_user_id", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "updated_at"
     t.index ["creator_user_id"], name: "fk_rails_c44687bc14"
     t.index ["heir_user_id"], name: "fk_rails_8e0dafab66"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "send_user_id", null: false
     t.string "receive_user_id", null: false
     t.text "content", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.index ["receive_user_id"], name: "fk_rails_75141dd80c"
     t.index ["send_user_id"], name: "fk_rails_6613941af1"
   end
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
   create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id", null: false
     t.text "content", null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.index ["user_id"], name: "fk_rails_7b6cb9343d"
   end
 
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161150) do
     t.string "password_digest", null: false
     t.text "profile"
     t.boolean "is_certified", default: false, null: false
-    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.timestamp "created_at", null: false
     t.timestamp "login_time"
     t.timestamp "deleted_at"
   end

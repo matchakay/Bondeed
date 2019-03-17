@@ -32,12 +32,16 @@ class HeirController < ApplicationController
 
   #更新ページ
   def heir_edit
-    if session[:id] != nil
-      @heir = Heir.find_by(user_id: session[:id])
-      @interest = ArtCategory.find(@heir.art_category_id)
-      render :update
+    if !!Heir.find_by(user_id: session[:id])
+      if session[:id] != nil
+        @heir = Heir.find_by(user_id: session[:id])
+        @interest = ArtCategory.find(@heir.art_category_id)
+        render :update
+      else
+        redirect_to "/index"
+      end
     else
-      redirect_to "/index"
+      redirect_to "/heir/show"
     end
   end
 

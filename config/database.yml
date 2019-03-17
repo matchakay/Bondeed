@@ -14,8 +14,10 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: matcha
-  socket: /var/run/mysqld/mysqld.sock
+  password:
+  socket: /tmp/mysql.sock
+  #socket: /var/run/mysqld/mysqld.sock
+  #password: matchakay
 
 development:
   <<: *default
@@ -36,7 +38,7 @@ test:
 # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full rundown on how to provide these environment variables in a
 # production deployment.
-#
+#460f:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
