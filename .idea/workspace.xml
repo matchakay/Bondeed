@@ -6,27 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e745687-c24d-4423-96ac-aecdd76a4584" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SucSeed.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SucSeed.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/heir.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/heir.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/gallery_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/gallery_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/heir_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/heir_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/match_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/match_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/message_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/message_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/gallery_good.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/gallery_good.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/diary/my_diary.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/diary/my_diary.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gallery/selected_gallery.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/gallery/user_gallery_view.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/gallery/user_gallery_view.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/heir/heir.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/heir/heir.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/match/appealed_list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/match/appealed_list.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/match/matching.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/match/matching.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/message/message.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/message/message.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/message/message_list.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/message/message_list.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/art_category_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/art_category_test.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/SucSeed@Production__SucSeed.rcov" NAME="Production: SucSeed Coverage Results" MODIFIED="1548655397105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SucSeed" />
+    <SUITE FILE_PATH="coverage/SucSeed@test__SucSeed.rcov" NAME="test: SucSeed Coverage Results" MODIFIED="1553097228985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="SucSeed" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -69,6 +51,13 @@
         <item name="SucSeed@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="SucSeed: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="art_categories: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="SucSeed@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="SucSeed: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="message_lists: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
@@ -84,17 +73,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/creator/show.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="657">
+              <caret line="372" column="12" selection-start-line="372" selection-start-column="12" selection-end-line="372" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/models/art_category_test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20181223152534_create_art_categories.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/models/creator_test.rb">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="372" column="12" selection-start-line="372" selection-start-column="12" selection-end-line="372" selection-end-column="12" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/test/models/admin_test.rb">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -130,29 +138,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/heir/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/heir/update.html.erb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/heir.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-90">
               <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/gallery.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-line="5" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -194,7 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/your_page.scss" />
         <option value="$PROJECT_DIR$/app/views/match/appeal_show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/match/scout_check.html.erb" />
         <option value="$PROJECT_DIR$/app/views/gallery/heir_favorite_gallery.html.erb" />
@@ -245,6 +233,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/heir.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/index.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/test/models/art_category_test.rb" />
       </list>
     </option>
   </component>
@@ -296,12 +285,6 @@
               <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="mailers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
@@ -435,6 +418,12 @@
             <path>
               <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
               <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -447,6 +436,17 @@
               <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
               <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SucSeed" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SucSeed" type="b2602c69:ProjectViewProjectNode" />
@@ -491,7 +491,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Rails.Development: SucSeed">
+  <component name="RunManager" selected="Rake.test: SucSeed">
     <configuration name="Development: SucSeed" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="SucSeed" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -627,12 +627,17 @@
       <workItem from="1550932738812" duration="3403000" />
       <workItem from="1551096716685" duration="32946000" />
       <workItem from="1552155670132" duration="3820000" />
-      <workItem from="1552524818554" duration="10492000" />
+      <workItem from="1552524818554" duration="13149000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="test__SucSeed - 2019.03.21 at 00h 53m 50s.xml">
+      <configuration name="test: SucSeed" configurationId="RakeRunConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="654885000" />
+    <option name="totallyTimeSpent" value="657542000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,7 +657,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866317" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18038529" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -660,7 +665,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32869565" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49969438" visible="true" weight="0.14183673" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49969438" visible="true" weight="0.23265307" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50030565" side_tool="true" weight="0.18724638" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3298307" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -673,27 +678,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://6bb7c25a-04b6-464a-b85a-2800df4d25c8/schema/SucSeed/table/users" />
-    <entry file="file://$PROJECT_DIR$/app/controllers/my_page_controller.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/puma.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="153">
-            <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user/regist.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1717">
@@ -988,10 +972,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
+        <state relative-caret-position="657">
           <caret line="372" column="12" selection-start-line="372" selection-start-column="12" selection-end-line="372" selection-end-column="12" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/creator_test.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20181223152534_create_art_categories.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/art_category_test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/admin_test.rb">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
