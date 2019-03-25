@@ -51,7 +51,7 @@
       <div class="col-lg-3 my-card-col new-box">
         <%= link_to("/page/creator/#{recommend.user_id}", {method:"get", class: "nav-link"}) do %>
           <div class="card profile-card new-tag-content">
-            <% if (time_ago_in_words(recommend.created_at)).to_i <= 72 %>
+            <% if distance_of_time_in_words_to_now(recommend.created_at).to_i <= 3 %>
               <span class="new-tag">NEW</span>
             <% end %>
             <div class="text-center">
@@ -82,7 +82,7 @@
       <div class="col-lg-3 my-card-col new-box">
         <%= link_to("/page/creator/#{creator.user_id}", {method:"get", class: "nav-link"}) do %>
           <div class="card profile-card new-tag-content">
-            <% if (time_ago_in_words(creator.created_at)).to_i <= 72 %>
+            <% if distance_of_time_in_words_to_now(creator.created_at).to_i <= 3 %>
               <span class="new-tag">NEW</span>
             <% end %>
             <div class="text-center">
